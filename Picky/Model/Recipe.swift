@@ -6,14 +6,18 @@
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 
-import Foundation
-
 enum Cuisine:String {
     case Italian, Greek, Vietnamese, Japanese, American, Korean, French, Ethiopian, Mexican, Spanish, Chinese
 }
 
-enum Diet: String {
-    case Vegetarian, Vegan, GlutenFree, Pescatarian, LactoOvoVegetarian, OvoVegetarian, LactoVegetarian, LowCarb
+enum Diet:String {
+    case    Vegetarian = "Vegetarian",
+            Vegan = "Vegan",
+            GlutenFree = "Gluten Free",
+            Pescatarian = "Pescatarian",
+            OvoVegetarian = "Ovo-Vegetarian",
+            LactoVegetarian = "Lacto-Vegetarian",
+            LowCarb = "Low Carb"
 }
 
 struct Recipe {

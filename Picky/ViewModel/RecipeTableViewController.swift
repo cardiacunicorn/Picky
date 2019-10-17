@@ -21,6 +21,8 @@ class RecipeTableViewController: UITableViewController {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -35,39 +37,39 @@ class RecipeTableViewController: UITableViewController {
         // Asks the data source for a cell to insert in a particular location of the table view
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath)
         
-        print("Success")
-        
         // Find elements within the table view
-        let imageView = cell.viewWithTag(1001) as? UIImageView
         let recipeTitle = cell.viewWithTag(1000) as? UILabel
-        let recipeTags = cell.viewWithTag(1002) as? UILabel
+        let imageView = cell.viewWithTag(1001) as? UIImageView
+        let readyTime = cell.viewWithTag(1002) as? UILabel
+        let recipeTags = cell.viewWithTag(1003) as? UILabel
+        
+        if let imageView = imageView, let recipeTitle = recipeTitle, let recipeTags = recipeTags {
+            
+            let currentRecipe = viewModel.getRecipe(byIndex: indexPath.row)
+            
+            recipeTitle.text = currentRecipe.title
+            // Tute 5.3 - 18min
+            imageView.image = currentRecipe.image
+            
+            readyTime?.text = " " + String(currentRecipe.readyTime) + "m "
+            
+            // ISSUE: Correct malformed display of info
+            // META-ISSUE: Is it necessary if Group has already been selected?
+            recipeTags.text = ""
+            for diet in currentRecipe.diets {
+                recipeTags.text = recipeTags.text! + ", " + diet.rawValue
+            }
+        }
         
         
-        cell.textLabel?.text = String(indexPath.item + 1)
-        
-        
-//        // Check elements were found
-//        if let imageView = imageView, let recipeTitle = recipeTitle, let recipeTags = recipeTags {
-//
-//            // Run some code
-//            print("Safely found views with tags, confirmed class, and unpacked")
-//            print("\(recipeTitle.text): \(recipeTags.text)")
-//
-//            // Tute 5.3 - 18min
-//            // currently only runs safely while sample data exceeds numberOfRowsInSection below
-//            // let currentRecipe = viewModel.getRecipe(byIndex: indexPath.row)
-//            let currentRecipe = viewModel.getRecipe(byIndex: 1)
-//            print(currentRecipe)
-//
-//            // imageView.image = currentRecipe.image
-//        }
+            
         
         
         return cell
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    
+
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        // Get the new view controller using segue.destination.
 //        // Pass the selected object to the new view controller.
