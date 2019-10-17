@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */; };
 		FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7302358670D00481BFD /* AppDelegate.swift */; };
 		FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7322358670D00481BFD /* SceneDelegate.swift */; };
-		FAD0C7352358670D00481BFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7342358670D00481BFD /* ViewController.swift */; };
 		FAD0C7382358670D00481BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C7362358670D00481BFD /* Main.storyboard */; };
 		FAD0C73B2358670D00481BFD /* Picky.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7392358670D00481BFD /* Picky.xcdatamodeld */; };
 		FAD0C73D2358670F00481BFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C73C2358670F00481BFD /* Assets.xcassets */; };
@@ -43,10 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 		FAD0C72D2358670D00481BFD /* Picky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD0C7302358670D00481BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD0C7322358670D00481BFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAD0C7342358670D00481BFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAD0C7372358670D00481BFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD0C73A2358670D00481BFD /* Picky.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Picky.xcdatamodel; sourceTree = "<group>"; };
 		FAD0C73C2358670F00481BFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 		FAD0C7652358675E00481BFD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FAD0C7342358670D00481BFD /* ViewController.swift */,
 				FAD0C77323586DB300481BFD /* RecipeViewModel.swift */,
+				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,11 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD0C7352358670D00481BFD /* ViewController.swift in Sources */,
 				FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */,
 				FAD0C772235868E800481BFD /* Guest.swift in Sources */,
 				FAD0C77423586DB300481BFD /* RecipeViewModel.swift in Sources */,
 				FAD0C73B2358670D00481BFD /* Picky.xcdatamodeld in Sources */,
+				FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */,
 				FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */,
 				FAD0C770235868C000481BFD /* Recipe.swift in Sources */,
 			);

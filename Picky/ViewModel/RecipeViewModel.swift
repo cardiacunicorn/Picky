@@ -6,11 +6,9 @@
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-// responsible for manipulating the data of the model
-// model just represents
+// responsible for manipulating the data of the model, model just represents
 // getting ready for the view
 // may transform or filter, getting ready for view
 
