@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+
+// ***** NOTE: NO LONGER IN USE - REPLACED WITH ShoppingListViewController *****
+
+
+
 class ShoppingTableViewController: UITableViewController {
     
     private let viewModel = ShoppingViewModel()
@@ -27,8 +33,6 @@ class ShoppingTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingItem", for: indexPath)
-
-        // Configure the cell...
         
         let listItem = cell.viewWithTag(1010) as? UIButton
         

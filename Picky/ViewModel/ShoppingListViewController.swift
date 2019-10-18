@@ -21,24 +21,27 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        // let table = viewWithTag(1011) as? UITableView
+        print("Shopping List has loaded and is being viewed.")
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Anyone home?")
         return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // Code is not reaching this point
+        
+        print("Anyone home?")
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingItem", for: indexPath)
-
-        // Configure the cell...
         
         let listItem = cell.viewWithTag(1010) as? UIButton
+        print(listItem?.titleLabel?.text)
         
         if let listItem = listItem {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
-            print(currentItem)
             listItem.titleLabel?.text = currentItem
         }
 
