@@ -21,8 +21,6 @@ class RecipeTableViewController: UITableViewController {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        
-        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,7 +35,7 @@ class RecipeTableViewController: UITableViewController {
         // Asks the data source for a cell to insert in a particular location of the table view
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath)
         
-        // Find elements within the table view
+        // Find elements within the TableView
         let recipeTitle = cell.viewWithTag(1000) as? UILabel
         let imageView = cell.viewWithTag(1001) as? UIImageView
         let readyTime = cell.viewWithTag(1002) as? UILabel
@@ -65,6 +63,8 @@ class RecipeTableViewController: UITableViewController {
                     colour = "Orange"
                 case Cuisine.Spanish:
                     colour = "Red"
+                case Cuisine.American:
+                    colour = "Blue"
                 default:
                     colour = "Grey"
                 }
@@ -83,15 +83,13 @@ class RecipeTableViewController: UITableViewController {
         
         return cell
     }
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        guard let selectedRow = self.tableView.indexPathForSelectedRow else {return}
-//        let destination = segue.destination // as? Custom class for Detail view controller
-//        let recipeSelected = viewModel.recipes[selectedRow.row]
-//        destination!.recipeSelected = recipeSelected
-//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let selectedRow = self.tableView.indexPathForSelectedRow else {return}
+        let destination = segue.destination as? RecipeDetailViewController
+        let selectedRecipe = viewModel.getRecipe(byIndex: selectedRow.row)
+        // let recipeSelected = viewModel.recipes[selectedRow.row]
+        destination?.selectedRecipe = selectedRecipe
+    }
 }

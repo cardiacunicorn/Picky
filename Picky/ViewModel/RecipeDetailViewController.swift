@@ -10,7 +10,9 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController {
 
-    var selectedRecipe:(title:String, readyTime:Int, image:UIImage?)?
+    var selectedRecipe:(id: Int, title: String, readyTime: Int, servings: Int, imageName: String, image: UIImage?, cuisines: [Cuisine], diets: [Diet], instructions: String, ingredients: [String])?
+    
+    
     
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailTitle: UILabel!
