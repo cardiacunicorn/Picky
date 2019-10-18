@@ -162,6 +162,9 @@
                         <viewLayoutGuide key="safeArea" id="NHX-io-ewY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov"/>
+                    <connections>
+                        <outlet property="tableView" destination="yOo-Bh-ext" id="Us6-cO-WaY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAZ-51-nTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="PQq-uf-DqU" userLabel="Exit" sceneMemberID="exit"/>
