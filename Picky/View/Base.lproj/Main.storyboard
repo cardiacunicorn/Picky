@@ -83,7 +83,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gat-TA-vNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4732.5" y="-213.38028169014083"/>
+            <point key="canvasLocation" x="4721" y="-1013"/>
+        </scene>
+        <!--Shopping List-->
+        <scene sceneID="70Q-H9-XkJ">
+            <objects>
+                <viewController id="j1v-Gs-2nN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rw8-CV-Pff">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="NHX-io-ewY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAZ-51-nTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3735" y="-213"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="Ubi-t6-Lgj">
@@ -186,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxN-BX-tQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5668.125" y="-214.43661971830986"/>
+            <point key="canvasLocation" x="5657" y="-1014"/>
         </scene>
         <!--Browse-->
         <scene sceneID="rEE-sZ-XwD">
@@ -205,7 +221,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXR-sQ-KPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="-213.38028169014083"/>
+            <point key="canvasLocation" x="3735" y="-1013"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cKt-Cs-vlf">
@@ -220,79 +236,38 @@
                     </tabBar>
                     <connections>
                         <segue destination="Rti-qa-nu7" kind="relationship" relationship="viewControllers" id="J93-ZW-Nbf"/>
+                        <segue destination="j1v-Gs-2nN" kind="relationship" relationship="viewControllers" id="MBk-k2-5YW"/>
+                        <segue destination="d3Q-Fo-4CQ" kind="relationship" relationship="viewControllers" id="ptV-xW-sJG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiG-3F-cS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2737.5" y="-213.38028169014083"/>
         </scene>
-        <!--Recipe Table View Controller-->
-        <scene sceneID="nkJ-57-mj7">
+        <!--Guests-->
+        <scene sceneID="yzy-Vb-Ehb">
             <objects>
-                <tableViewController id="8zq-Yq-b56" customClass="RecipeTableViewController" customModule="Picky" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1d1-55-MtM">
+                <viewController id="d3Q-Fo-4CQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y5v-dZ-AGG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="protoCell2" rowHeight="185" id="cbh-SB-maj">
-                                <rect key="frame" x="0.0" y="28" width="320" height="185"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cbh-SB-maj" id="gQL-sb-fdN">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomato-basil-pasta" translatesAutoresizingMaskIntoConstraints="NO" id="8qf-CJ-r7h">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30m " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCP-D3-Cm2">
-                                            <rect key="frame" x="0.0" y="160" width="35.5" height="25"/>
-                                            <color key="backgroundColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" Recipe Title " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KsX-ek-WPT">
-                                            <rect key="frame" x="0.0" y="0.0" width="92" height="25"/>
-                                            <color key="backgroundColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="18"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="8qf-CJ-r7h" secondAttribute="bottom" id="0hO-kh-uE8"/>
-                                        <constraint firstItem="8qf-CJ-r7h" firstAttribute="centerX" secondItem="gQL-sb-fdN" secondAttribute="centerX" id="3Q2-GU-8jf"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KsX-ek-WPT" secondAttribute="trailing" constant="20" symbolic="YES" id="8sR-hf-R9w"/>
-                                        <constraint firstItem="8qf-CJ-r7h" firstAttribute="top" secondItem="gQL-sb-fdN" secondAttribute="top" id="9CH-ul-ylA"/>
-                                        <constraint firstItem="RCP-D3-Cm2" firstAttribute="leading" secondItem="gQL-sb-fdN" secondAttribute="leading" id="ECW-cy-Omj"/>
-                                        <constraint firstItem="8qf-CJ-r7h" firstAttribute="centerY" secondItem="gQL-sb-fdN" secondAttribute="centerY" id="JmJ-sm-nWc"/>
-                                        <constraint firstItem="KsX-ek-WPT" firstAttribute="top" secondItem="gQL-sb-fdN" secondAttribute="top" id="NUZ-5m-Zk6"/>
-                                        <constraint firstItem="KsX-ek-WPT" firstAttribute="leading" secondItem="gQL-sb-fdN" secondAttribute="leading" id="Nt7-EM-Z1B"/>
-                                        <constraint firstItem="8qf-CJ-r7h" firstAttribute="leading" secondItem="gQL-sb-fdN" secondAttribute="leading" id="PL8-aH-QqM"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RCP-D3-Cm2" secondAttribute="trailing" constant="275" id="ffH-r5-GmX"/>
-                                        <constraint firstAttribute="bottom" secondItem="RCP-D3-Cm2" secondAttribute="bottom" id="fhb-vI-bjC"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8zq-Yq-b56" id="YhY-co-Xav"/>
-                            <outlet property="delegate" destination="8zq-Yq-b56" id="1WK-Nv-T7L"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="z0o-kd-51z">
-                        <barButtonItem key="backBarButtonItem" title="Browse" id="qlo-HC-B1S"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MHK-9F-YIc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="fkE-09-FY4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Guests" image="person.3" catalog="system" selectedImage="person.3.fill" id="TuA-zg-6v0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-P5-vFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4731.884057971015" y="669.64285714285711"/>
+            <point key="canvasLocation" x="3735" y="590"/>
         </scene>
     </scenes>
     <resources>
         <image name="book" catalog="system" width="64" height="52"/>
         <image name="book.fill" catalog="system" width="64" height="50"/>
+        <image name="cart" catalog="system" width="64" height="52"/>
+        <image name="cart.fill" catalog="system" width="64" height="52"/>
+        <image name="person.3" catalog="system" width="72" height="36"/>
+        <image name="person.3.fill" catalog="system" width="72" height="35"/>
         <image name="tomato-basil-pasta" width="556" height="370"/>
     </resources>
 </document>
