@@ -83,7 +83,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gat-TA-vNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4721" y="-1013"/>
+            <point key="canvasLocation" x="4691" y="-1389"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="70Q-H9-XkJ">
@@ -92,14 +92,74 @@
                     <view key="view" contentMode="scaleToFill" id="rw8-CV-Pff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Mo-m5-aW4">
+                                <rect key="frame" x="16" y="16" width="267" height="34"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Bh-ext">
+                                <rect key="frame" x="0.0" y="70" width="320" height="450"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingItem" id="UP7-p2-aZZ">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UP7-p2-aZZ" id="NBE-mE-NEW">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
+                                                    <rect key="frame" x="16" y="12.5" width="69" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="square" catalog="system">
+                                                        <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="centerY" secondItem="NBE-mE-NEW" secondAttribute="centerY" id="46v-4D-gRg"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aPw-Gq-nf4" secondAttribute="trailing" constant="20" symbolic="YES" id="57f-qm-bfS"/>
+                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="leading" secondItem="NBE-mE-NEW" secondAttribute="leading" constant="16" id="CbR-rb-ckf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-67-19G">
+                                <rect key="frame" x="291" y="22" width="21" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Pm-67-19G" secondAttribute="height" multiplier="1:1" constant="-1" id="Fv4-UD-ftW"/>
+                                </constraints>
+                                <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Mo-m5-aW4" firstAttribute="top" secondItem="NHX-io-ewY" secondAttribute="top" constant="16" id="7Qy-FR-cFR"/>
+                            <constraint firstItem="3Pm-67-19G" firstAttribute="leading" secondItem="2Mo-m5-aW4" secondAttribute="trailing" constant="8" id="7hR-j0-CiF"/>
+                            <constraint firstItem="2Mo-m5-aW4" firstAttribute="leading" secondItem="NHX-io-ewY" secondAttribute="leading" constant="16" id="KCh-oJ-irM"/>
+                            <constraint firstItem="yOo-Bh-ext" firstAttribute="leading" secondItem="NHX-io-ewY" secondAttribute="leading" id="KgI-q9-3OP"/>
+                            <constraint firstItem="yOo-Bh-ext" firstAttribute="top" secondItem="2Mo-m5-aW4" secondAttribute="bottom" constant="20" id="QLA-Ui-aEg"/>
+                            <constraint firstItem="yOo-Bh-ext" firstAttribute="bottom" secondItem="NHX-io-ewY" secondAttribute="bottom" constant="1" id="Vtg-he-ggl"/>
+                            <constraint firstItem="NHX-io-ewY" firstAttribute="trailing" secondItem="3Pm-67-19G" secondAttribute="trailing" constant="8" id="VvP-QA-sSo"/>
+                            <constraint firstItem="3Pm-67-19G" firstAttribute="centerY" secondItem="2Mo-m5-aW4" secondAttribute="centerY" id="ZUD-vj-DtA"/>
+                            <constraint firstItem="NHX-io-ewY" firstAttribute="trailing" secondItem="yOo-Bh-ext" secondAttribute="trailing" id="ovg-4w-onI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NHX-io-ewY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAZ-51-nTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="-213"/>
+            <point key="canvasLocation" x="3706.875" y="-589.43661971830988"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="Ubi-t6-Lgj">
@@ -134,7 +194,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-zV-5cu">
-                                <rect key="frame" x="16" y="385" width="80.5" height="25"/>
+                                <rect key="frame" x="16" y="381" width="80.5" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -147,7 +207,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-7a-jzc">
-                                <rect key="frame" x="16" y="414" width="288" height="14"/>
+                                <rect key="frame" x="16" y="410" width="288" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -178,7 +238,7 @@
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="Ojy-YT-1wR"/>
                             <constraint firstItem="HS5-PK-EMn" firstAttribute="top" secondItem="fLH-Br-cYK" secondAttribute="bottom" constant="8" id="QXn-Fy-sUk"/>
                             <constraint firstItem="Nck-QT-dz5" firstAttribute="top" secondItem="HS5-PK-EMn" secondAttribute="bottom" constant="12" id="Rpc-XV-8Jw"/>
-                            <constraint firstItem="Y3C-zV-5cu" firstAttribute="top" secondItem="1C2-xC-gOU" secondAttribute="bottom" constant="12" id="VSs-kG-1wM"/>
+                            <constraint firstItem="Y3C-zV-5cu" firstAttribute="top" secondItem="1C2-xC-gOU" secondAttribute="bottom" constant="8" id="VSs-kG-1wM"/>
                             <constraint firstItem="Nck-QT-dz5" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="YB9-gI-UbO"/>
                             <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y3C-zV-5cu" secondAttribute="trailing" symbolic="YES" id="ZjL-5e-MTr"/>
                             <constraint firstItem="fLH-Br-cYK" firstAttribute="top" secondItem="ep1-ld-gFT" secondAttribute="bottom" constant="8" id="hny-VF-Bgj"/>
@@ -191,6 +251,7 @@
                         <viewLayoutGuide key="safeArea" id="Cit-x3-qrM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qnq-9d-9zC"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="detailImage" destination="ep1-ld-gFT" id="XEC-aT-tdg"/>
                         <outlet property="detailIngredients" destination="1C2-xC-gOU" id="trK-gF-FCF"/>
@@ -202,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxN-BX-tQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5657" y="-1014"/>
+            <point key="canvasLocation" x="5629" y="-1390"/>
         </scene>
         <!--Browse-->
         <scene sceneID="rEE-sZ-XwD">
@@ -221,7 +282,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXR-sQ-KPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="-1013"/>
+            <point key="canvasLocation" x="3707" y="-1389"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cKt-Cs-vlf">
@@ -258,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-P5-vFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3735" y="590"/>
+            <point key="canvasLocation" x="3707" y="213"/>
         </scene>
     </scenes>
     <resources>
@@ -268,6 +329,8 @@
         <image name="cart.fill" catalog="system" width="64" height="52"/>
         <image name="person.3" catalog="system" width="72" height="36"/>
         <image name="person.3.fill" catalog="system" width="72" height="35"/>
+        <image name="plus" catalog="system" width="64" height="58"/>
+        <image name="square" catalog="system" width="64" height="56"/>
         <image name="tomato-basil-pasta" width="556" height="370"/>
     </resources>
 </document>
