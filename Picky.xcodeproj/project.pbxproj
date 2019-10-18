@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */; };
 		FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */; };
 		FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7302358670D00481BFD /* AppDelegate.swift */; };
 		FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7322358670D00481BFD /* SceneDelegate.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
 		FAD0C72D2358670D00481BFD /* Picky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD0C7302358670D00481BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				FAD0C77323586DB300481BFD /* RecipeViewModel.swift */,
 				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
+				FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */,
 				FAD0C772235868E800481BFD /* Guest.swift in Sources */,
+				FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */,
 				FAD0C77423586DB300481BFD /* RecipeViewModel.swift in Sources */,
 				FAD0C73B2358670D00481BFD /* Picky.xcdatamodeld in Sources */,
 				FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */,

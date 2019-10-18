@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="4732.5" y="-213.38028169014083"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipe Detail View Controller-->
         <scene sceneID="Ubi-t6-Lgj">
             <objects>
-                <viewController id="Tn2-Op-cXD" sceneMemberID="viewController">
+                <viewController id="Tn2-Op-cXD" customClass="RecipeDetailViewController" customModule="Picky" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Th-8I-68N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +175,14 @@
                         <viewLayoutGuide key="safeArea" id="Cit-x3-qrM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qnq-9d-9zC"/>
+                    <connections>
+                        <outlet property="detailImage" destination="ep1-ld-gFT" id="XEC-aT-tdg"/>
+                        <outlet property="detailIngredients" destination="1C2-xC-gOU" id="trK-gF-FCF"/>
+                        <outlet property="detailInstructions" destination="gvx-7a-jzc" id="Za2-Z8-THW"/>
+                        <outlet property="detailReadyTime" destination="FgD-lO-iCG" id="Ptp-mg-38Z"/>
+                        <outlet property="detailTags" destination="HS5-PK-EMn" id="5u9-29-hgW"/>
+                        <outlet property="detailTitle" destination="fLH-Br-cYK" id="gAV-UX-2dY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxN-BX-tQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
