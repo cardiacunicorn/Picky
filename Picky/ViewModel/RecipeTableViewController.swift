@@ -54,25 +54,8 @@ class RecipeTableViewController: UITableViewController {
             recipeTags.text = ""
             for cuisine in currentRecipe.cuisines {
                 
-                // TODO: Move this to be an attribute of the Enum
-                var colour = "Grey"
-                switch cuisine {
-                case Cuisine.Italian:
-                    colour = "Yellow"
-                case Cuisine.Mexican:
-                    colour = "Orange"
-                case Cuisine.Spanish:
-                    colour = "Red"
-                case Cuisine.American:
-                    colour = "Blue"
-                default:
-                    colour = "Grey"
-                }
-                print(colour)
-                
                 // TODO: generate a pill / tag icon for TableView
                 recipeTags.text = recipeTags.text! + cuisine.rawValue
-                
                 
             }
         }

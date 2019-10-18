@@ -181,9 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				FAD0C77323586DB300481BFD /* RecipeViewModel.swift */,
+				FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */,
 				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
 				FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */,
-				FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
