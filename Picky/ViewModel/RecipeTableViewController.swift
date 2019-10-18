@@ -48,16 +48,32 @@ class RecipeTableViewController: UITableViewController {
             let currentRecipe = viewModel.getRecipe(byIndex: indexPath.row)
             
             recipeTitle.text = currentRecipe.title
-            // Tute 5.3 - 18min
             imageView.image = currentRecipe.image
-            
             readyTime?.text = " " + String(currentRecipe.readyTime) + "m "
             
             // ISSUE: Correct malformed display of info
-            // META-ISSUE: Is it necessary if Group has already been selected?
+            // TODO: Consider making each recipe only contain one cuisine
             recipeTags.text = ""
-            for diet in currentRecipe.diets {
-                recipeTags.text = recipeTags.text! + ", " + diet.rawValue
+            for cuisine in currentRecipe.cuisines {
+                
+                // TODO: Move this to be an attribute of the Enum
+                var colour = "Grey"
+                switch cuisine {
+                case Cuisine.Italian:
+                    colour = "Yellow"
+                case Cuisine.Mexican:
+                    colour = "Orange"
+                case Cuisine.Spanish:
+                    colour = "Red"
+                default:
+                    colour = "Grey"
+                }
+                print(colour)
+                
+                // TODO: generate a pill / tag icon for TableView
+                recipeTags.text = recipeTags.text! + cuisine.rawValue
+                
+                
             }
         }
         
