@@ -8,15 +8,15 @@
 
 import UIKit
 
-// responsible for manipulating the data of the model, model just represents
-// getting ready for the view
-// may transform or filter, getting ready for view
-
 struct RecipeViewModel {
     
     private (set) var recipes:[Recipe] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
+    
+    init() {
+        loadData()
+    }
     
     // returns the number of recipes
     var count:Int {
@@ -30,10 +30,6 @@ struct RecipeViewModel {
         recipes.append(recipe3)
         recipes.append(recipe4)
         recipes.append(recipe5)
-    }
-    
-    init() {
-        loadData()
     }
     
     func getRecipe(byIndex index:Int) -> (id:Int, title:String, readyTime:Int, servings:Int, imageName:String, image:UIImage ,cuisines:[Cuisine], diets:[Diet], instructions:String, ingredients:[String]) {

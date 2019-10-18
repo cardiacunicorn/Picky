@@ -8,19 +8,12 @@
 
 import UIKit
 
-// unsure whether these VC's need to be reduced to structs, I'm sure they'll want to be inheriting some sort of functionality
 class RecipeTableViewController: UITableViewController {
 
-    // the link to the ViewModel
     private let viewModel = RecipeViewModel()
-    
-    
-    // **** Cocoa Touch Class Methods **** //
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,7 +25,6 @@ class RecipeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Asks the data source for a cell to insert in a particular location of the table view
         let cell = tableView.dequeueReusableCell(withIdentifier: "protoCell", for: indexPath)
         
         // Find elements within the TableView
@@ -59,10 +51,6 @@ class RecipeTableViewController: UITableViewController {
                 
             }
         }
-        
-        
-            
-        
         
         return cell
     }

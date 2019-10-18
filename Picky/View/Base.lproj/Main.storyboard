@@ -83,12 +83,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gat-TA-vNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4691" y="-1389"/>
+            <point key="canvasLocation" x="2591" y="-1038"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="70Q-H9-XkJ">
             <objects>
-                <viewController id="j1v-Gs-2nN" sceneMemberID="viewController">
+                <viewController id="j1v-Gs-2nN" customClass="ShoppingListViewController" customModule="Picky" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rw8-CV-Pff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,8 +98,11 @@
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="inputField:" destination="PQq-uf-DqU" eventType="editingDidEnd" id="3WY-Ef-KC0"/>
+                                </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Bh-ext">
+                            <tableView clipsSubviews="YES" tag="1011" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Bh-ext">
                                 <rect key="frame" x="0.0" y="70" width="320" height="450"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -111,7 +114,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
+                                                <button opaque="NO" tag="1010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
                                                     <rect key="frame" x="16" y="12.5" width="69" height="19"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -139,6 +142,9 @@
                                 <state key="normal" image="plus" catalog="system">
                                     <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="addItemButton:" destination="PQq-uf-DqU" eventType="touchUpInside" id="8n5-oW-i5o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -158,8 +164,9 @@
                     <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAZ-51-nTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="PQq-uf-DqU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3706.875" y="-589.43661971830988"/>
+            <point key="canvasLocation" x="1609" y="-239"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="Ubi-t6-Lgj">
@@ -262,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxN-BX-tQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5628.75" y="-1390.1408450704225"/>
+            <point key="canvasLocation" x="3531" y="-1039"/>
         </scene>
         <!--Browse-->
         <scene sceneID="rEE-sZ-XwD">
@@ -281,7 +288,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXR-sQ-KPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3707" y="-1389"/>
+            <point key="canvasLocation" x="1609" y="-1038"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cKt-Cs-vlf">
@@ -302,7 +309,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiG-3F-cS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2737.5" y="-213.38028169014083"/>
+            <point key="canvasLocation" x="639" y="137"/>
         </scene>
         <!--Guests-->
         <scene sceneID="yzy-Vb-Ehb">
@@ -318,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-P5-vFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3707" y="213"/>
+            <point key="canvasLocation" x="1609" y="563"/>
         </scene>
     </scenes>
     <resources>

@@ -33,6 +33,11 @@ struct ShoppingViewModel {
         shoppingList.append(item8)
     }
     
+    func getItem(byIndex index:Int) -> (String) {
+        let content = shoppingList[index]
+        return content
+    }
+    
     // Placeholder Shopping Items
     var item1 = "Sugar"
     var item2 = "Salt"
