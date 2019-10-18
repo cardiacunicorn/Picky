@@ -6,12 +6,6 @@
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 
-import Foundation
-
-enum Allergy: String {
-    case Gluten, Shellfish, Nut, Treenut, Peanut, Soy
-}
-
 struct Guest {
     
     private var id:Int

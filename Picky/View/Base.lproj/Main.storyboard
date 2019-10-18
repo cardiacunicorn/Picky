@@ -251,7 +251,6 @@
                         <viewLayoutGuide key="safeArea" id="Cit-x3-qrM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qnq-9d-9zC"/>
-                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="detailImage" destination="ep1-ld-gFT" id="XEC-aT-tdg"/>
                         <outlet property="detailIngredients" destination="1C2-xC-gOU" id="trK-gF-FCF"/>
@@ -263,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxN-BX-tQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5629" y="-1390"/>
+            <point key="canvasLocation" x="5628.75" y="-1390.1408450704225"/>
         </scene>
         <!--Browse-->
         <scene sceneID="rEE-sZ-XwD">

@@ -6,21 +6,8 @@
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 
-enum Cuisine:String {
-    case Italian, Greek, Vietnamese, Japanese, American, Korean, French, Ethiopian, Mexican, Spanish, Chinese
-}
-
-enum Diet:String {
-    case    Vegetarian = "Vegetarian",
-            Vegan = "Vegan",
-            GlutenFree = "Gluten Free",
-            Pescatarian = "Pescatarian",
-            OvoVegetarian = "Ovo-Vegetarian",
-            LactoVegetarian = "Lacto-Vegetarian",
-            LowCarb = "Low Carb"
-}
-
 struct Recipe {
+    
     // public variables, rather than getters
     var id:Int
     var title:String
@@ -32,7 +19,7 @@ struct Recipe {
     var instructions:String
     var ingredients:[String]
     
-    // hardcoded ID number
+    // NOTE: id is currently hardcoded as a backup
     init    (id:Int = 404,
             title:String,
             readyTime:Int,
@@ -58,11 +45,4 @@ struct Recipe {
         // Shortened compared to Guest version of summary
         return "ID: \(id)\nRecipe: \(title), serves \(servings)\nCuisine(s): \(cuisines)\nDiet(s): \(diets)\nReady Time: \(readyTime)\nIngredients:\n\t\(ingredients)\nInstructions:\n\t\(instructions)"
     }
-    
-    
-    
-    
-    
-    // Placeholder data
-    
 }
