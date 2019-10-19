@@ -36,7 +36,7 @@
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diet &amp; Allergy Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-4w-3qI">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Tag(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-4w-3qI">
                                             <rect key="frame" x="158" y="74" width="154" height="18"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="13"/>
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -111,7 +111,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" tag="1011" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Bh-ext">
-                                <rect key="frame" x="0.0" y="70" width="320" height="450"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="449"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -122,8 +122,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" tag="1010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
-                                                    <rect key="frame" x="16" y="12.5" width="155" height="19"/>
+                                                <button opaque="NO" tag="1010" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
+                                                    <rect key="frame" x="24" y="12.5" width="280" height="19"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -134,8 +134,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aPw-Gq-nf4" firstAttribute="centerY" secondItem="NBE-mE-NEW" secondAttribute="centerY" id="46v-4D-gRg"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aPw-Gq-nf4" secondAttribute="trailing" constant="20" symbolic="YES" id="57f-qm-bfS"/>
-                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="leading" secondItem="NBE-mE-NEW" secondAttribute="leading" constant="16" id="CbR-rb-ckf"/>
+                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="leading" secondItem="NBE-mE-NEW" secondAttribute="leading" constant="24" id="CbR-rb-ckf"/>
+                                                <constraint firstAttribute="trailing" secondItem="aPw-Gq-nf4" secondAttribute="trailing" constant="16" id="JIC-HK-h4V"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -162,7 +162,7 @@
                             <constraint firstItem="2Mo-m5-aW4" firstAttribute="leading" secondItem="NHX-io-ewY" secondAttribute="leading" constant="16" id="KCh-oJ-irM"/>
                             <constraint firstItem="yOo-Bh-ext" firstAttribute="leading" secondItem="NHX-io-ewY" secondAttribute="leading" id="KgI-q9-3OP"/>
                             <constraint firstItem="yOo-Bh-ext" firstAttribute="top" secondItem="2Mo-m5-aW4" secondAttribute="bottom" constant="20" id="QLA-Ui-aEg"/>
-                            <constraint firstItem="yOo-Bh-ext" firstAttribute="bottom" secondItem="NHX-io-ewY" secondAttribute="bottom" constant="1" id="Vtg-he-ggl"/>
+                            <constraint firstItem="yOo-Bh-ext" firstAttribute="bottom" secondItem="NHX-io-ewY" secondAttribute="bottom" id="Vtg-he-ggl"/>
                             <constraint firstItem="NHX-io-ewY" firstAttribute="trailing" secondItem="3Pm-67-19G" secondAttribute="trailing" constant="8" id="VvP-QA-sSo"/>
                             <constraint firstItem="3Pm-67-19G" firstAttribute="centerY" secondItem="2Mo-m5-aW4" secondAttribute="centerY" id="ZUD-vj-DtA"/>
                             <constraint firstItem="NHX-io-ewY" firstAttribute="trailing" secondItem="yOo-Bh-ext" secondAttribute="trailing" id="ovg-4w-onI"/>
@@ -371,13 +371,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-7a-jzc">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-7a-jzc">
                                 <rect key="frame" x="16" y="410" width="288" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C2-xC-gOU">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C2-xC-gOU">
                                 <rect key="frame" x="16" y="359" width="288" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
