@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Recipe Table View Controller-->
+        <!--Recipes-->
         <scene sceneID="SHX-1Z-Zhx">
             <objects>
                 <tableViewController id="lYU-6q-3kJ" customClass="RecipeTableViewController" customModule="Picky" sceneMemberID="viewController">
@@ -77,9 +77,17 @@
                             <outlet property="delegate" destination="lYU-6q-3kJ" id="FlA-wv-o2q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="t7H-CB-Vlm">
-                        <barButtonItem key="backBarButtonItem" title="Browse" id="6LR-bz-79B"/>
+                    <navigationItem key="navigationItem" title="Recipes" id="Mti-v5-4uE">
+                        <barButtonItem key="backBarButtonItem" title="Recipes" id="Wa6-iH-rtd">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add Recipe" image="plus" catalog="system" id="JFY-Wc-m7t">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addRecipeButton" destination="JFY-Wc-m7t" id="nK4-mK-hRQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gat-TA-vNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,7 +177,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAZ-51-nTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="PQq-uf-DqU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="-239"/>
+            <point key="canvasLocation" x="1609" y="526"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="Ubi-t6-Lgj">
@@ -185,7 +193,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="taP-Gr-CLi"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-Br-cYK">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-Br-cYK">
                                 <rect key="frame" x="16" y="252" width="110" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="24"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -283,6 +291,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pV1-Dd-rgX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -306,8 +320,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="Rti-qa-nu7" kind="relationship" relationship="viewControllers" id="J93-ZW-Nbf"/>
-                        <segue destination="j1v-Gs-2nN" kind="relationship" relationship="viewControllers" id="MBk-k2-5YW"/>
                         <segue destination="d3Q-Fo-4CQ" kind="relationship" relationship="viewControllers" id="ptV-xW-sJG"/>
+                        <segue destination="j1v-Gs-2nN" kind="relationship" relationship="viewControllers" id="MBk-k2-5YW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiG-3F-cS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -328,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-P5-vFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="563"/>
+            <point key="canvasLocation" x="1609" y="-252"/>
         </scene>
     </scenes>
     <resources>

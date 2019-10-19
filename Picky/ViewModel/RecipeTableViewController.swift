@@ -11,6 +11,7 @@ import UIKit
 class RecipeTableViewController: UITableViewController {
 
     private let viewModel = RecipeViewModel()
+    @IBOutlet weak var addRecipeButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
