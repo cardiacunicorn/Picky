@@ -12,6 +12,11 @@ class GuestsTableViewController: UITableViewController {
 
     private var viewModel = GuestsViewModel()
     
+    @IBAction func deleteButton(_ sender: UIButton) {
+        // ISSUE: I need to pass my function the cell's index path, but don't have access to it
+        // self.viewModel.removeGuest(byIndex: indexPath)
+        self.tableView.reloadData()
+    }
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
     }
@@ -40,11 +45,14 @@ class GuestsTableViewController: UITableViewController {
         // Find elements within the TableView
         let guestName = cell.viewWithTag(1020) as? UILabel
         let guestGroups = cell.viewWithTag(1021) as? UILabel
+        let guestDelete = cell.viewWithTag(1022) as? UIButton
         
-        if let guestName = guestName, let guestGroups = guestGroups {
+        if let guestName = guestName, let guestGroups = guestGroups, let guestDelete = guestDelete {
             let currentGuest = viewModel.getGuest(byIndex: indexPath.row)
             guestName.text = currentGuest.name
             guestGroups.text = currentGuest.groups.joined(separator: ", ")
+            // TODO: Implement a delete solution
+            // guestDelete.addTarget(self, action: deleteButton(UIButton.self), for: .touchUpInside)
         }
 
         return cell

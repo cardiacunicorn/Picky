@@ -581,12 +581,24 @@
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-GH-xyU">
+                                            <rect key="frame" x="284" y="19" width="20" height="22"/>
+                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="xmark.circle.fill" catalog="system">
+                                                <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="deleteButton:" destination="0A6-Hr-oHa" eventType="touchUpInside" id="6fC-c8-Egz"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PHr-0G-x2L" secondAttribute="trailing" constant="20" symbolic="YES" id="Ac2-DO-5vX"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="top" secondItem="PHr-0G-x2L" secondAttribute="bottom" constant="4" id="CgM-7r-s4s"/>
+                                        <constraint firstItem="0X9-GH-xyU" firstAttribute="centerY" secondItem="7qZ-hs-Ya8" secondAttribute="centerY" id="DGI-ch-t7a"/>
                                         <constraint firstItem="PHr-0G-x2L" firstAttribute="top" secondItem="7qZ-hs-Ya8" secondAttribute="top" constant="8" id="IDe-YN-Xzu"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4ZF-eJ-D7r" secondAttribute="trailing" constant="20" symbolic="YES" id="Rpe-4b-hbQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="0X9-GH-xyU" secondAttribute="trailing" constant="16" id="SME-ud-1OL"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="32" id="Zl2-N4-rv9"/>
                                         <constraint firstItem="PHr-0G-x2L" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="16" id="aJl-DJ-OgU"/>
                                         <constraint firstAttribute="bottom" secondItem="4ZF-eJ-D7r" secondAttribute="bottom" constant="7.5" id="l8a-Fd-ljO"/>
@@ -628,5 +640,6 @@
         <image name="plus" catalog="system" width="64" height="58"/>
         <image name="square" catalog="system" width="64" height="56"/>
         <image name="tomato-basil-pasta" width="556" height="370"/>
+        <image name="xmark.circle.fill" catalog="system" width="64" height="62"/>
     </resources>
 </document>
