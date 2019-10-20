@@ -29,14 +29,14 @@ struct GuestsViewModel {
         guests.append(guest4)
     }
     
-    func getGuest(byIndex index:Int) -> (id:Int, title:String, groups:[String], diets:[Diet], allergies:[Allergy]) {
+    func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Diet], allergies:[Allergy]) {
         let id = guests[index].id
-        let title = guests[index].name
+        let name = guests[index].name
         let groups = guests[index].groups
         let diets = guests[index].diets
         let allergies = guests[index].allergies
         
-        return (id, title, groups, diets, allergies)
+        return (id, name, groups, diets, allergies)
     }
     
     // Adds a guest to the list of guests

@@ -32,13 +32,24 @@ class GuestsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return viewModel.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestCell", for: indexPath)
-
-        // Configure the cell...
+        
+        // Find elements within the TableView
+        let guestName = cell.viewWithTag(1020) as? UILabel
+        let guestGroups = cell.viewWithTag(1021) as? UILabel
+        
+        if let guestName = guestName, let guestGroups = guestGroups {
+            let currentGuest = viewModel.getGuest(byIndex: indexPath.row)
+            guestName.text = currentGuest.name
+            guestGroups.text = currentGuest.groups.joined(separator: ", ")
+            
+            // guestGroups.text = String(componentsJoinedByString:" ")
+            // guestGroups.text = currentGuest.groups
+        }
 
         return cell
     }
