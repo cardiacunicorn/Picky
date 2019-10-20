@@ -44,7 +44,13 @@ struct ShoppingViewModel {
     // Adds a new item to the shopping list
     mutating func addItem(newItem:String) {
         shoppingList.append(newItem)
-        print("'\(newItem)' added to the shopping list")
+        print("Shopping list now contains:\n\(shoppingList)")
+    }
+    
+    // Removes item from the shopping list, according to the IndexPath passed in
+    mutating func removeItem(byIndex indexPath:IndexPath) {
+        shoppingList.remove(at: indexPath.row)
+        print("Item has been removed")
     }
     
     // Placeholder Shopping Items

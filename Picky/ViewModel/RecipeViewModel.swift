@@ -49,7 +49,7 @@ struct RecipeViewModel {
     
     mutating func addRecipe(newRecipe:Recipe) {
         recipes.append(newRecipe)
-        print("New recipe titled '\(newRecipe)' added to list of recipes")
+        print("Recipes variable now contains:\n\(recipes)")
     }
     
     

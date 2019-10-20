@@ -39,9 +39,16 @@ struct GuestsViewModel {
         return (id, title, groups, diets, allergies)
     }
     
+    // Adds a guest to the list of guests
     mutating func addGuest(newGuest:Guest) {
         guests.append(newGuest)
-        print("'\(newGuest) has been added to list of guests")
+        print("Complete list of guests:\n\(guests)")
+    }
+    
+    // Removes item from the shopping list, according to the IndexPath passed in
+    mutating func removeGuest(byIndex indexPath:IndexPath) {
+        guests.remove(at: indexPath.row)
+        print("Guest has been removed")
     }
     
     // Placeholder Guest Objects

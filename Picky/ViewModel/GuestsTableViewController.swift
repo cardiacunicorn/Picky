@@ -16,8 +16,9 @@ class GuestsTableViewController: UITableViewController {
         createGuestAlert()
     }
     
-    var newGuest = ""
-    
+    var guestID:Int = 5
+    var newGuest:String = ""
+    var groups:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +45,30 @@ class GuestsTableViewController: UITableViewController {
     
     func createGuestAlert() {
         // Create controller
-        let alertController = UIAlertController(title: "Create Guest", message: "Enter guest's name", preferredStyle: .alert)
-        // Generate textField for user input
+        let alertController = UIAlertController(title: "Create Guest", message: "Enter guest's name, and any comma-separated group(s) they should be added to", preferredStyle: .alert)
+        // Generate textFields for user input
         alertController.addTextField {
             (textField) in textField.placeholder = "Enter name"
         }
+        alertController.addTextField {
+            (textField) in textField.placeholder = "Enter group(s) e.g. Friends,Family"
+        }
         // Create add & cancel options
         let createGuest = UIAlertAction(title: "Create", style: .default) { (_) in
-            let item = alertController.textFields?[0].text
-            self.newGuest = item ?? "New Guest"
-            print("User created a new guest named '\(self.newGuest)'")
+            let name = alertController.textFields?[0].text
+            let groupsInput = alertController.textFields?[1].text
+            self.newGuest = name ?? "New Guest, ID:\(self.guestID)"
+            // Split user group(s) input, by comma, into an array -- default an empty array
+            self.groups = groupsInput?.components(separatedBy: ",") ?? []
+            self.viewModel.addGuest(newGuest:
+                Guest(id:self.guestID,
+                      name: self.newGuest,
+                      groups: self.groups,
+                      diets: [],
+                      allergies: []
+            ))
+            print("User created a new guest named '\(self.newGuest)', with ID \(self.guestID)")
+            self.guestID += 1
         }
         let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to create a new guest") }
         
