@@ -20,6 +20,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         // Triggered when the user finishes editing their input
     }
     
+    let myarray = ["item1", "item2", "item3", "item4", "item1", "item2", "item3", "item4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,25 +41,18 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         return viewModel.count
     }
     
-    // ISSUE: This function does not appear to run before the view is loaded
-    // Consider whether preparing for a segue from the TabBar may help
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingItem", for: indexPath) as UITableViewCell
-
         let listItem = cell.viewWithTag(1010) as? UIButton
 
         if let listItem = listItem {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
-            print(currentItem)
-            listItem.titleLabel?.text = currentItem
+            // ISSUE: Prototype cells are generated, but title labels do not update until user scrolls the cell offscreen
+            // SOLUTION: Needed to use setTitle function, not direct edit of text e.g. listItem.titleLabel?.text
+            // listItem.isEnabled = false
+            listItem.setTitle(currentItem, for: UIControl.State.normal)
+            // listItem.isEnabled = true
         }
-        
-        // self.tableView.reloadData()
-        
-        // self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        
-        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
 
         return cell
     }
