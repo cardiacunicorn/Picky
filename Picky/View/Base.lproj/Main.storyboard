@@ -104,17 +104,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Mo-m5-aW4">
-                                <rect key="frame" x="16" y="60" width="267" height="34"/>
-                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="inputField:" destination="PQq-uf-DqU" eventType="editingDidEnd" id="3WY-Ef-KC0"/>
-                                </connections>
-                            </textField>
                             <tableView clipsSubviews="YES" tag="1011" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yOo-Bh-ext">
-                                <rect key="frame" x="0.0" y="114" width="320" height="405"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -146,31 +137,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-67-19G">
-                                <rect key="frame" x="291" y="66" width="21" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="3Pm-67-19G" secondAttribute="height" multiplier="1:1" constant="-1" id="Fv4-UD-ftW"/>
-                                </constraints>
-                                <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" image="plus" catalog="system">
-                                    <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="addItemButton:" destination="PQq-uf-DqU" eventType="touchUpInside" id="8n5-oW-i5o"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2Mo-m5-aW4" firstAttribute="top" secondItem="NHX-io-ewY" secondAttribute="top" constant="16" id="7Qy-FR-cFR"/>
-                            <constraint firstItem="3Pm-67-19G" firstAttribute="leading" secondItem="2Mo-m5-aW4" secondAttribute="trailing" constant="8" id="7hR-j0-CiF"/>
-                            <constraint firstItem="2Mo-m5-aW4" firstAttribute="leading" secondItem="NHX-io-ewY" secondAttribute="leading" constant="16" id="KCh-oJ-irM"/>
                             <constraint firstItem="yOo-Bh-ext" firstAttribute="leading" secondItem="NHX-io-ewY" secondAttribute="leading" id="KgI-q9-3OP"/>
-                            <constraint firstItem="yOo-Bh-ext" firstAttribute="top" secondItem="2Mo-m5-aW4" secondAttribute="bottom" constant="20" id="QLA-Ui-aEg"/>
                             <constraint firstItem="yOo-Bh-ext" firstAttribute="bottom" secondItem="NHX-io-ewY" secondAttribute="bottom" id="Vtg-he-ggl"/>
-                            <constraint firstItem="NHX-io-ewY" firstAttribute="trailing" secondItem="3Pm-67-19G" secondAttribute="trailing" constant="8" id="VvP-QA-sSo"/>
-                            <constraint firstItem="3Pm-67-19G" firstAttribute="centerY" secondItem="2Mo-m5-aW4" secondAttribute="centerY" id="ZUD-vj-DtA"/>
                             <constraint firstItem="NHX-io-ewY" firstAttribute="trailing" secondItem="yOo-Bh-ext" secondAttribute="trailing" id="ovg-4w-onI"/>
+                            <constraint firstItem="yOo-Bh-ext" firstAttribute="top" secondItem="NHX-io-ewY" secondAttribute="top" id="qsZ-rF-mDQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NHX-io-ewY"/>
                     </view>
@@ -195,9 +168,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAZ-51-nTT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="PQq-uf-DqU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="949" y="668"/>
+            <point key="canvasLocation" x="948.75" y="667.6056338028169"/>
         </scene>
         <!--Add Recipe-->
         <scene sceneID="3KV-wI-Ns4">
