@@ -22,7 +22,6 @@ class GuestsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -46,9 +45,6 @@ class GuestsTableViewController: UITableViewController {
             let currentGuest = viewModel.getGuest(byIndex: indexPath.row)
             guestName.text = currentGuest.name
             guestGroups.text = currentGuest.groups.joined(separator: ", ")
-            
-            // guestGroups.text = String(componentsJoinedByString:" ")
-            // guestGroups.text = currentGuest.groups
         }
 
         return cell
@@ -79,6 +75,7 @@ class GuestsTableViewController: UITableViewController {
                       allergies: []
             ))
             print("User created a new guest named '\(self.newGuest)', with ID \(self.guestID)")
+            self.tableView.reloadData()
             self.guestID += 1
         }
         let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to create a new guest") }

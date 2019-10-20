@@ -45,6 +45,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
             self.newItem = item ?? "New item"
             self.viewModel.addItem(newItem: self.newItem)
             print("User added '\(self.newItem)' to the shopping list")
+            self.tableView.reloadData()
         }
         let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping list") }
         

@@ -10,7 +10,7 @@ import UIKit
 
 class AddRecipeViewController: UIViewController {
 
-    
+    // TODO: Create a form that sends inputted data to the addRecipe() function in the ViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
