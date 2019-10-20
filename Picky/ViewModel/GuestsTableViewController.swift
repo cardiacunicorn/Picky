@@ -10,11 +10,18 @@ import UIKit
 
 class GuestsTableViewController: UITableViewController {
 
+    private var viewModel = GuestsViewModel()
+    
+    @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
+        createGuestAlert()
+        print(newGuest)
+    }
+    
+    var newGuest = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -34,6 +41,27 @@ class GuestsTableViewController: UITableViewController {
         // Configure the cell...
 
         return cell
+    }
+    
+    func createGuestAlert() {
+        // Create controller
+        let alertController = UIAlertController(title: "Create Guest", message: "Enter guest's name", preferredStyle: .alert)
+        // Generate textField for user input
+        alertController.addTextField {
+            (textField) in textField.placeholder = "Enter name"
+        }
+        // Create add & cancel options
+        let createGuest = UIAlertAction(title: "Create", style: .default) { (_) in
+            let item = alertController.textFields?[0].text
+            self.newGuest = item ?? "New Guest"
+        }
+        let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        // Append options to the alert controller
+        alertController.addAction(createGuest)
+        alertController.addAction(cancelCreate)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 
     /*

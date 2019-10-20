@@ -46,7 +46,6 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         let addItem = UIAlertAction(title: "Add", style: .default) { (_) in
             let item = alertController.textFields?[0].text
             self.output = item ?? "New item"
-            print(self.output)
         }
         let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         

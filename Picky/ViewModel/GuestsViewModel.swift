@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct GuestViewModel {
+struct GuestsViewModel {
     
     private (set) var guests:[Guest] = []
     

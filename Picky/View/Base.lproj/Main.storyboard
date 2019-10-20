@@ -594,7 +594,7 @@
         <!--Guests-->
         <scene sceneID="5TY-YQ-Bbx">
             <objects>
-                <tableViewController id="0A6-Hr-oHa" sceneMemberID="viewController">
+                <tableViewController id="0A6-Hr-oHa" customClass="GuestsTableViewController" customModule="Picky" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H3N-yK-dH0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -634,6 +634,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2i-HJ-ZL9">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="createGuestButton:" destination="0A6-Hr-oHa" id="1Gc-sX-A7g"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

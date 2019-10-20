@@ -14,18 +14,12 @@ struct Guest {
     var diets:[Diet]
     var allergies:[Allergy]
     
-    // hardcoded ID number
-    init(id:Int = 1, name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {
+    init(id:Int, name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {
         self.id = id
         self.name = name
         self.groups = groups
         self.diets = diets
         self.allergies = allergies
-        
-        print(guestx.summary)
-        print(veganGuest.summary)
-        print(glutenGuest.summary)
-        
     }
     
     // Returns Guest details to console
@@ -35,10 +29,3 @@ struct Guest {
     }
     
 }
-
-// Some placeholder guests data
-var guestx = Guest(name: "GuestX", groups: ["Family","Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Gluten,Allergy.Shellfish])
-
-var veganGuest = Guest(id: 2, name: "GuestV", diets: [Diet.Vegan])
-
-var glutenGuest = Guest(id: 3, name: "GuestG", groups: ["Friends"], allergies: [Allergy.Gluten])
