@@ -39,11 +39,14 @@ struct GuestsViewModel {
         return (id, title, groups, diets, allergies)
     }
     
-    func
+    mutating func addGuest(newGuest:Guest) {
+        guests.append(newGuest)
+        print("'\(newGuest) has been added to list of guests")
+    }
     
     // Placeholder Guest Objects
-    var guest1 = Guest(id: 1, name: "Alexander G. Bell", groups: ["Family","Friends"], diets: [Diet.OvoVegetarian,Diet.Halal], allergies: [Allergy.Lactose])
-    var guest2 = Guest(id: 2, name: "Colin Decemberist", groups: ["Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten])
-    var guest3 = Guest(id: 3, name: "Edie Falco", groups: ["Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Shellfish,Allergy.Treenut])
-    var guest4 = Guest(id: 4, name: "Gwendolyn Humphries", groups: ["Family"], diets: [Diet.Kosher], allergies: [Allergy.Wheat,Allergy.Peanut])
+    private var guest1 = Guest(id: 1, name: "Alexander G. Bell", groups: ["Family","Friends"], diets: [Diet.OvoVegetarian,Diet.Halal], allergies: [Allergy.Lactose])
+    private var guest2 = Guest(id: 2, name: "Colin Decemberist", groups: ["Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten])
+    private var guest3 = Guest(id: 3, name: "Edie Falco", groups: ["Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Shellfish,Allergy.Treenut])
+    private var guest4 = Guest(id: 4, name: "Gwendolyn Humphries", groups: ["Family"], diets: [Diet.Kosher], allergies: [Allergy.Wheat,Allergy.Peanut])
 }

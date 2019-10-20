@@ -44,7 +44,7 @@ struct ShoppingViewModel {
     // Adds a new item to the shopping list
     mutating func addItem(newItem:String) {
         shoppingList.append(newItem)
-        print("Item added")
+        print("'\(newItem)' added to the shopping list")
     }
     
     // Placeholder Shopping Items
