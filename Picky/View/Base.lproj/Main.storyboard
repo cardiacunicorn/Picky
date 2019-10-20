@@ -538,29 +538,6 @@
             </objects>
             <point key="canvasLocation" x="-1001" y="279"/>
         </scene>
-        <!--Guests-->
-        <scene sceneID="yzy-Vb-Ehb">
-            <objects>
-                <viewController id="d3Q-Fo-4CQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="y5v-dZ-AGG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="fkE-09-FY4"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Guests" id="tca-zQ-S6r">
-                        <barButtonItem key="backBarButtonItem" title="Guests" id="JWr-Hw-d6H">
-                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n4p-pf-ffv">
-                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4kJ-P5-vFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="949" y="-110"/>
-        </scene>
         <!--Shopping List-->
         <scene sceneID="h64-ro-bCC">
             <objects>
@@ -604,12 +581,62 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="d3Q-Fo-4CQ" kind="relationship" relationship="rootViewController" id="KIF-Xy-ZEi"/>
+                        <segue destination="0A6-Hr-oHa" kind="relationship" relationship="rootViewController" id="4Xx-q9-H6z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRV-Qd-UdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-30" y="-110"/>
+        </scene>
+        <!--Guests-->
+        <scene sceneID="5TY-YQ-Bbx">
+            <objects>
+                <tableViewController id="0A6-Hr-oHa" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H3N-yK-dH0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestCell" id="o6N-lJ-Uxk">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o6N-lJ-Uxk" id="7qZ-hs-Ya8">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHr-0G-x2L">
+                                            <rect key="frame" x="16" y="11" width="144" height="21.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PHr-0G-x2L" secondAttribute="trailing" constant="160" id="Ac2-DO-5vX"/>
+                                        <constraint firstItem="PHr-0G-x2L" firstAttribute="centerY" secondItem="7qZ-hs-Ya8" secondAttribute="centerY" id="HlR-P3-slf"/>
+                                        <constraint firstItem="PHr-0G-x2L" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="16" id="aJl-DJ-OgU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0A6-Hr-oHa" id="jr5-WB-qas"/>
+                            <outlet property="delegate" destination="0A6-Hr-oHa" id="bjY-8e-1fu"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Guests" id="EMM-z6-m32">
+                        <barButtonItem key="backBarButtonItem" title="Guests" id="CDu-Dg-zEu"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Jdm-1o-sC4">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2i-HJ-ZL9">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vSQ-cN-PKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948.75" y="-111.97183098591549"/>
         </scene>
     </scenes>
     <resources>
