@@ -115,15 +115,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingItem" id="UP7-p2-aZZ">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingItem" rowHeight="50" id="UP7-p2-aZZ">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UP7-p2-aZZ" id="NBE-mE-NEW">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="1010" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
-                                                    <rect key="frame" x="24" y="12.5" width="280" height="19"/>
+                                                    <rect key="frame" x="24" y="15" width="280" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -134,7 +134,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aPw-Gq-nf4" firstAttribute="centerY" secondItem="NBE-mE-NEW" secondAttribute="centerY" id="46v-4D-gRg"/>
+                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="top" secondItem="NBE-mE-NEW" secondAttribute="top" constant="15" id="7XS-WW-bgg"/>
                                                 <constraint firstItem="aPw-Gq-nf4" firstAttribute="leading" secondItem="NBE-mE-NEW" secondAttribute="leading" constant="24" id="CbR-rb-ckf"/>
+                                                <constraint firstAttribute="bottom" secondItem="aPw-Gq-nf4" secondAttribute="bottom" constant="15" id="Duw-Mh-Dcw"/>
                                                 <constraint firstAttribute="trailing" secondItem="aPw-Gq-nf4" secondAttribute="trailing" constant="16" id="JIC-HK-h4V"/>
                                             </constraints>
                                         </tableViewCellContentView>

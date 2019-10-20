@@ -50,23 +50,6 @@ struct RecipeViewModel {
         return (id, title, readyTime, servings, imageName, image ?? placeholder!, cuisines, diets, instructions, ingredients)
     }
     
-    // TODO: Move this to be an attribute of the Cuisine Enum
-    //    var colour = "Grey"
-    //    switch cuisine {
-    //    case Cuisine.Italian:
-    //        colour = "Yellow"
-    //    case Cuisine.Mexican:
-    //        colour = "Orange"
-    //    case Cuisine.Spanish:
-    //        colour = "Red"
-    //    case Cuisine.American:
-    //        colour = "Blue"
-    //    default:
-    //        colour = "Grey"
-    //    }
-    //    print(colour)
-    
-    
     
     // Placeholder Recipe Objects, derived from the Spoonacular API
     var recipe1 = Recipe(id:950595,title:"Instant Pot Acorn Squash Stuffed with Cranberries, Wild Rice, and Chickpeas",readyTime:60,servings:6,imageName:"acorn-squash",cuisines:[Cuisine.French],diets:[Diet.Vegan],instructions:"Bring 1 1/2 cups water to a boil in a small saucepan. Add the rice and 1/2 teaspoon kosher salt. Reduce heat to low, cover, and let simmer until the rice is tender, about 55 minutes. Drain off any excess liquid. Set aside.Pour 1/2 cup water into the bottom of an Instant Pot or electric pressure cooker. Place the steamer basket in the pot, then add the squash, cut sides up (they will overlap). Be sure not to exceed the max fill line. If your squash are larger and you exceed the line, cook the squash in two batches. Seal the lid, set pressure valve to sealing, and cook on HIGH (manual) for 4 minutes. Allow the pressure to release naturally for 5 minutes, then immediately vent to release any remaining pressure. Drain and arrange on a large serving plate or baking sheet.Meanwhile, heat the olive oil in a large skillet over medium low. Add the shallot and cook until softened, about 4 minutes. Add the garlic and cook 30 seconds until fragrant, then add the mushrooms, black pepper, and remaining 1/2 teaspoon kosher salt. Increase heat to medium and cook until the mushrooms are softened and browned, about 5 to 7 additional minutes. Add the chickpeas, cranberries, pepitas, thyme, and cooked rice and stir to heat through, about 2 additional minutes. Taste and adjust seasonings as desired.Spoon the hot filling into the squash halves. Serve immediately or keep warm in a 350 degree F oven.",ingredients:["Kosher Salt","Rice","Olive Oil","Shallots","Garlic","Pumpkin Seeds"])
