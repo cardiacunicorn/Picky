@@ -14,7 +14,6 @@ class GuestsTableViewController: UITableViewController {
     
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
-        print(newGuest)
     }
     
     var newGuest = ""
@@ -54,8 +53,9 @@ class GuestsTableViewController: UITableViewController {
         let createGuest = UIAlertAction(title: "Create", style: .default) { (_) in
             let item = alertController.textFields?[0].text
             self.newGuest = item ?? "New Guest"
+            print("User created a new guest named '\(self.newGuest)'")
         }
-        let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to create a new guest") }
         
         // Append options to the alert controller
         alertController.addAction(createGuest)

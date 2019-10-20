@@ -10,7 +10,7 @@ import UIKit
 
 struct ShoppingViewModel {
     
-    private (set) var shoppingList:[String] = []
+    private var shoppingList:[String] = []
     
     // TODO: Convert String array to a key value Dictionary, to allow grouping by Recipe
     
@@ -18,10 +18,12 @@ struct ShoppingViewModel {
         loadData()
     }
     
+    // Returns the number of shopping list items
     var count:Int {
         return shoppingList.count
     }
     
+    // Loads the placeholder shopping items for demo display
     private mutating func loadData() {
         shoppingList.append(item1)
         shoppingList.append(item2)
@@ -33,11 +35,13 @@ struct ShoppingViewModel {
         shoppingList.append(item8)
     }
     
+    // Retrieves an item by its index
     func getItem(byIndex index:Int) -> (String) {
         let content = shoppingList[index]
         return content
     }
     
+    // Adds a new item to the shopping list
     mutating func addItem(newItem:String) {
         shoppingList.append(newItem)
         print("Item added")

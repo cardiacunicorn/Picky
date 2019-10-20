@@ -10,7 +10,7 @@ import UIKit
 
 struct RecipeViewModel {
     
-    private (set) var recipes:[Recipe] = []
+    private var recipes:[Recipe] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
@@ -38,14 +38,11 @@ struct RecipeViewModel {
         let readyTime = recipes[index].readyTime
         let servings = recipes[index].servings
         let imageName = recipes[index].imageName
+        let image = UIImage(named: recipes[index].imageName)
         let cuisines = recipes[index].cuisines
         let diets = recipes[index].diets
         let instructions = recipes[index].instructions
         let ingredients = recipes[index].ingredients
-        
-        // this is where the image should be created from the filename
-        let image = UIImage(named: recipes[index].imageName)
-        // not currently being returned
         
         return (id, title, readyTime, servings, imageName, image ?? placeholder!, cuisines, diets, instructions, ingredients)
     }

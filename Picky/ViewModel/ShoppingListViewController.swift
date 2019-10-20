@@ -11,17 +11,14 @@ import UIKit
 class ShoppingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var viewModel = ShoppingViewModel()
+    private var newItem:String = ""
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var addButton: UIBarButtonItem!
     @IBOutlet var editButton: UIBarButtonItem!
     
-    
-    var output = "Initial state"
-    
     @IBAction func addItemAction(_ sender: UIBarButtonItem) {
         addItemAlert()
-        print("User added '\(output)' to the shopping list")
     }
     
     override func viewDidLoad() {
@@ -45,9 +42,10 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         // Create add & cancel options
         let addItem = UIAlertAction(title: "Add", style: .default) { (_) in
             let item = alertController.textFields?[0].text
-            self.output = item ?? "New item"
+            self.newItem = item ?? "New item"
+            print("User added '\(self.newItem)' to the shopping list")
         }
-        let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping list") }
         
         // Append options to the alert controller
         alertController.addAction(addItem)

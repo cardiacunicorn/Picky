@@ -10,7 +10,7 @@ import UIKit
 
 struct GuestsViewModel {
     
-    private (set) var guests:[Guest] = []
+    private var guests:[Guest] = []
     
     init() {
         loadData()
@@ -39,7 +39,7 @@ struct GuestsViewModel {
         return (id, title, groups, diets, allergies)
     }
     
-    
+    func
     
     // Placeholder Guest Objects
     var guest1 = Guest(id: 1, name: "Alexander G. Bell", groups: ["Family","Friends"], diets: [Diet.OvoVegetarian,Diet.Halal], allergies: [Allergy.Lactose])
