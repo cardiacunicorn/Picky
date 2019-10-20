@@ -10,17 +10,25 @@ import UIKit
 
 class ShoppingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private let viewModel = ShoppingViewModel()
+    private var viewModel = ShoppingViewModel()
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func addItemButton(_ sender: Any) {
         // Triggered when the user taps the + button
+        print("tap tap tap")
+        
+        // Update Array
+        viewModel.addItem(newItem: "New Shopping Item")
+        
+        // Update Table Data
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: (viewModel.count)-1, section: 0)], with: UITableView.RowAnimation.automatic)
+        tableView.endUpdates()
+        tableView.reloadData()
     }
     @IBAction func inputField(_ sender: Any) {
         // Triggered when the user finishes editing their input
     }
-    
-    let myarray = ["item1", "item2", "item3", "item4", "item1", "item2", "item3", "item4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +36,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        // ISSUE: TableView data only appearing after the View loads, requiring a refresh or scroll. Neither of the below appear to work.
-//        tableView.reloadData()
-//        self.tableView.reloadData()
-        
         // Editable, multiple selection for checkbox functionality
-        tableView.setEditing(true, animated: false)
+        // tableView.setEditing(true, animated: false)
         tableView.allowsMultipleSelection = true
     }
     
@@ -49,9 +53,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
             // ISSUE: Prototype cells are generated, but title labels do not update until user scrolls the cell offscreen
             // SOLUTION: Needed to use setTitle function, not direct edit of text e.g. listItem.titleLabel?.text
-            // listItem.isEnabled = false
             listItem.setTitle(currentItem, for: UIControl.State.normal)
-            // listItem.isEnabled = true
         }
 
         return cell

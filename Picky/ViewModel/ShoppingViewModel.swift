@@ -38,6 +38,11 @@ struct ShoppingViewModel {
         return content
     }
     
+    mutating func addItem(newItem:String) {
+        shoppingList.append(newItem)
+        print("Item added")
+    }
+    
     // Placeholder Shopping Items
     var item1 = "Sugar"
     var item2 = "Salt"
