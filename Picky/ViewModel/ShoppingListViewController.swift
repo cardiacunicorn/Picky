@@ -18,29 +18,6 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     
     
     
-    // ISSUE: Not working as intended currently
-    @IBAction func addItemButton(_ sender: Any) {
-        // Triggered when the user taps the + button
-        print("User tapped")
-        
-        // Update Array
-        viewModel.addItem(newItem: "New Shopping Item")
-        
-        // Update Table Data
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: (viewModel.count)-1, section: 0)], with: UITableView.RowAnimation.automatic)
-        tableView.endUpdates()
-        tableView.reloadData()
-    }
-    
-    // ISSUE: Not working as intended currently
-    @IBAction func inputField(_ sender: Any) {
-        // Triggered when the user finishes editing their input
-        print("User typed in something")
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Tells the TableView this file will be its delegate & datasource
@@ -51,6 +28,46 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         // tableView.setEditing(true, animated: false)
         tableView.allowsMultipleSelection = true
     }
+    
+    
+    
+    
+    
+    // ISSUE: Not currently working as intended
+    @IBAction func addItemButton(_ sender: Any) {
+        // Triggered when the user taps the + button
+        print("User tapped")
+
+        // Update Array
+        viewModel.addItem(newItem: "New Shopping Item")
+
+        // Update Table Data
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: (viewModel.count)-1, section: 0)], with: UITableView.RowAnimation.automatic)
+        tableView.endUpdates()
+        tableView.reloadData()
+    }
+
+    // ISSUE: Not currently working as intended
+    @IBAction func inputField(_ sender: Any) {
+        // Triggered when the user finishes editing their input
+        print("User typed in something")
+    }
+    
+    // ISSUE: Not currently working as intended
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            viewModel.addItem(newItem: "New Shopping Item")
+        }
+    }
+    
+    
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
