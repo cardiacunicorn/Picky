@@ -8,11 +8,11 @@
 
 struct Guest {
     
-    private var id:Int
-    private var name:String
-    private var groups:[String]
-    private var diets:[Diet]
-    private var allergies:[Allergy]
+    var id:Int
+    var name:String
+    var groups:[String]
+    var diets:[Diet]
+    var allergies:[Allergy]
     
     // hardcoded ID number
     init(id:Int = 1, name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {

@@ -13,5 +13,7 @@ enum Diet:String {
             Pescatarian = "Pescatarian",
             OvoVegetarian = "Ovo-Vegetarian",
             LactoVegetarian = "Lacto-Vegetarian",
-            LowCarb = "Low Carb"
+            LowCarb = "Low Carb",
+            Kosher = "Kosher",
+            Halal = "Halal"
 }
