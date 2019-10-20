@@ -17,6 +17,12 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var editButton: UIBarButtonItem!
     
     
+    var output = "Initial state"
+    
+    @IBAction func addItemAction(_ sender: UIBarButtonItem) {
+        addItemAlert()
+        print("User added '\(output)' to the shopping list")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +32,30 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         
         // Editable, multiple selection for checkbox functionality
         // tableView.setEditing(true, animated: false)
-        tableView.allowsMultipleSelection = true
+        // tableView.allowsMultipleSelection = true
     }
     
-    
+    func addItemAlert() {
+        // Create controller
+        let alertController = UIAlertController(title: "Add Item", message: "Enter an item to add to your list", preferredStyle: .alert)
+        // Generate textField for user input
+        alertController.addTextField {
+            (textField) in textField.placeholder = "Enter item"
+        }
+        // Create add & cancel options
+        let addItem = UIAlertAction(title: "Add", style: .default) { (_) in
+            let item = alertController.textFields?[0].text
+            self.output = item ?? "New item"
+            print(self.output)
+        }
+        let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        // Append options to the alert controller
+        alertController.addAction(addItem)
+        alertController.addAction(cancelAdd)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     
     

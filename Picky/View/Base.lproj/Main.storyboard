@@ -183,6 +183,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bIt-VT-lYq">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="addItemAction:" destination="j1v-Gs-2nN" id="Ofy-LE-Q2R"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
