@@ -3,17 +3,20 @@
 ## To Do
 
 ### Functionality 2.5/3.5
-- Remove partial implementation of incomplete features from the Simulated prototype
-- Data is appended and removed from Arrays to simulate a database
+- **Data is appended and removed from Arrays to simulate a database**
 - Data validation -> prevent awkward rendering e.g. user text input, placeholder image for custom recipe
 - Content should not move out of range when flipping horizontal e.g. Recipe Detail View
 - Implements a Cocoa Touch class that uses a hardware feature
     - Handles when the hardware is unavailable (such as in Simulator)
     - Potentially take a photo (or insert one) when adding a recipe
+- Remove partial implementation of incomplete features from the Simulated prototype
 
 ### Layout Types 1/5
-- Must include a PopOver or Alert scene -> confirmation of Array modification, or a form for Add a Recipe/Guest
-- Must include an About page (in Settings under the Tab Bar?) with student details
+- **Must include a PopOver or Alert scene -> confirmation of Array modification, or a form for Add a Recipe/Guest**
+- **Must include an About page (in Settings under the Tab Bar?) with student details**
+
+### Documentation 1/1
+- Additional high-fidelity wireframe screenshots should be added to the report
 
 ### Design 1.5/5.5
 - 4x UITests implemented
@@ -22,9 +25,6 @@
     - Contains assertion tests to validate all elements are present in scene
     - Run to ensure it returns a Pass
     - At least one test that navigates across multiple scenes, demonstrates typical use case
-    
-### Documentation 1/1
-- Additional high-fidelity wireframe screenshots should be added to the report
 
 
 
@@ -46,6 +46,9 @@
     - Valid sample data populating by default
 - Master/Detail 1/1
     - Recipes tab configuration
+    
+### Documentation 0/1
+- Record any other changes: design principles, persistence etc. (in an appendix?)
 
 ### Design 4/5.5
 - Autolayout used consistently, with no conflicts
@@ -54,9 +57,6 @@
     - No controllers managing their own data collections -> part of the view model in each case
     - Controllers call methods on the ViewModel to manage and preserve State
     - ViewModel instantiates business objects
-    
-### Documentation 0/1
-- Record any other changes: design principles, persistence etc. (in an appendix?)
 
 
 
