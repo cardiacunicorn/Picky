@@ -12,8 +12,7 @@
 
 ### Layout Types 0/5
 
-### Documentation 1/1
-- Additional high-fidelity wireframe screenshots should be added to the report
+### Documentation 0/1
 
 ### Design 1.5/5.5
 - 4x UITests implemented
@@ -47,8 +46,9 @@
 - PopOver or Alert scene -> confirmation of Array modification, or a form for Add a Recipe/Guest
 - About page (in Settings under the Tab Bar?) with student details
     
-### Documentation 0/1
+### Documentation 1/1
 - Record any other changes: design principles, persistence etc. (in an appendix?)
+- Additional high-fidelity wireframe screenshots should be added to the report
 
 ### Design 4/5.5
 - Autolayout used consistently, with no conflicts
