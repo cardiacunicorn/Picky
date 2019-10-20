@@ -15,7 +15,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     @IBAction func addItemButton(_ sender: Any) {
         // Triggered when the user taps the + button
-        print("tap tap tap")
+        print("User tapped")
         
         // Update Array
         viewModel.addItem(newItem: "New Shopping Item")
