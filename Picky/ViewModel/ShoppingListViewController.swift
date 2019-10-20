@@ -13,6 +13,12 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     private var viewModel = ShoppingViewModel()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var addButton: UIBarButtonItem!
+    @IBOutlet var editButton: UIBarButtonItem!
+    
+    
+    
+    // ISSUE: Not working as intended currently
     @IBAction func addItemButton(_ sender: Any) {
         // Triggered when the user taps the + button
         print("User tapped")
@@ -26,9 +32,14 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.endUpdates()
         tableView.reloadData()
     }
+    
+    // ISSUE: Not working as intended currently
     @IBAction func inputField(_ sender: Any) {
         // Triggered when the user finishes editing their input
+        print("User typed in something")
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -83,6 +83,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Recipe" image="plus" catalog="system" id="JFY-Wc-m7t">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="iJi-Fb-7Q7" kind="show" id="PtG-4f-0j2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -183,6 +186,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="bIt-VT-lYq" id="Yf9-bR-EwJ"/>
+                        <outlet property="editButton" destination="cqQ-27-Xc3" id="Fxk-yP-40b"/>
                         <outlet property="tableView" destination="yOo-Bh-ext" id="Us6-cO-WaY"/>
                     </connections>
                 </viewController>
@@ -190,6 +195,51 @@
                 <exit id="PQq-uf-DqU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="949" y="668"/>
+        </scene>
+        <!--Add Recipe-->
+        <scene sceneID="3KV-wI-Ns4">
+            <objects>
+                <viewController id="iJi-Fb-7Q7" customClass="AddRecipeViewController" customModule="Picky" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B9A-GW-SRw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipe name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="hXd-bq-cWz">
+                                <rect key="frame" x="16" y="60" width="288" height="34"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomato-basil-pasta" translatesAutoresizingMaskIntoConstraints="NO" id="kOg-bO-lTk">
+                                <rect key="frame" x="16" y="110" width="288" height="192"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kOg-bO-lTk" secondAttribute="height" multiplier="3:2" id="XS0-4h-goj"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cL-z4-Hfa">
+                                <rect key="frame" x="16" y="318" width="288" height="30"/>
+                                <state key="normal" title="Add"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Bvd-mx-21B" firstAttribute="trailing" secondItem="kOg-bO-lTk" secondAttribute="trailing" constant="16" id="OTb-tw-Dqj"/>
+                            <constraint firstItem="4cL-z4-Hfa" firstAttribute="top" secondItem="kOg-bO-lTk" secondAttribute="bottom" constant="16" id="QjT-tg-zBa"/>
+                            <constraint firstItem="Bvd-mx-21B" firstAttribute="trailing" secondItem="4cL-z4-Hfa" secondAttribute="trailing" constant="16" id="SVk-Rl-uMs"/>
+                            <constraint firstItem="kOg-bO-lTk" firstAttribute="top" secondItem="hXd-bq-cWz" secondAttribute="bottom" constant="16" id="XNx-ir-5Ve"/>
+                            <constraint firstItem="kOg-bO-lTk" firstAttribute="leading" secondItem="Bvd-mx-21B" secondAttribute="leading" constant="16" id="YV2-4u-bKx"/>
+                            <constraint firstItem="hXd-bq-cWz" firstAttribute="leading" secondItem="Bvd-mx-21B" secondAttribute="leading" constant="16" id="chF-2c-ucJ"/>
+                            <constraint firstItem="hXd-bq-cWz" firstAttribute="top" secondItem="Bvd-mx-21B" secondAttribute="top" constant="16" id="fXa-mR-H3H"/>
+                            <constraint firstItem="4cL-z4-Hfa" firstAttribute="leading" secondItem="Bvd-mx-21B" secondAttribute="leading" constant="16" id="gic-SQ-aY7"/>
+                            <constraint firstItem="Bvd-mx-21B" firstAttribute="trailing" secondItem="hXd-bq-cWz" secondAttribute="trailing" constant="16" id="zbU-Rq-Y3U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bvd-mx-21B"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Recipe" id="wLf-1N-Cuc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fw1-zy-tMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891.875" y="-1669.0140845070423"/>
         </scene>
         <!--Settings-->
         <scene sceneID="b1I-sv-Prg">
@@ -500,6 +550,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Guests" id="tca-zQ-S6r">
                         <barButtonItem key="backBarButtonItem" title="Guests" id="JWr-Hw-d6H">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n4p-pf-ffv">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
                     </navigationItem>
