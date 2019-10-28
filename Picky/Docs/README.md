@@ -1,6 +1,19 @@
 #  Picky
 
-## To Do
+## Notes
+
+- Discussion of refreshing the UI on data request being received, implements 'Refresh' protocol - 11:15 of Lec 7.7
+    `viewDidLoad() { super.viewDidLoad(); tableView.dataSource = self; viewModel.delegate = self }`
+    `func updateUI() { tableView.reloadData() }`
+- AppDelegate has code that is essential in linking to Core Data - 6:00 of Lector's 8.6
+
+## To Do (Milestone 3)
+
+
+
+
+
+## To Do (Milestone 2)
 
 ### Functionality 2/3.5
 - Data validation -> prevent awkward rendering e.g. user text input, placeholder image for custom recipe
@@ -57,10 +70,3 @@
     - No controllers managing their own data collections -> part of the view model in each case
     - Controllers call methods on the ViewModel to manage and preserve State
     - ViewModel instantiates business objects
-
-
-
-
-## Notes
-
-
