@@ -7,13 +7,15 @@
 //
 
 enum Diet:String {
-    case    Vegetarian = "Vegetarian",
-            Vegan = "Vegan",
-            GlutenFree = "Gluten Free",
-            Pescatarian = "Pescatarian",
-            OvoVegetarian = "Ovo-Vegetarian",
-            LactoVegetarian = "Lacto-Vegetarian",
-            LowCarb = "Low Carb",
-            Kosher = "Kosher",
-            Halal = "Halal"
+    case
+        GlutenFree = "Gluten Free",
+        Ketogenic = "Ketogenic",
+        Vegetarian = "Vegetarian",
+        LactoVegetarian = "Lacto-Vegetarian",
+        OvoVegetarian = "Ovo-Vegetarian",
+        Vegan = "Vegan",
+        Pescatarian = "Pescatarian",
+        Paleo = "Paleo",
+        Primal = "Primal",
+        Whole30 = "Whole30"
 }

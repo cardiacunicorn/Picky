@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA00C02223670F5900C974AD /* Assignment_2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FA00C02123670F5900C974AD /* Assignment_2.pdf */; };
 		FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */; };
 		FA5CBD7A2359CE6000F14157 /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */; };
 		FA5CBD7C2359D24A00F14157 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7B2359D24A00F14157 /* Diet.swift */; };
@@ -26,7 +27,6 @@
 		FAD0C7402358670F00481BFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C73E2358670F00481BFD /* LaunchScreen.storyboard */; };
 		FAD0C74B2358670F00481BFD /* PickyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C74A2358670F00481BFD /* PickyTests.swift */; };
 		FAD0C7562358670F00481BFD /* PickyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7552358670F00481BFD /* PickyUITests.swift */; };
-		FAD0C76B235867DD00481BFD /* Assignment_1_M2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C767235867DD00481BFD /* Assignment_1_M2.pdf */; };
 		FAD0C76D235867DD00481BFD /* Rubric.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C769235867DD00481BFD /* Rubric.rtf */; };
 		FAD0C76E235867DD00481BFD /* milestone1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C76A235867DD00481BFD /* milestone1.pdf */; };
 		FAD0C770235868C000481BFD /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C76F235868C000481BFD /* Recipe.swift */; };
@@ -52,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA00C02123670F5900C974AD /* Assignment_2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment_2.pdf; sourceTree = "<group>"; };
 		FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
 		FA5CBD7B2359D24A00F14157 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
@@ -78,7 +79,6 @@
 		FAD0C7512358670F00481BFD /* PickyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PickyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD0C7552358670F00481BFD /* PickyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickyUITests.swift; sourceTree = "<group>"; };
 		FAD0C7572358670F00481BFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAD0C767235867DD00481BFD /* Assignment_1_M2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment_1_M2.pdf; sourceTree = "<group>"; };
 		FAD0C769235867DD00481BFD /* Rubric.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Rubric.rtf; sourceTree = "<group>"; };
 		FAD0C76A235867DD00481BFD /* milestone1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = milestone1.pdf; sourceTree = "<group>"; };
 		FAD0C76F235868C000481BFD /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -204,8 +204,8 @@
 		FAD0C7662358679700481BFD /* Docs */ = {
 			isa = PBXGroup;
 			children = (
+				FA00C02123670F5900C974AD /* Assignment_2.pdf */,
 				FA80BDC4235C8F5D0004B75F /* milestone2.pdf */,
-				FAD0C767235867DD00481BFD /* Assignment_1_M2.pdf */,
 				FAD0C76A235867DD00481BFD /* milestone1.pdf */,
 				FAD0C769235867DD00481BFD /* Rubric.rtf */,
 				FA5CBD85235AF3CA00F14157 /* README.md */,
@@ -321,9 +321,9 @@
 				FAD0C73D2358670F00481BFD /* Assets.xcassets in Resources */,
 				FAD0C76E235867DD00481BFD /* milestone1.pdf in Resources */,
 				FAD0C76D235867DD00481BFD /* Rubric.rtf in Resources */,
-				FAD0C76B235867DD00481BFD /* Assignment_1_M2.pdf in Resources */,
 				FA80BDC5235C8F5D0004B75F /* milestone2.pdf in Resources */,
 				FAD0C7382358670D00481BFD /* Main.storyboard in Resources */,
+				FA00C02223670F5900C974AD /* Assignment_2.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

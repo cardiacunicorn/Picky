@@ -10,6 +10,7 @@ import UIKit
 
 struct RecipeViewModel {
     
+    private var apiKey = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private var recipes:[Recipe] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
