@@ -19,6 +19,7 @@
 		FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDC1235C42640004B75F /* GuestsViewModel.swift */; };
 		FA80BDC5235C8F5D0004B75F /* milestone2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FA80BDC4235C8F5D0004B75F /* milestone2.pdf */; };
 		FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */; };
+		FAC30498236AF1FC00F67CBD /* ModelUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC30497236AF1FC00F67CBD /* ModelUnitTests.swift */; };
 		FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7302358670D00481BFD /* AppDelegate.swift */; };
 		FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C7322358670D00481BFD /* SceneDelegate.swift */; };
 		FAD0C7382358670D00481BFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C7362358670D00481BFD /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		FA80BDC1235C42640004B75F /* GuestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewModel.swift; sourceTree = "<group>"; };
 		FA80BDC4235C8F5D0004B75F /* milestone2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = milestone2.pdf; sourceTree = "<group>"; };
 		FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewController.swift; sourceTree = "<group>"; };
+		FAC30497236AF1FC00F67CBD /* ModelUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUnitTests.swift; sourceTree = "<group>"; };
 		FAD0C72D2358670D00481BFD /* Picky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD0C7302358670D00481BFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD0C7322358670D00481BFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				FAD0C74A2358670F00481BFD /* PickyTests.swift */,
 				FAD0C74C2358670F00481BFD /* Info.plist */,
+				FAC30497236AF1FC00F67CBD /* ModelUnitTests.swift */,
 			);
 			path = PickyTests;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD0C74B2358670F00481BFD /* PickyTests.swift in Sources */,
+				FAC30498236AF1FC00F67CBD /* ModelUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
