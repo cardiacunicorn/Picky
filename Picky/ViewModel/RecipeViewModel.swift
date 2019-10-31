@@ -10,7 +10,9 @@ import UIKit
 
 struct RecipeViewModel {
     
-    private var apiKey = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
+    private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
+    private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
+    private var query:String = ""
     private var recipes:[Recipe] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
@@ -24,8 +26,34 @@ struct RecipeViewModel {
         return recipes.count
     }
     
-    // loads a bunch of placeholder recipes
+    // pull recipe data from Spoonacular
     private mutating func loadData() {
+        // Construct the valid API endpoint with Key
+        var url = NSURL(string: endpoint + apiKey)
+        
+        // Query should be determined by the Guest list
+        // PLACEHOLDER:
+        query = "&tags=pescatarian,italian,dairy"
+        
+        // Add the query if there is one
+        if (query != "") {
+            print("A query has been provided")
+            url = NSURL(string: endpoint + apiKey + query)
+        }
+        
+        // Create the URL request asyncronously
+        print(url?.absoluteString)
+        
+        // Manipulate the response & save recipes locally
+    
+        // If an error is thrown, use placeholder recipes
+        
+        // Append each recipe to recipes
+        recipes.append(recipe1)
+        recipes.append(recipe2)
+        recipes.append(recipe3)
+        recipes.append(recipe4)
+        recipes.append(recipe5)
         recipes.append(recipe1)
         recipes.append(recipe2)
         recipes.append(recipe3)
@@ -52,6 +80,7 @@ struct RecipeViewModel {
         recipes.append(newRecipe)
         print("Recipes variable now contains:\n\(recipes)")
     }
+    
     
     
     // Placeholder Recipe Objects, derived from the Spoonacular API
