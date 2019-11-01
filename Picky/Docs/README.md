@@ -12,7 +12,18 @@
 
 ## To Do (Milestone 3)
 
+### UI Tests & Unit Tests 2/3
+- Implement at least 2 more unit tests, for the View Models
 
+### Networking 5/5
+- The user of the app must be able to provide dynamic access such as providing data that will form part of the request. It should not just be a hard coded request and display of data.
+
+### Persistence 5/5
+- Data must be saved and retrieved you should be able to display these features via a screen in the app.
+- All four CRUD operations must be implemented
+
+### Design Patterns 3/3
+- You must design and implement the design pattern in your code, not make use of one already implemented by a library or framework. For example you cannot claim delegation because you have used delegation in your Table View. This is only using the pattern. You must design and implement the pattern yourself.
 
 
 

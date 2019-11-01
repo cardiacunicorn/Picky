@@ -115,6 +115,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA49C38C236C1C05000EFBF8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
+				FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */,
+				FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */,
+				FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */,
+				FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		FAD0C7242358670D00481BFD = {
 			isa = PBXGroup;
 			children = (
@@ -195,14 +207,10 @@
 		FAD0C7652358675E00481BFD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FA49C38C236C1C05000EFBF8 /* Controllers */,
 				FAD0C77323586DB300481BFD /* RecipeViewModel.swift */,
 				FA80BDC1235C42640004B75F /* GuestsViewModel.swift */,
 				FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */,
-				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
-				FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */,
-				FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */,
-				FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */,
-				FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
