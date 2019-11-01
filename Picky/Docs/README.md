@@ -7,6 +7,9 @@
     `func updateUI() { tableView.reloadData() }`
 - AppDelegate has code that is essential in linking to Core Data - 6:00 of Lector's 8.6
 
+- 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them
+- Should add a select drop down or text input that filters and adjusts the 'selected guests' array
+
 ## To Do (Milestone 3)
 
 

@@ -15,8 +15,6 @@ struct GuestsViewModel {
     
     init() {
         loadData()
-        
-        
     }
     
     // returns the number of guests
