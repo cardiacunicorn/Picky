@@ -45,16 +45,22 @@ struct RecipeViewModel {
         print(url?.absoluteString)
         
         // Store as a generic data object
-        let response = exampleResponse.data(using: String.Encoding.utf8)!
-        print("Data object: \(response)")
+        let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
+        print("Data object: \(dataObject)")
         
         // Manipulate the response to JSON
-        let responseRecipesObject = try? JSONSerialization.jsonObject(with: response)
-        print("Generic Object: \(responseRecipesObject)")
+        let genericObject = try? JSONSerialization.jsonObject(with: dataObject)
         
-        if let responseRecipes = responseRecipesObject as? [[String: Any]] {
-            print("Successfully cast!")
-            print(responseRecipes)
+        if let dictionaryObject = genericObject as? [String: Any] {
+            print("Successfully cast to dictionary object")
+            
+            // This is not looping through the array, or it just has a length of one
+            for (object,recipes) in dictionaryObject {
+                print("Recipes: \(recipes)")
+//                if let likes = recipe["aggregateLikes"] {
+//
+//                }
+            }
         }
         
         // Save recipes locally
