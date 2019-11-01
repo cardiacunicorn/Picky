@@ -25,6 +25,11 @@
 ### Design Patterns 3/3
 - You must design and implement the design pattern in your code, not make use of one already implemented by a library or framework. For example you cannot claim delegation because you have used delegation in your Table View. This is only using the pattern. You must design and implement the pattern yourself.
 
+### Auto Layout & Adaptive Layout 3/3
+- Both manual constraints and stack views have been demonstrated to achieve the layout requirements.
+- At least two scenes have utilised manual constraint based design without making use of stack views.
+
+
 
 
 ## To Do (Milestone 2)

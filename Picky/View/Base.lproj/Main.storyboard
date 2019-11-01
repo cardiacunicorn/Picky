@@ -362,50 +362,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomato-basil-pasta" translatesAutoresizingMaskIntoConstraints="NO" id="ep1-ld-gFT">
-                                <rect key="frame" x="0.0" y="44" width="320" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="taP-Gr-CLi"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="Qrk-QG-wzs"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="taP-Gr-CLi"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-Br-cYK">
-                                <rect key="frame" x="16" y="252" width="110" height="33"/>
+                                <rect key="frame" x="16" y="202" width="110" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="24"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diet &amp; Allergy Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HS5-PK-EMn">
-                                <rect key="frame" x="63" y="293" width="112" height="25"/>
+                                <rect key="frame" x="63" y="243" width="112" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nck-QT-dz5">
-                                <rect key="frame" x="16" y="330" width="79" height="25"/>
+                                <rect key="frame" x="16" y="280" width="288" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-zV-5cu">
-                                <rect key="frame" x="16" y="381" width="80.5" height="25"/>
+                                <rect key="frame" x="16" y="331" width="288" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 45m " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-lO-iCG">
-                                <rect key="frame" x="16" y="293" width="39" height="25"/>
+                                <rect key="frame" x="16" y="243" width="39" height="25"/>
                                 <color key="backgroundColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-7a-jzc">
-                                <rect key="frame" x="16" y="410" width="288" height="14"/>
+                                <rect key="frame" x="16" y="360" width="288" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C2-xC-gOU">
-                                <rect key="frame" x="16" y="359" width="288" height="14"/>
+                                <rect key="frame" x="16" y="309" width="288" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -417,11 +418,14 @@
                             <constraint firstItem="HS5-PK-EMn" firstAttribute="leading" secondItem="FgD-lO-iCG" secondAttribute="trailing" constant="8" id="2k2-VR-twF"/>
                             <constraint firstItem="ep1-ld-gFT" firstAttribute="centerX" secondItem="Cit-x3-qrM" secondAttribute="centerX" id="3Uz-zq-0Ju"/>
                             <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" secondItem="ep1-ld-gFT" secondAttribute="trailing" id="6xJ-1r-uw1"/>
-                            <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Nck-QT-dz5" secondAttribute="trailing" symbolic="YES" id="71r-QY-6GB"/>
+                            <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" secondItem="Nck-QT-dz5" secondAttribute="trailing" constant="16" id="71r-QY-6GB"/>
                             <constraint firstItem="ep1-ld-gFT" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" id="7oK-HL-34j"/>
                             <constraint firstItem="HS5-PK-EMn" firstAttribute="centerY" secondItem="FgD-lO-iCG" secondAttribute="centerY" id="8TU-NN-grm"/>
                             <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" secondItem="gvx-7a-jzc" secondAttribute="trailing" constant="16" id="8ft-II-U9D"/>
                             <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fLH-Br-cYK" secondAttribute="trailing" symbolic="YES" id="CaD-OI-pcD"/>
+                            <constraint firstItem="ep1-ld-gFT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="282" id="EoT-uB-tlk">
+                                <variation key="heightClass=compact-widthClass=compact" constant="256"/>
+                            </constraint>
                             <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" secondItem="1C2-xC-gOU" secondAttribute="trailing" constant="16" id="K1P-Rd-dKQ"/>
                             <constraint firstItem="1C2-xC-gOU" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="Kyn-Fl-dlG"/>
                             <constraint firstItem="FgD-lO-iCG" firstAttribute="top" secondItem="fLH-Br-cYK" secondAttribute="bottom" constant="8" id="MLR-eV-7ls"/>
@@ -432,7 +436,7 @@
                             <constraint firstItem="Nck-QT-dz5" firstAttribute="top" secondItem="HS5-PK-EMn" secondAttribute="bottom" constant="12" id="Rpc-XV-8Jw"/>
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="top" secondItem="1C2-xC-gOU" secondAttribute="bottom" constant="8" id="VSs-kG-1wM"/>
                             <constraint firstItem="Nck-QT-dz5" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="YB9-gI-UbO"/>
-                            <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y3C-zV-5cu" secondAttribute="trailing" symbolic="YES" id="ZjL-5e-MTr"/>
+                            <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" secondItem="Y3C-zV-5cu" secondAttribute="trailing" constant="16" id="ZjL-5e-MTr"/>
                             <constraint firstItem="fLH-Br-cYK" firstAttribute="top" secondItem="ep1-ld-gFT" secondAttribute="bottom" constant="8" id="hny-VF-Bgj"/>
                             <constraint firstItem="fLH-Br-cYK" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="jC6-MX-1HC"/>
                             <constraint firstItem="gvx-7a-jzc" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="oMu-es-Ryu"/>
@@ -441,8 +445,19 @@
                             <constraint firstItem="FgD-lO-iCG" firstAttribute="leading" secondItem="Cit-x3-qrM" secondAttribute="leading" constant="16" id="y9d-BZ-zRS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cit-x3-qrM"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EoT-uB-tlk"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="EoT-uB-tlk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Qnq-9d-9zC"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="detailImage" destination="ep1-ld-gFT" id="XEC-aT-tdg"/>
                         <outlet property="detailIngredients" destination="1C2-xC-gOU" id="trK-gF-FCF"/>
@@ -454,7 +469,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxN-BX-tQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="-897"/>
+            <point key="canvasLocation" x="1891.9014084507041" y="-898.125"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="rEE-sZ-XwD">
@@ -627,6 +642,104 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSQ-cN-PKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948.75" y="-111.97183098591549"/>
+        </scene>
+        <!--Recipe Detail View Controller-->
+        <scene sceneID="dwC-Nv-47y">
+            <objects>
+                <viewController id="wc7-rA-fCt" customClass="RecipeDetailViewController" customModule="Picky" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gnW-hf-A9A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomato-basil-pasta" translatesAutoresizingMaskIntoConstraints="NO" id="OT4-zq-7dj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="j35-8g-njV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jac-GM-XXm">
+                                <rect key="frame" x="16" y="158" width="288" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="24"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1003" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diet &amp; Allergy Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yp-JM-OWt">
+                                <rect key="frame" x="63" y="199" width="241" height="22"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-wP-EM5">
+                                <rect key="frame" x="221.5" y="234.5" width="82.5" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Recipe Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtw-f5-8E1">
+                                <rect key="frame" x="16" y="263.5" width="288" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTf-eY-lmT">
+                                <rect key="frame" x="221.5" y="263.5" width="82.5" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text=" 45m " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMb-BZ-gde">
+                                <rect key="frame" x="16" y="197.5" width="39" height="25"/>
+                                <color key="backgroundColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjJ-6G-Z0V">
+                                <rect key="frame" x="16" y="234.5" width="189.5" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
+                                <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gbE-wP-EM5" firstAttribute="top" secondItem="fMb-BZ-gde" secondAttribute="bottom" constant="12" id="01X-as-mTL"/>
+                            <constraint firstItem="dTf-eY-lmT" firstAttribute="top" secondItem="gbE-wP-EM5" secondAttribute="bottom" constant="4" id="0Cb-iz-zvM"/>
+                            <constraint firstItem="Vtw-f5-8E1" firstAttribute="top" secondItem="tjJ-6G-Z0V" secondAttribute="bottom" constant="4" id="11R-PU-kGj"/>
+                            <constraint firstItem="fMb-BZ-gde" firstAttribute="leading" secondItem="jac-GM-XXm" secondAttribute="leading" id="5RN-7Q-1d0"/>
+                            <constraint firstItem="9Yp-JM-OWt" firstAttribute="centerY" secondItem="fMb-BZ-gde" secondAttribute="centerY" id="74J-oh-gqR"/>
+                            <constraint firstItem="dTf-eY-lmT" firstAttribute="width" secondItem="gbE-wP-EM5" secondAttribute="width" id="9Yh-OK-5vi"/>
+                            <constraint firstItem="81n-Ma-3Cd" firstAttribute="trailing" secondItem="jac-GM-XXm" secondAttribute="trailing" constant="16" id="C9h-tU-AjB"/>
+                            <constraint firstItem="jac-GM-XXm" firstAttribute="leading" secondItem="81n-Ma-3Cd" secondAttribute="leading" constant="16" id="EVh-7S-f7V"/>
+                            <constraint firstItem="fMb-BZ-gde" firstAttribute="top" secondItem="jac-GM-XXm" secondAttribute="bottom" constant="6.5" id="GVn-59-6F4"/>
+                            <constraint firstItem="tjJ-6G-Z0V" firstAttribute="leading" secondItem="fMb-BZ-gde" secondAttribute="leading" id="J3d-lR-KxF"/>
+                            <constraint firstItem="OT4-zq-7dj" firstAttribute="leading" secondItem="81n-Ma-3Cd" secondAttribute="leading" id="J3u-dE-35s"/>
+                            <constraint firstItem="dTf-eY-lmT" firstAttribute="trailing" secondItem="gbE-wP-EM5" secondAttribute="trailing" id="LEe-vz-FxL"/>
+                            <constraint firstItem="tjJ-6G-Z0V" firstAttribute="centerY" secondItem="gbE-wP-EM5" secondAttribute="centerY" id="MR4-Cq-WcV"/>
+                            <constraint firstItem="81n-Ma-3Cd" firstAttribute="trailing" secondItem="gbE-wP-EM5" secondAttribute="trailing" constant="16" id="SgS-fk-VII"/>
+                            <constraint firstItem="Vtw-f5-8E1" firstAttribute="width" secondItem="tjJ-6G-Z0V" secondAttribute="width" id="Srk-16-PA9"/>
+                            <constraint firstItem="jac-GM-XXm" firstAttribute="top" secondItem="OT4-zq-7dj" secondAttribute="bottom" constant="8" id="TJ1-4J-ADi"/>
+                            <constraint firstItem="gbE-wP-EM5" firstAttribute="leading" secondItem="tjJ-6G-Z0V" secondAttribute="trailing" constant="16" id="Vzf-y9-eP9"/>
+                            <constraint firstItem="81n-Ma-3Cd" firstAttribute="trailing" secondItem="9Yp-JM-OWt" secondAttribute="trailing" constant="16" id="a5u-iC-ckp"/>
+                            <constraint firstItem="OT4-zq-7dj" firstAttribute="top" secondItem="81n-Ma-3Cd" secondAttribute="top" id="l1c-HR-JkT"/>
+                            <constraint firstItem="9Yp-JM-OWt" firstAttribute="leading" secondItem="fMb-BZ-gde" secondAttribute="trailing" constant="8" id="m5a-Mb-cCd"/>
+                            <constraint firstItem="81n-Ma-3Cd" firstAttribute="trailing" secondItem="OT4-zq-7dj" secondAttribute="trailing" id="mPM-Rs-07V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="81n-Ma-3Cd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aJ0-fH-bC9"/>
+                    <connections>
+                        <outlet property="detailImage" destination="OT4-zq-7dj" id="FqD-K5-XfV"/>
+                        <outlet property="detailIngredients" destination="dTf-eY-lmT" id="QA0-Zu-M2b"/>
+                        <outlet property="detailInstructions" destination="Vtw-f5-8E1" id="rkH-Vn-cCM"/>
+                        <outlet property="detailReadyTime" destination="fMb-BZ-gde" id="7uv-Jd-sXt"/>
+                        <outlet property="detailTags" destination="9Yp-JM-OWt" id="Kt9-I0-Zop"/>
+                        <outlet property="detailTitle" destination="jac-GM-XXm" id="W9L-LZ-Hor"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TjU-ZK-gvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3189.375" y="-897.88732394366195"/>
         </scene>
     </scenes>
     <resources>
