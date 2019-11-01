@@ -8,6 +8,7 @@
 
 struct Guest {
     
+    // public variables, rather than getters
     var id:Int = 0
     var name:String
     var groups:[String]
@@ -15,12 +16,11 @@ struct Guest {
     var allergies:[Allergy]
     
     init(name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {
-        // self.id = id
+        self.id += 1
         self.name = name
         self.groups = groups
         self.diets = diets
         self.allergies = allergies
-        self.id += 1
     }
     
     // Returns Guest details to console

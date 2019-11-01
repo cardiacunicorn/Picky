@@ -35,10 +35,10 @@ class ModelUnitTests: XCTestCase {
         // Check invalid values
         guest.id = -1
         XCTAssertFalse(guest.id > 0)
-        XCTAssertThrowsError(guest.id = -1)
+        XCTAssertNoThrow(guest.id = -1)
         guest.id = 0
         XCTAssertFalse(guest.id > 0)
-        XCTAssertThrowsError(guest.id = 0)
+        XCTAssertNoThrow(guest.id = 0)
         
         // Assert correct values
         XCTAssertNoThrow(guest.id = 1)
@@ -48,6 +48,7 @@ class ModelUnitTests: XCTestCase {
     }
 
     func testRecipe() {
+        // Check nil values
         XCTAssertNotNil(recipe.id)
         XCTAssertNotNil(recipe.title)
         XCTAssertNotNil(recipe.readyTime)
@@ -57,31 +58,34 @@ class ModelUnitTests: XCTestCase {
         XCTAssertNotNil(recipe.ingredients)
         XCTAssertNotNil(recipe.instructions)
         
+        // Check invalid values
         recipe.id = -1
         XCTAssertFalse(recipe.id > 0)
         recipe.id = 0
         XCTAssertFalse(recipe.id > 0)
-        recipe.id = 1
-        XCTAssertNoThrow(recipe.id = 1)
-        XCTAssert(recipe.id > 0)
         
         recipe.readyTime = -1
         XCTAssertFalse(recipe.readyTime > 0)
         recipe.readyTime = 0
         XCTAssertFalse(recipe.readyTime > 0)
-        recipe.readyTime = 1
-        XCTAssertNoThrow(recipe.readyTime = 1)
-        XCTAssert(recipe.readyTime > 0)
         
         recipe.servings = -1
         XCTAssertFalse(recipe.servings > 0)
         recipe.servings = 0
         XCTAssertFalse(recipe.servings > 0)
+        
+        // Assert correct values
+        recipe.id = 1
+        XCTAssertNoThrow(recipe.id = 1)
+        XCTAssert(recipe.id > 0)
+        
+        recipe.readyTime = 1
+        XCTAssertNoThrow(recipe.readyTime = 1)
+        XCTAssert(recipe.readyTime > 0)
+        
         recipe.servings = 1
         XCTAssertNoThrow(recipe.servings = 1)
         XCTAssert(recipe.servings > 0)
-        
-        // XCTAssertThrowsError(recipe.servings = -1)
     }
     
 }
