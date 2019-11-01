@@ -8,18 +8,19 @@
 
 struct Guest {
     
-    var id:Int
+    var id:Int = 0
     var name:String
     var groups:[String]
     var diets:[Diet]
     var allergies:[Allergy]
     
-    init(id:Int, name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {
-        self.id = id
+    init(name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {
+        // self.id = id
         self.name = name
         self.groups = groups
         self.diets = diets
         self.allergies = allergies
+        self.id += 1
     }
     
     // Returns Guest details to console

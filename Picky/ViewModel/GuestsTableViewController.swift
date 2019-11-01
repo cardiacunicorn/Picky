@@ -76,8 +76,7 @@ class GuestsTableViewController: UITableViewController {
             // Split user group(s) input, by comma, into an array -- default an empty array
             self.groups = groupsInput?.components(separatedBy: ",") ?? []
             self.viewModel.addGuest(newGuest:
-                Guest(id:self.guestID,
-                      name: self.newGuest,
+                Guest(name: self.newGuest,
                       groups: self.groups,
                       diets: [],
                       allergies: []

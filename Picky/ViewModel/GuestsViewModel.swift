@@ -52,8 +52,9 @@ struct GuestsViewModel {
     }
     
     // Placeholder Guest Objects
-    private var guest1 = Guest(id: 1, name: "Alexander G. Bell", groups: ["Family","Friends"], diets: [Diet.OvoVegetarian], allergies: [Allergy.Dairy])
-    private var guest2 = Guest(id: 2, name: "Colin Decemberist", groups: ["Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten])
-    private var guest3 = Guest(id: 3, name: "Edie Falco", groups: ["Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Shellfish,Allergy.TreeNut])
-    private var guest4 = Guest(id: 4, name: "Gwendolyn Humphries", groups: ["Family"], diets: [], allergies: [Allergy.Wheat,Allergy.Peanut])
+    private var guest1 = Guest(name: "Alexander G. Bell", groups: ["Family","Friends"], diets: [Diet.OvoVegetarian], allergies: [Allergy.Dairy])
+    private var guest2 = Guest(name: "Colin Decemberist", groups: ["Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten])
+    private var guest3 = Guest(name: "Edie Falco", groups: ["Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Shellfish,Allergy.TreeNut])
+    private var guest4 = Guest(name: "Gwendolyn Humphries", groups: ["Family"], diets: [], allergies: [Allergy.Wheat,Allergy.Peanut])
+    private var guest5 = Guest(name: "Iggy Joplin", groups: [], diets: [], allergies: [])
 }

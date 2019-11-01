@@ -19,7 +19,7 @@ struct Recipe {
     var instructions:String
     var ingredients:[String]
     
-    // NOTE: id is currently hardcoded as a backup
+    
     init    (id:Int = 404,
             title:String,
             readyTime:Int,
