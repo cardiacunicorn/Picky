@@ -25,8 +25,7 @@ struct Guest {
     
     // Returns Guest details to console
     var summary:String {
-        let result = "Guest: \(name)\nGuest ID: \(id)\nGroups: \(groups)\nDiet(s): \(diets)\nAllergies: \(allergies)"
-        return result;
+        return "Guest: \(name)\nGuest ID: \(id)\nGroups: \(groups)\nDiet(s): \(diets)\nAllergies: \(allergies)";
     }
     
 }

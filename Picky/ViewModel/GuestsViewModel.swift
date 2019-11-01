@@ -11,9 +11,12 @@ import UIKit
 struct GuestsViewModel {
     
     private var guests:[Guest] = []
+    private var guestlist:Guestlist = Guestlist(name:"Testlist",members:[])
     
     init() {
         loadData()
+        
+        
     }
     
     // returns the number of guests
@@ -27,6 +30,10 @@ struct GuestsViewModel {
         guests.append(guest2)
         guests.append(guest3)
         guests.append(guest4)
+        
+        guestlist.add(guest: guest3)
+        guestlist.add(guest: guest2)
+        guestlist.add(guest: guest5)
     }
     
     func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Diet], allergies:[Allergy]) {

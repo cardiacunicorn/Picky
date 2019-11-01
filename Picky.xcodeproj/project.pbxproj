@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA00C02223670F5900C974AD /* Assignment_2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FA00C02123670F5900C974AD /* Assignment_2.pdf */; };
+		FA49C38B236C00F0000EFBF8 /* Guestlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49C38A236C00F0000EFBF8 /* Guestlist.swift */; };
 		FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */; };
 		FA5CBD7A2359CE6000F14157 /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */; };
 		FA5CBD7C2359D24A00F14157 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7B2359D24A00F14157 /* Diet.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		FA00C02123670F5900C974AD /* Assignment_2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment_2.pdf; sourceTree = "<group>"; };
+		FA49C38A236C00F0000EFBF8 /* Guestlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guestlist.swift; sourceTree = "<group>"; };
 		FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		FA5CBD792359CE6000F14157 /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
 		FA5CBD7B2359D24A00F14157 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				FAD0C76F235868C000481BFD /* Recipe.swift */,
 				FAD0C771235868E800481BFD /* Guest.swift */,
+				FA49C38A236C00F0000EFBF8 /* Guestlist.swift */,
 				FA5CBD7B2359D24A00F14157 /* Diet.swift */,
 				FA5CBD7D2359D25700F14157 /* Allergy.swift */,
 				FA5CBD7F2359D26800F14157 /* Cuisine.swift */,
@@ -363,6 +366,7 @@
 				FA80BDBE235C3BC30004B75F /* AddRecipeViewController.swift in Sources */,
 				FAD0C73B2358670D00481BFD /* Picky.xcdatamodeld in Sources */,
 				FA5CBD842359F34100F14157 /* ShoppingListViewController.swift in Sources */,
+				FA49C38B236C00F0000EFBF8 /* Guestlist.swift in Sources */,
 				FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */,
 				FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */,
 				FAD0C770235868C000481BFD /* Recipe.swift in Sources */,
