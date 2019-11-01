@@ -25,9 +25,8 @@
 ### Design Patterns 3/3
 - You must design and implement the design pattern in your code, not make use of one already implemented by a library or framework. For example you cannot claim delegation because you have used delegation in your Table View. This is only using the pattern. You must design and implement the pattern yourself.
 
-### Auto Layout & Adaptive Layout 3/3
-- Both manual constraints and stack views have been demonstrated to achieve the layout requirements.
-- At least two scenes have utilised manual constraint based design without making use of stack views.
+### Auto Layout & Adaptive Layout 1/3
+- Need to figure out getting the recipe detail view to scroll
 
 
 
@@ -42,10 +41,6 @@
     - Potentially take a photo (or insert one) when adding a recipe
 - Remove partial implementation of incomplete features from the Simulated prototype
 
-### Layout Types 0/5
-
-### Documentation 0/1
-
 ### Design 1.5/5.5
 - 4x UITests implemented
     - Comments should mention the pre-condition, action and expected post-condition
@@ -58,6 +53,10 @@
 
 
 ## Done
+
+### Auto Layout & Adaptive Layout 2/3
+- Both manual constraints and stack views have been demonstrated to achieve the layout requirements.
+- At least two scenes have utilised manual constraint based design without making use of stack views.
 
 ### Functionality 1.5/3.5
 - Design largely makes sense to use, is fairly intuitive
