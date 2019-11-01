@@ -1,16 +1,15 @@
 //
-//  ModelUnitTests.swift
+//  PickyTests.swift
 //  PickyTests
 //
-//  Created by Alex Mills on 31/10/19.
+//  Created by Alex Mills on 17/10/19.
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 
 import XCTest
-
 @testable import Picky
 
-class ModelUnitTests: XCTestCase {
+class PickyUnitTests: XCTestCase {
 
     var guest:Guest = Guest(name: "Test Guest")
     var recipe:Recipe = Recipe(title: "Test Recipe", readyTime: 0, imageName: "")
@@ -87,5 +86,5 @@ class ModelUnitTests: XCTestCase {
         XCTAssertNoThrow(recipe.servings = 1)
         XCTAssert(recipe.servings > 0)
     }
-    
+
 }
