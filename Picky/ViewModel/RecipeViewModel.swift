@@ -37,7 +37,6 @@ struct RecipeViewModel {
         
         // Add the query if there is one
         if (query != "") {
-            print("A query has been provided")
             url = NSURL(string: endpoint + apiKey + query)
         }
         
