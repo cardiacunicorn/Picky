@@ -48,18 +48,16 @@ struct RecipeViewModel {
         let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
         print("Data object: \(dataObject)")
         
-        // Manipulate the response to JSON
+        // Manipulate the response to a Swift object
         let genericObject = try? JSONSerialization.jsonObject(with: dataObject)
         
-        if let dictionaryObject = genericObject as? [String: Any] {
-            print("Successfully cast to dictionary object")
-            
-            // This is not looping through the array, or it just has a length of one
-            for (object,recipes) in dictionaryObject {
-                print("Recipes: \(recipes)")
-//                if let likes = recipe["aggregateLikes"] {
-//
-//                }
+        // Split the response into individual recipes
+        for (key,value) in genericObject as! [String:[Any]] {
+            if key == "recipes" {
+                var recipe = value[0]
+                print(recipe)
+                
+                // Add each recipe to the recipes object
             }
         }
         
