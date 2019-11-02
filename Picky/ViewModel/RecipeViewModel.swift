@@ -15,6 +15,7 @@ struct RecipeViewModel {
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
     private var recipes:[Recipe] = []
+    private var responseRecipes:[Any] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
@@ -54,10 +55,18 @@ struct RecipeViewModel {
         // Split the response into individual recipes
         for (key,value) in genericObject as! [String:[Any]] {
             if key == "recipes" {
-                var recipe = value[0]
-                print(recipe)
                 
-                // Add each recipe to the recipes object
+                // Loop through each recipe
+                for recipe in value {
+                    
+                    // Extract key information about the recipe
+                    
+                    
+                    
+                    
+                    // Add each recipe to the recipes object
+                    responseRecipes.append(recipe)
+                }
             }
         }
         
