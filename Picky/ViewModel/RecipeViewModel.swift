@@ -62,29 +62,35 @@ struct RecipeViewModel {
                 for recipe in value as! [[String:Any]] {
                     
                     // Extract key information about the recipe
+                    let recipeID = recipe["id"] as! Int
                     let recipeTitle = recipe["title"] as! String
                     
-                    let cookMinutes = recipe["cookingMinutes"] as? Int
-                    let prepMinutes = recipe["preparationMinutes"] as? Int
                     let minutes = recipe["readyInMinutes"] as? Int
+                    let servings = recipe["servings"] as? Int
+                    
+                    let instructions = recipe["instructions"] as! String
+                    let ingredients = recipe["extendedIngredients"] as? [[String:Any]]
+                    // Pull out each ingredient's name and amount only
+                    
+                    let imageURL = recipe["image"] as? String
                     
                     // Printing to check validity
-                    print(recipeTitle)
+                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
                     if (minutes != nil) {
-                        print("Ready in \(minutes ?? 0) mins")
+                        print("Ready Time: \(minutes ?? 0) mins")
                     }
-                    if (cookMinutes != nil) {
-                        print("Cooking (m): \(cookMinutes ?? 0)")
+                    if (servings != nil) {
+                        print("Servings: \(servings ?? 1)")
                     }
-                    if (prepMinutes != nil) {
-                        print("Prep (m): \(prepMinutes ?? 0)")
-                    }
+                    print("Image address: \(imageURL ?? "No image")")
+                    // print("Ingredients: \(ingredients)")
+                    print("Instructions: \(instructions)")
                     
                     // Create a Recipe object
-                    var responseRecipe = Recipe(title: recipeTitle, readyTime: minutes ?? 0, imageName: "950595-556x370.jpg")
+                    var responseRecipe = Recipe(title: recipeTitle, readyTime: minutes ?? 0, imageName: "acorn-squash")
                     
                     // Add each recipe to the recipes object
-                    // responseRecipes.append(recipe)
+                    responseRecipes.append(responseRecipe)
                 }
             }
         }
