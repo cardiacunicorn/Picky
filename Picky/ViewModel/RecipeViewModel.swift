@@ -56,16 +56,35 @@ struct RecipeViewModel {
         for (key,value) in genericObject as! [String:[Any]] {
             if key == "recipes" {
                 
+                print(value[0])
+                
                 // Loop through each recipe
-                for recipe in value {
+                for recipe in value as! [[String:Any]] {
                     
                     // Extract key information about the recipe
+                    let recipeTitle = recipe["title"] as! String
                     
+                    let cookMinutes = recipe["cookingMinutes"] as? Int
+                    let prepMinutes = recipe["preparationMinutes"] as? Int
+                    let minutes = recipe["readyInMinutes"] as? Int
                     
+                    // Printing to check validity
+                    print(recipeTitle)
+                    if (minutes != nil) {
+                        print("Ready in \(minutes ?? 0) mins")
+                    }
+                    if (cookMinutes != nil) {
+                        print("Cooking (m): \(cookMinutes ?? 0)")
+                    }
+                    if (prepMinutes != nil) {
+                        print("Prep (m): \(prepMinutes ?? 0)")
+                    }
                     
+                    // Create a Recipe object
+                    var responseRecipe = Recipe(title: recipeTitle, readyTime: minutes ?? 0, imageName: "950595-556x370.jpg")
                     
                     // Add each recipe to the recipes object
-                    responseRecipes.append(recipe)
+                    // responseRecipes.append(recipe)
                 }
             }
         }
