@@ -69,8 +69,14 @@ struct RecipeViewModel {
                     let servings = recipe["servings"] as? Int
                     
                     let instructions = recipe["instructions"] as! String
-                    let ingredients = recipe["extendedIngredients"] as? [[String:Any]]
-                    // Pull out each ingredient's name and amount only
+                    let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
+                    var ingredients:[String] = []
+                    
+                    // Pull out the name, amount & units from each ingredient
+                    for ingredient in ingredientsObject as [[String:Any]] {
+                        let nameAndAmount = ingredient["originalString"] as! String
+                        ingredients.append(nameAndAmount)
+                    }
                     
                     let imageURL = recipe["image"] as? String
                     
@@ -83,11 +89,11 @@ struct RecipeViewModel {
                         print("Servings: \(servings ?? 1)")
                     }
                     print("Image address: \(imageURL ?? "No image")")
-                    // print("Ingredients: \(ingredients)")
+                    print("Ingredients: \(ingredients)")
                     print("Instructions: \(instructions)")
                     
                     // Create a Recipe object
-                    var responseRecipe = Recipe(title: recipeTitle, readyTime: minutes ?? 0, imageName: "acorn-squash")
+                    let responseRecipe = Recipe(title: recipeTitle, readyTime: minutes ?? 0, imageName: "acorn-squash")
                     
                     // Add each recipe to the recipes object
                     responseRecipes.append(responseRecipe)
