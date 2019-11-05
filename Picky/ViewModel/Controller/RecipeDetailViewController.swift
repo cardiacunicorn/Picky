@@ -29,8 +29,6 @@ class RecipeDetailViewController: UIViewController {
             detailTitle.text = selectedRecipe.title
             detailReadyTime.text = " " + String(selectedRecipe.readyTime) + "m "
             detailImage.image = selectedRecipe.image
-            // TODO: Need to convert custom Enums to Strings for display
-            // detailTags.text = selectedRecipe.diets.joined(separator: ", ")
             detailIngredients.text = ""
             for ingredient in selectedRecipe.ingredients {
                 detailIngredients.text?.append(ingredient+"\n")
