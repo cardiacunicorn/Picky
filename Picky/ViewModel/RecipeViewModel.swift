@@ -93,7 +93,7 @@ struct RecipeViewModel {
                     print("Instructions: \(instructions)")
                     
                     // Create a Recipe object from extracted values
-                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: "acorn-squash", instructions: instructions, ingredients: ingredients)
+                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "tomato-basil-pasta", instructions: instructions, ingredients: ingredients)
                     
                     // Add each recipe to the recipes object
                     responseRecipes.append(responseRecipe)
@@ -121,11 +121,17 @@ struct RecipeViewModel {
         let readyTime = recipes[index].readyTime
         let servings = recipes[index].servings
         let imageName = recipes[index].imageName
-        let image = UIImage(named: recipes[index].imageName)
         let cuisines = recipes[index].cuisines
         let diets = recipes[index].diets
         let instructions = recipes[index].instructions
         let ingredients = recipes[index].ingredients
+        
+        var image = UIImage(named: recipes[index].imageName)
+        if let imageURL = URL(string: imageName) {
+            if let imageData = try? Data(contentsOf: imageURL) {
+                image = UIImage(data: imageData)
+            }
+        }
         
         return (id, title, readyTime, servings, imageName, image ?? placeholder!, cuisines, diets, instructions, ingredients)
     }
