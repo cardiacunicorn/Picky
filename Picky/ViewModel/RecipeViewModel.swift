@@ -15,7 +15,7 @@ struct RecipeViewModel {
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
     private var recipes:[Recipe] = []
-    private var responseRecipes:[Any] = []
+    private var responseRecipes:[Recipe] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
@@ -56,7 +56,7 @@ struct RecipeViewModel {
         for (key,value) in genericObject as! [String:[Any]] {
             if key == "recipes" {
                 
-                print(value[0])
+                // print(value[0])
                 
                 // Loop through each recipe
                 for recipe in value as! [[String:Any]] {
@@ -92,25 +92,22 @@ struct RecipeViewModel {
                     print("Ingredients: \(ingredients)")
                     print("Instructions: \(instructions)")
                     
-                    // Create a Recipe object
-                    let responseRecipe = Recipe(title: recipeTitle, readyTime: minutes ?? 0, imageName: "acorn-squash")
+                    // Create a Recipe object from extracted values
+                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: "acorn-squash", instructions: instructions, ingredients: ingredients)
                     
                     // Add each recipe to the recipes object
                     responseRecipes.append(responseRecipe)
+                    recipes.append(responseRecipe)
                 }
             }
         }
         
         // Save recipes locally
+        print(responseRecipes)
     
         // If an error is thrown, use placeholder recipes
         
-        // Append each recipe to recipes
-        recipes.append(recipe1)
-        recipes.append(recipe2)
-        recipes.append(recipe3)
-        recipes.append(recipe4)
-        recipes.append(recipe5)
+        // Append each placeholder recipe to recipes, in case error is thrown
         recipes.append(recipe1)
         recipes.append(recipe2)
         recipes.append(recipe3)
