@@ -93,7 +93,7 @@ struct RecipeViewModel {
                     print("Instructions: \(instructions)")
                     
                     // Create a Recipe object from extracted values
-                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "tomato-basil-pasta", instructions: instructions, ingredients: ingredients)
+                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
                     
                     // Add each recipe to the recipes object
                     responseRecipes.append(responseRecipe)
