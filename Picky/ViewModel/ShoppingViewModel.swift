@@ -13,6 +13,7 @@ struct ShoppingViewModel {
     private var shoppingList:[String] = []
     
     // TODO: Convert String array to a key value Dictionary, to allow grouping by Recipe
+    // private var shoppingListDictionary:[String:String] = [:]
     
     init() {
         loadData()

@@ -57,33 +57,12 @@
 ### Auto Layout & Adaptive Layout 2/3
 - Both manual constraints and stack views have been demonstrated to achieve the layout requirements.
 - At least two scenes have utilised manual constraint based design without making use of stack views.
+- Autolayout used consistently, with no conflicts
 
-### Functionality 1.5/3.5
-- Design largely makes sense to use, is fairly intuitive
+### Other
 - App maintains no errors
-- Data is appended and removed from Arrays to simulate a database
-
-### Layout Types 5/5
-- Tab Bar 1/1
-    - Not being used across the same task
-- UIView Scene 1/1
-    - Recipe detail view
-    - Diverse range of elements
-- UITableView 1/1
-    - Recipes table
-    - Valid sample data populating by default
-- Master/Detail 1/1
-    - Recipes tab configuration
-- PopOver or Alert scene -> confirmation of Array modification, or a form for Add a Recipe/Guest
-- About page (in Settings under the Tab Bar?) with student details
-    
-### Documentation 1/1
-- Record any other changes: design principles, persistence etc. (in an appendix?)
-- Additional high-fidelity wireframe screenshots should be added to the report
 
 ### Design 4/5.5
-- Autolayout used consistently, with no conflicts
-- Design principles and themes have been consciously applied in each scene
 - MVVM is adhered to
     - No controllers managing their own data collections -> part of the view model in each case
     - Controllers call methods on the ViewModel to manage and preserve State
