@@ -32,6 +32,7 @@ struct GuestsViewModel {
         guestlist.add(guest: guest3)
         guestlist.add(guest: guest2)
         guestlist.add(guest: guest5)
+        print(guestlist.allergies2)
     }
     
     func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Diet], allergies:[Allergy]) {
@@ -58,7 +59,7 @@ struct GuestsViewModel {
     
     // Placeholder Guest Objects
     private var guest1 = Guest(name: "Alexander G. Bell", groups: ["Family","Friends"], diets: [Diet.OvoVegetarian], allergies: [Allergy.Dairy])
-    private var guest2 = Guest(name: "Colin Decemberist", groups: ["Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten])
+    private var guest2 = Guest(name: "Colin Decemberist", groups: ["Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten,Allergy.TreeNut])
     private var guest3 = Guest(name: "Edie Falco", groups: ["Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Shellfish,Allergy.TreeNut])
     private var guest4 = Guest(name: "Gwendolyn Humphries", groups: ["Family"], diets: [], allergies: [Allergy.Wheat,Allergy.Peanut])
     private var guest5 = Guest(name: "Iggy Joplin", groups: [], diets: [], allergies: [])
