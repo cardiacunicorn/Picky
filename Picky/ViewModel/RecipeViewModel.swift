@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-struct RecipeViewModel {
+class RecipeViewModel {
     
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
@@ -22,7 +22,10 @@ struct RecipeViewModel {
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
     init() {
-        loadData()
+        // loadData()
+        // loadRemoteData()
+        var request = Request()
+        request.getRecipe(number:5)
     }
     
     
@@ -33,23 +36,13 @@ struct RecipeViewModel {
     }
     
     
-    // WORK IN PROGRESS
-    private mutating func newLoadRemoteData() {
-        let session = URLSession.shared
-        query = "&tags=pescatarian,italian,dairy"
-        if let url = URL(string: endpoint + apiKey + query) {
-            let request = URLRequest(url: url)
-            
-        }
-    }
-    
-    
     
     // pull recipe data from Spoonacular
-    private mutating func loadData() {
+    private func loadData() {
         
-        // loadRemoteData()
-        newLoadRemoteData()
+        
+        
+        loadRemoteData()
         
         // Store as a generic data object
         let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
@@ -84,12 +77,10 @@ struct RecipeViewModel {
                     let imageURL = recipe["image"] as? String
                     
                     // Printing to check validity
-                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
-                    print("Ready Time: \(minutes ?? 0) mins")
-                    print("Servings: \(servings ?? 1)")
-                    print("Image address: \(imageURL ?? "No image")")
-//                    print("Ingredients: \(ingredients)\n")
-//                    print("Instructions: \(instructions)\n")
+//                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
+//                    print("Ready Time: \(minutes ?? 0) mins")
+//                    print("Servings: \(servings ?? 1)")
+//                    print("Image address: \(imageURL ?? "No image")")
                     
                     // Create a Recipe object from extracted values
                     let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
@@ -107,12 +98,12 @@ struct RecipeViewModel {
     
     
     
-    private mutating func loadRemoteData() {
+    private func loadRemoteData() {
         var parsedResult: Any!
         
         // Query should be determined by the Guest list
         // PLACEHOLDER:
-        query = "&tags=pescatarian,italian,dairy"
+        query = "&number=5&tags=pescatarian,italian,dairy"
         
         // Create the URL request, with enpoint, API Key & query
         let session = URLSession.shared
@@ -131,8 +122,9 @@ struct RecipeViewModel {
                         // Manipulate the response to a Swift object
                         parsedResult = try JSONSerialization.jsonObject(with: data!)
                         
-                        print("Success: \(String(describing: parsedResult))")
-                        
+                        print("Successful parsing")
+                        // Reset recipes to wipe defaults
+                        self.recipes = []
                         
                     } catch {
                         print("JSON Serialisation failed")
@@ -143,6 +135,40 @@ struct RecipeViewModel {
                         // let placeholderData = self.exampleResponse.data(using: String.Encoding.utf8)!
                         // parsedResult = try? JSONSerialization.jsonObject(with: placeholderData)
                     }
+                    
+                    let result = parsedResult as! [String:Any]
+                    let responseRecipes = result["recipes"]
+                    
+                    // Loop through each recipe
+                    for recipe in responseRecipes as! [[String:Any]] {
+                        
+                        // Extract key information about the recipe
+                        let recipeID = recipe["id"] as! Int
+                        let recipeTitle = recipe["title"] as! String
+                        
+                        let minutes = recipe["readyInMinutes"] as? Int
+                        let servings = recipe["servings"] as? Int
+                        
+                        let instructions = recipe["instructions"] as! String
+                        let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
+                        var ingredients:[String] = []
+                        
+                        // Pull out the name, amount & units from each ingredient
+                        for ingredient in ingredientsObject as [[String:Any]] {
+                            let nameAndAmount = ingredient["originalString"] as! String
+                            ingredients.append(nameAndAmount)
+                        }
+                        
+                        let imageURL = recipe["image"] as? String
+                        
+                        // Create a Recipe object from extracted values
+                        let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
+                        
+                        // Add each recipe to the recipes object
+                        self.recipes.append(responseRecipe)
+                    }
+                    print(self.recipes)
+                    
                 })
             task.resume()
         }
@@ -173,7 +199,7 @@ struct RecipeViewModel {
     
     
     
-    mutating func addRecipe(newRecipe:Recipe) {
+    func addRecipe(newRecipe:Recipe) {
         recipes.append(newRecipe)
         print("Recipes variable now contains:\n\(recipes)")
     }
