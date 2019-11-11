@@ -15,19 +15,26 @@ class RecipeViewModel {
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
     private var recipes:[Recipe] = []
-    private var request:Request
+    private var request = Request.shared
+    
+    private var recipes2:[Recipe] {
+        return request.recipes
+        /*
+         He's just doing getters for each property here, individually
+         
+         it must also initiate the request, which it's doing
+         */
+    }
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
     init() {
-        request = Request.shared
         recipes = request.getRecipe(number:5) // This should return an array of recipes
         // The code above takes time for a response, so should be put on a background thread because it's executing before the response comes back (I think)
         
         // Substitutes placeholder data if recipes is empty, as is the case currently
         if(recipes.count == 0) {
-            // print(summary()) // no clear output
-            loadRemoteData()
+            // loadRemoteData() // I don't want to be calling this here anyway, this is supposed to be the fallback data being loaded
             loadData()
         }
     }
@@ -40,7 +47,7 @@ class RecipeViewModel {
     }
     
     // returns the titles of current recipes for troubleshooting
-    func summary() -> String {
+    var summary: String {
         var result = ""
         for recipe in recipes {
             result.append("\(recipe.id): \(recipe.title)\n")
@@ -48,6 +55,48 @@ class RecipeViewModel {
         return result
     }
     
+    // convenience getters, rather than making variables public
+    func getID(index:Int) -> Int {
+        return recipes[index].id
+    }
+    
+    func getTitle(index:Int) -> String {
+        return recipes[index].title
+    }
+    
+    func getIngredients(index:Int) -> [String] {
+        return recipes[index].ingredients
+    }
+    
+    func getInstructions(index:Int) -> String {
+        return recipes[index].instructions
+    }
+    
+    func getServings(index:Int) -> Int {
+        return recipes[index].servings
+    }
+    
+    func getReadyTime(index:Int) -> Int {
+        return recipes[index].readyTime
+    }
+    
+    func getCuisines(index:Int) -> [Cuisine] {
+        return recipes[index].cuisines
+    }
+    
+    func getDiets(index:Int) -> [Diet] {
+        return recipes[index].diets
+    }
+    
+    func getImage(index:Int) -> UIImage {
+        var image = placeholder
+        if let imageURL = URL(string: recipes[index].imageName) {
+            if let imageData = try? Data(contentsOf: imageURL) {
+                image = UIImage(data: imageData)
+            }
+        }
+        return image ?? placeholder!
+    }
     
     
     // pull recipe data from Spoonacular
@@ -121,7 +170,6 @@ class RecipeViewModel {
                         // Manipulate the response to a Swift object
                         parsedResult = try JSONSerialization.jsonObject(with: data!)
                         
-                        print("Successful parsing")
                         // Reset recipes to wipe defaults
                         self.recipes = []
                         

@@ -36,16 +36,14 @@ class RecipeTableViewController: UITableViewController {
         
         if let imageView = imageView, let recipeTitle = recipeTitle, let recipeTags = recipeTags {
             
-            let currentRecipe = viewModel.getRecipe(byIndex: indexPath.row)
-            
-            recipeTitle.text = currentRecipe.title
-            imageView.image = currentRecipe.image
-            readyTime?.text = " " + String(currentRecipe.readyTime) + "m "
+            recipeTitle.text = viewModel.getTitle(index: indexPath.row)
+            imageView.image = viewModel.getImage(index: indexPath.row)
+            readyTime?.text = " " + String(viewModel.getReadyTime(index: indexPath.row)) + "m "
             
             // ISSUE: Correct malformed display of info
             // TODO: Consider making each recipe only contain one cuisine
             recipeTags.text = ""
-            for cuisine in currentRecipe.cuisines {
+            for cuisine in viewModel.getCuisines(index: indexPath.row) {
                 
                 // TODO: generate a pill / tag icon for TableView
                 recipeTags.text = recipeTags.text! + cuisine.rawValue
