@@ -15,6 +15,7 @@ class RecipeViewModel {
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
     private var recipes:[Recipe] = []
+    private var request:Request
     
     // TEMP
     private var responseRecipes:[Recipe] = []
@@ -24,8 +25,14 @@ class RecipeViewModel {
     init() {
         // loadData()
         // loadRemoteData()
-        var request = Request()
-        request.getRecipe(number:5)
+        request = Request()
+        recipes = request.getRecipe(number:5) // This should return an array of recipes
+        // The code above takes time for a response, so should be put on a background thread because it's executing before the response comes back (I think)
+        print(recipes)
+        // Substitutes placeholder data if recipes is empty, as is the case currently
+        if(recipes.count == 0) {
+            loadData()
+        }
     }
     
     
@@ -39,8 +46,6 @@ class RecipeViewModel {
     
     // pull recipe data from Spoonacular
     private func loadData() {
-        
-        
         
         loadRemoteData()
         
@@ -130,7 +135,6 @@ class RecipeViewModel {
                         print("JSON Serialisation failed")
                         
                         // Pass in default response as a placeholder for when serialisation fails
-                        // ISSUE: Not currently working as intended - something to do with the closure not allowing mutations on self objects
                         
                         // let placeholderData = self.exampleResponse.data(using: String.Encoding.utf8)!
                         // parsedResult = try? JSONSerialization.jsonObject(with: placeholderData)

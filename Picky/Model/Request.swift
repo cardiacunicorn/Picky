@@ -9,19 +9,19 @@
 import Foundation
 
 class Request {
-    private var recipes:[Recipe] = []
+    var recipes:[Recipe] = []
     private let session = URLSession.shared
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = "&tags="
     private var numberParam:String = "&number="
     
-    func getRecipe(number:Int) {
+    func getRecipe(number:Int) -> [Recipe] {
         recipes = []
         let url = endpoint + apiKey + numberParam + String(number) + query
         
         // If I end up letting people enter their own queries
-        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return }
+        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return [] }
         print(escapedURL)
         
         if let url = URL(string: url) {
@@ -69,13 +69,14 @@ class Request {
                             // Add each recipe to the recipes object
                             self.recipes.append(responseRecipe)
                         }
-                        print(self.recipes)
+                        print(self.recipes) // This is printing something.
                     }
                 }
             )
             task.resume()
+            print(self.recipes) // This isn't printing anything here.
         }
-        
+        return self.recipes
     }
     
 }
