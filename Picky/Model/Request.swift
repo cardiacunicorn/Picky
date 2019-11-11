@@ -16,20 +16,26 @@ class Request {
     private var query:String = "&tags="
     private var numberParam:String = "&number="
     
+    private init() {}
+    static let shared = Request()
+    
     func getRecipe(number:Int) -> [Recipe] {
         recipes = []
         let url = endpoint + apiKey + numberParam + String(number) + query
         
-        // If I end up letting people enter their own queries
+        // Insurance policy, if users end up being able to vary the queries
         guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return [] }
-        print(escapedURL)
+        print("Request URL: \(escapedURL)")
         
-        if let url = URL(string: url) {
-            let request = URLRequest(url: url)
+        if let escapedURL = URL(string: url) {
+            let request = URLRequest(url: escapedURL)
             
             let task = session.dataTask(with: request,
                 completionHandler: {
                     data, response, downloadError in
+                    
+                    print("Data object from RequestClass URL Request: \(data)")
+                    
                     // Handle URL Request failure
                     if let error = downloadError {
                         print(error)
@@ -68,14 +74,16 @@ class Request {
                             
                             // Add each recipe to the recipes object
                             self.recipes.append(responseRecipe)
+                            print("Recipe #\(recipeID): \(recipeTitle) added. [Request Class]")
                         }
-                        print(self.recipes) // This is printing something.
+                        // print(self.recipes) // This prints something.
                     }
                 }
             )
+            print(self.recipes) // This isn't printing anything here, but clearly executes before the above print
             task.resume()
-            print(self.recipes) // This isn't printing anything here.
         }
+        
         return self.recipes
     }
     

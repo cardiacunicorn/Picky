@@ -17,20 +17,17 @@ class RecipeViewModel {
     private var recipes:[Recipe] = []
     private var request:Request
     
-    // TEMP
-    private var responseRecipes:[Recipe] = []
-    
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
     init() {
-        // loadData()
-        // loadRemoteData()
-        request = Request()
+        request = Request.shared
         recipes = request.getRecipe(number:5) // This should return an array of recipes
         // The code above takes time for a response, so should be put on a background thread because it's executing before the response comes back (I think)
-        print(recipes)
+        
         // Substitutes placeholder data if recipes is empty, as is the case currently
         if(recipes.count == 0) {
+            // print(summary()) // no clear output
+            loadRemoteData()
             loadData()
         }
     }
@@ -42,12 +39,19 @@ class RecipeViewModel {
         return recipes.count
     }
     
+    // returns the titles of current recipes for troubleshooting
+    func summary() -> String {
+        var result = ""
+        for recipe in recipes {
+            result.append("\(recipe.id): \(recipe.title)\n")
+        }
+        return result
+    }
+    
     
     
     // pull recipe data from Spoonacular
     private func loadData() {
-        
-        loadRemoteData()
         
         // Store as a generic data object
         let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
@@ -81,12 +85,6 @@ class RecipeViewModel {
                     
                     let imageURL = recipe["image"] as? String
                     
-                    // Printing to check validity
-//                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
-//                    print("Ready Time: \(minutes ?? 0) mins")
-//                    print("Servings: \(servings ?? 1)")
-//                    print("Image address: \(imageURL ?? "No image")")
-                    
                     // Create a Recipe object from extracted values
                     let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
                     
@@ -95,10 +93,6 @@ class RecipeViewModel {
                 }
             }
         }
-        
-        // Save recipes locally
-        // print(responseRecipes)
-        
     }
     
     
@@ -121,7 +115,7 @@ class RecipeViewModel {
                 completionHandler: {
                     data, response, downloadError in
                     
-                    print("Data object from URL Request: \(data)")
+                    print("Data object from loadRemoteData() URL Request: \(data)")
                     
                     do {
                         // Manipulate the response to a Swift object
@@ -133,11 +127,6 @@ class RecipeViewModel {
                         
                     } catch {
                         print("JSON Serialisation failed")
-                        
-                        // Pass in default response as a placeholder for when serialisation fails
-                        
-                        // let placeholderData = self.exampleResponse.data(using: String.Encoding.utf8)!
-                        // parsedResult = try? JSONSerialization.jsonObject(with: placeholderData)
                     }
                     
                     let result = parsedResult as! [String:Any]
@@ -170,8 +159,8 @@ class RecipeViewModel {
                         
                         // Add each recipe to the recipes object
                         self.recipes.append(responseRecipe)
+                        print("Recipe #\(recipeID): \(recipeTitle) added. [RemoteLoadData]")
                     }
-                    print(self.recipes)
                     
                 })
             task.resume()

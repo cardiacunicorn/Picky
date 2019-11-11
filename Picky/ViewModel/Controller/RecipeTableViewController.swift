@@ -15,9 +15,6 @@ class RecipeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment to activate Request class
-        // var request = Request()
-        // request.getRecipe(number:5)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
