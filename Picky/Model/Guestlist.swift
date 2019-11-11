@@ -38,7 +38,7 @@ struct Guestlist {
             }
         }
         
-        // TODO: Remove duplicates
+        // TODO: Remove duplicates from array
         
         return combo
     }
@@ -53,7 +53,7 @@ struct Guestlist {
             }
         }
         
-        // TODO: Remove duplicates
+        // TODO: Remove duplicates from array
         
         return combo
     }
