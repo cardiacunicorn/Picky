@@ -88,8 +88,8 @@ struct RecipeViewModel {
                     print("Ready Time: \(minutes ?? 0) mins")
                     print("Servings: \(servings ?? 1)")
                     print("Image address: \(imageURL ?? "No image")")
-                    print("Ingredients: \(ingredients)\n")
-                    print("Instructions: \(instructions)\n")
+//                    print("Ingredients: \(ingredients)\n")
+//                    print("Instructions: \(instructions)\n")
                     
                     // Create a Recipe object from extracted values
                     let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)

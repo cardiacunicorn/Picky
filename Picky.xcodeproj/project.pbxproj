@@ -15,6 +15,7 @@
 		FA5CBD7E2359D25700F14157 /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7D2359D25700F14157 /* Allergy.swift */; };
 		FA5CBD802359D26800F14157 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7F2359D26800F14157 /* Cuisine.swift */; };
 		FA5CBD842359F34100F14157 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */; };
+		FA6094E523797D2800B53F69 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6094E423797D2800B53F69 /* Request.swift */; };
 		FA80BDBE235C3BC30004B75F /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */; };
 		FA80BDC0235C40890004B75F /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */; };
 		FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDC1235C42640004B75F /* GuestsViewModel.swift */; };
@@ -62,6 +63,7 @@
 		FA5CBD7F2359D26800F14157 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
 		FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		FA5CBD85235AF3CA00F14157 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FA6094E423797D2800B53F69 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
 		FA80BDC1235C42640004B75F /* GuestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				FA5CBD7B2359D24A00F14157 /* Diet.swift */,
 				FA5CBD7D2359D25700F14157 /* Allergy.swift */,
 				FA5CBD7F2359D26800F14157 /* Cuisine.swift */,
+				FA6094E423797D2800B53F69 /* Request.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */,
 				FA5CBD7E2359D25700F14157 /* Allergy.swift in Sources */,
 				FAD0C77423586DB300481BFD /* RecipeViewModel.swift in Sources */,
+				FA6094E523797D2800B53F69 /* Request.swift in Sources */,
 				FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */,
 				FA5CBD7A2359CE6000F14157 /* ShoppingViewModel.swift in Sources */,
 				FA80BDBE235C3BC30004B75F /* AddRecipeViewController.swift in Sources */,
