@@ -23,6 +23,8 @@ struct RecipeViewModel {
         loadData()
     }
     
+    
+    
     // returns the number of recipes
     var count:Int {
         return recipes.count
@@ -30,20 +32,44 @@ struct RecipeViewModel {
     
     // pull recipe data from Spoonacular
     private mutating func loadData() {
-        // Construct the valid API endpoint with Key
-        var url = NSURL(string: endpoint + apiKey)
         
         // Query should be determined by the Guest list
         // PLACEHOLDER:
         query = "&tags=pescatarian,italian,dairy"
         
-        // Add the query if there is one
-        if (query != "") {
-            url = NSURL(string: endpoint + apiKey + query)
+        // Create the URL request, with enpoint, API Key & query
+        let session = URLSession.shared
+        
+        var parsedResult: Any!
+        
+        if let url = URL(string: endpoint + apiKey + query) {
+            let request = URLRequest(url: url)
+            
+            // Create and run the task to retrieve JSON data from Spoonacular API
+            let task = session.dataTask(with: request,
+                completionHandler: {
+                    data, response, downloadError in
+                    
+                    print("Data object from URL Request: \(data)")
+                    do {
+                        // Manipulate the response to a Swift object
+                        parsedResult = try JSONSerialization.jsonObject(with: data!)
+                        
+                        print("Success: \(String(describing: parsedResult))")
+                    } catch {
+                        print("JSON Serialisation failed")
+                        
+                        // Pass in default response as a placeholder for when serialisation fails
+                        // ISSUE: Not currently working as intended - something to do with the closure not allowing mutations on self objects
+                        
+                        // let placeholderData = self.exampleResponse.data(using: String.Encoding.utf8)!
+                        // parsedResult = try? JSONSerialization.jsonObject(with: placeholderData)
+                    }
+                })
+            task.resume()
         }
         
-        // Create the URL request asyncronously
-        print(url?.absoluteString)
+        
         
         // Store as a generic data object
         let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
@@ -55,8 +81,6 @@ struct RecipeViewModel {
         // Split the response into individual recipes
         for (key,value) in genericObject as! [String:[Any]] {
             if key == "recipes" {
-                
-                // print(value[0])
                 
                 // Loop through each recipe
                 for recipe in value as! [[String:Any]] {
@@ -81,16 +105,16 @@ struct RecipeViewModel {
                     let imageURL = recipe["image"] as? String
                     
                     // Printing to check validity
-                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
-                    if (minutes != nil) {
-                        print("Ready Time: \(minutes ?? 0) mins")
-                    }
-                    if (servings != nil) {
-                        print("Servings: \(servings ?? 1)")
-                    }
-                    print("Image address: \(imageURL ?? "No image")")
-                    print("Ingredients: \(ingredients)")
-                    print("Instructions: \(instructions)")
+//                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
+//                    if (minutes != nil) {
+//                        print("Ready Time: \(minutes ?? 0) mins")
+//                    }
+//                    if (servings != nil) {
+//                        print("Servings: \(servings ?? 1)")
+//                    }
+//                    print("Image address: \(imageURL ?? "No image")")
+//                    print("Ingredients: \(ingredients)")
+//                    print("Instructions: \(instructions)")
                     
                     // Create a Recipe object from extracted values
                     let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
@@ -103,9 +127,7 @@ struct RecipeViewModel {
         }
         
         // Save recipes locally
-        print(responseRecipes)
-    
-        // TO HANDLE: If an error is thrown, e.g. no connection
+        // print(responseRecipes)
         
     }
     

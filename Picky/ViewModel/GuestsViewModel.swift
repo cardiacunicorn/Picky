@@ -32,7 +32,7 @@ struct GuestsViewModel {
         guestlist.add(guest: guest3)
         guestlist.add(guest: guest2)
         guestlist.add(guest: guest5)
-        print(guestlist.allergies2)
+        print(guestlist.allergies)
     }
     
     func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Diet], allergies:[Allergy]) {
