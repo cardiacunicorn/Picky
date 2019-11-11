@@ -15,6 +15,8 @@ struct RecipeViewModel {
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
     private var recipes:[Recipe] = []
+    
+    // TEMP
     private var responseRecipes:[Recipe] = []
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
@@ -30,50 +32,27 @@ struct RecipeViewModel {
         return recipes.count
     }
     
-    // pull recipe data from Spoonacular
-    private mutating func loadData() {
-        
-        // Query should be determined by the Guest list
-        // PLACEHOLDER:
-        query = "&tags=pescatarian,italian,dairy"
-        
-        // Create the URL request, with enpoint, API Key & query
+    
+    // WORK IN PROGRESS
+    private mutating func newLoadRemoteData() {
         let session = URLSession.shared
-        
-        var parsedResult: Any!
-        
+        query = "&tags=pescatarian,italian,dairy"
         if let url = URL(string: endpoint + apiKey + query) {
             let request = URLRequest(url: url)
             
-            // Create and run the task to retrieve JSON data from Spoonacular API
-            let task = session.dataTask(with: request,
-                completionHandler: {
-                    data, response, downloadError in
-                    
-                    print("Data object from URL Request: \(data)")
-                    do {
-                        // Manipulate the response to a Swift object
-                        parsedResult = try JSONSerialization.jsonObject(with: data!)
-                        
-                        print("Success: \(String(describing: parsedResult))")
-                    } catch {
-                        print("JSON Serialisation failed")
-                        
-                        // Pass in default response as a placeholder for when serialisation fails
-                        // ISSUE: Not currently working as intended - something to do with the closure not allowing mutations on self objects
-                        
-                        // let placeholderData = self.exampleResponse.data(using: String.Encoding.utf8)!
-                        // parsedResult = try? JSONSerialization.jsonObject(with: placeholderData)
-                    }
-                })
-            task.resume()
         }
+    }
+    
+    
+    
+    // pull recipe data from Spoonacular
+    private mutating func loadData() {
         
-        
+        // loadRemoteData()
+        newLoadRemoteData()
         
         // Store as a generic data object
         let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
-        print("Data object: \(dataObject)")
         
         // Manipulate the response to a Swift object
         let genericObject = try? JSONSerialization.jsonObject(with: dataObject)
@@ -105,22 +84,17 @@ struct RecipeViewModel {
                     let imageURL = recipe["image"] as? String
                     
                     // Printing to check validity
-//                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
-//                    if (minutes != nil) {
-//                        print("Ready Time: \(minutes ?? 0) mins")
-//                    }
-//                    if (servings != nil) {
-//                        print("Servings: \(servings ?? 1)")
-//                    }
-//                    print("Image address: \(imageURL ?? "No image")")
-//                    print("Ingredients: \(ingredients)")
-//                    print("Instructions: \(instructions)")
+                    print("\nRecipe #\(recipeID): \(recipeTitle)\n")
+                    print("Ready Time: \(minutes ?? 0) mins")
+                    print("Servings: \(servings ?? 1)")
+                    print("Image address: \(imageURL ?? "No image")")
+                    print("Ingredients: \(ingredients)\n")
+                    print("Instructions: \(instructions)\n")
                     
                     // Create a Recipe object from extracted values
                     let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
                     
                     // Add each recipe to the recipes object
-                    responseRecipes.append(responseRecipe)
                     recipes.append(responseRecipe)
                 }
             }
@@ -130,6 +104,51 @@ struct RecipeViewModel {
         // print(responseRecipes)
         
     }
+    
+    
+    
+    private mutating func loadRemoteData() {
+        var parsedResult: Any!
+        
+        // Query should be determined by the Guest list
+        // PLACEHOLDER:
+        query = "&tags=pescatarian,italian,dairy"
+        
+        // Create the URL request, with enpoint, API Key & query
+        let session = URLSession.shared
+        
+        if let url = URL(string: endpoint + apiKey + query) {
+            let request = URLRequest(url: url)
+            
+            // Create and run the task to retrieve JSON data from Spoonacular API
+            let task = session.dataTask(with: request,
+                completionHandler: {
+                    data, response, downloadError in
+                    
+                    print("Data object from URL Request: \(data)")
+                    
+                    do {
+                        // Manipulate the response to a Swift object
+                        parsedResult = try JSONSerialization.jsonObject(with: data!)
+                        
+                        print("Success: \(String(describing: parsedResult))")
+                        
+                        
+                    } catch {
+                        print("JSON Serialisation failed")
+                        
+                        // Pass in default response as a placeholder for when serialisation fails
+                        // ISSUE: Not currently working as intended - something to do with the closure not allowing mutations on self objects
+                        
+                        // let placeholderData = self.exampleResponse.data(using: String.Encoding.utf8)!
+                        // parsedResult = try? JSONSerialization.jsonObject(with: placeholderData)
+                    }
+                })
+            task.resume()
+        }
+    }
+    
+    
     
     func getRecipe(byIndex index:Int) -> (id:Int, title:String, readyTime:Int, servings:Int, imageName:String, image:UIImage ,cuisines:[Cuisine], diets:[Diet], instructions:String, ingredients:[String]) {
         let id = recipes[index].id
@@ -152,10 +171,13 @@ struct RecipeViewModel {
         return (id, title, readyTime, servings, imageName, image ?? placeholder!, cuisines, diets, instructions, ingredients)
     }
     
+    
+    
     mutating func addRecipe(newRecipe:Recipe) {
         recipes.append(newRecipe)
         print("Recipes variable now contains:\n\(recipes)")
     }
+    
     
     
     // Placeholder for what a Spoonacular response looks like
