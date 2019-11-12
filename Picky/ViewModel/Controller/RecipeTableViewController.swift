@@ -8,13 +8,14 @@
 
 import UIKit
 
-class RecipeTableViewController: UITableViewController {
-
+class RecipeTableViewController: UITableViewController, Refresh {
     private let viewModel = RecipeViewModel()
     @IBOutlet weak var addRecipeButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // tableView.dataSource = self
+        viewModel.delegate = self
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,6 +53,11 @@ class RecipeTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    func updateUI() {
+        print("... Updating UI ...")
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

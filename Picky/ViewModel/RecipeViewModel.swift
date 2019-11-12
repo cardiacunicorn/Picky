@@ -16,6 +16,14 @@ class RecipeViewModel {
     private var query:String = ""
     private var recipes:[Recipe] = []
     private var request = Request.shared
+    var delegate:Refresh? {
+        get {
+            return request.delegate
+        }
+        set(value) {
+            request.delegate = value
+        }
+    }
     
     private var recipes2:[Recipe] {
         return request.recipes
@@ -216,7 +224,7 @@ class RecipeViewModel {
     }
     
     
-    
+    // this function should no longer be required
     func getRecipe(byIndex index:Int) -> (id:Int, title:String, readyTime:Int, servings:Int, imageName:String, image:UIImage ,cuisines:[Cuisine], diets:[Diet], instructions:String, ingredients:[String]) {
         let id = recipes[index].id
         let title = recipes[index].title

@@ -8,8 +8,13 @@
 
 import Foundation
 
+protocol Refresh {
+    func updateUI()
+}
+
 class Request {
     var recipes:[Recipe] = []
+    var delegate:Refresh?
     private let session = URLSession.shared
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
@@ -76,11 +81,12 @@ class Request {
                             self.recipes.append(responseRecipe)
                             print("Recipe #\(recipeID): \(recipeTitle) added. [Request Class]")
                         }
-                        // print(self.recipes) // This prints something.
+                    }
+                    DispatchQueue.main.async {
+                        self.delegate?.updateUI()
                     }
                 }
             )
-            print(self.recipes) // This isn't printing anything here, but clearly executes before the above print
             task.resume()
         }
         
