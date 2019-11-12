@@ -83,6 +83,7 @@ class Request {
                         }
                     }
                     DispatchQueue.main.async {
+                        print("\(self.recipes.count) piping hot new recipes, ready for display")
                         self.delegate?.updateUI()
                     }
                 }

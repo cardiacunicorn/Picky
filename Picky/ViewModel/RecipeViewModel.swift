@@ -14,7 +14,7 @@ class RecipeViewModel {
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
-    private var recipes:[Recipe] = []
+    // private var recipes:[Recipe] = []
     private var request = Request.shared
     var delegate:Refresh? {
         get {
@@ -25,13 +25,8 @@ class RecipeViewModel {
         }
     }
     
-    private var recipes2:[Recipe] {
+    var recipes2:[Recipe] {
         return request.recipes
-        /*
-         He's just doing getters for each property here, individually
-         
-         it must also initiate the request, which it's doing
-         */
     }
     
     let placeholder = UIImage(named: "tomato-basil-pasta")

@@ -14,7 +14,7 @@ class RecipeTableViewController: UITableViewController, Refresh {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // tableView.dataSource = self
+        tableView.dataSource = self
         viewModel.delegate = self
     }
 
@@ -56,8 +56,11 @@ class RecipeTableViewController: UITableViewController, Refresh {
     }
     
     func updateUI() {
-        print("... Updating UI ...")
-        tableView.reloadData()
+        print("... Updating UI with \(viewModel.recipes2.count) new recipes ...")
+        self.tableView.reloadData() // This does not seem to be updating the data
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
