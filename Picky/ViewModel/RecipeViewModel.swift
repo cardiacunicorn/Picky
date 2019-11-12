@@ -25,14 +25,14 @@ class RecipeViewModel {
         }
     }
     
-    var recipes2:[Recipe] {
+    var recipes:[Recipe] {
         return request.recipes
     }
     
     let placeholder = UIImage(named: "tomato-basil-pasta")
     
     init() {
-        recipes = request.getRecipe(number:5) // This should return an array of recipes
+        request.getRecipe(number:5) // This should return an array of recipes
         // The code above takes time for a response, so should be put on a background thread because it's executing before the response comes back (I think)
         
         // Substitutes placeholder data if recipes is empty, as is the case currently
@@ -243,10 +243,10 @@ class RecipeViewModel {
     
     
     
-    func addRecipe(newRecipe:Recipe) {
-        recipes.append(newRecipe)
-        print("Recipes variable now contains:\n\(recipes)")
-    }
+//    func addRecipe(newRecipe:Recipe) {
+//        recipes.append(newRecipe)
+//        print("Recipes variable now contains:\n\(recipes)")
+//    }
     
     
     

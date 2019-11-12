@@ -24,12 +24,12 @@ class Request {
     private init() {}
     static let shared = Request()
     
-    func getRecipe(number:Int) -> [Recipe] {
+    func getRecipe(number:Int) {
         recipes = []
         let url = endpoint + apiKey + numberParam + String(number) + query
         
         // Insurance policy, if users end up being able to vary the queries
-        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return [] }
+        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return }
         print("Request URL: \(escapedURL)")
         
         if let escapedURL = URL(string: url) {
@@ -90,8 +90,7 @@ class Request {
             )
             task.resume()
         }
-        
-        return self.recipes
+        return
     }
     
 }
