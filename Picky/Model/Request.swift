@@ -39,7 +39,7 @@ class Request {
                 completionHandler: {
                     data, response, downloadError in
                     
-                    print("Data object from RequestClass URL Request: \(data)")
+                    print("Data object received from the RequestClass' URL Request: \(String(describing: data))")
                     
                     // Handle URL Request failure
                     if let error = downloadError {
