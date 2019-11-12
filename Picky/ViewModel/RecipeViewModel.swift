@@ -43,7 +43,7 @@ class RecipeViewModel {
         // Substitutes placeholder data if recipes is empty, as is the case currently
         if(recipes.count == 0) {
             // loadRemoteData() // I don't want to be calling this here anyway, this is supposed to be the fallback data being loaded
-            loadData()
+            // loadData() // I don't want this interfering with anything at the moment
         }
     }
     
@@ -107,121 +107,121 @@ class RecipeViewModel {
     }
     
     
-    // pull recipe data from Spoonacular
-    private func loadData() {
-        
-        // Store as a generic data object
-        let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
-        
-        // Manipulate the response to a Swift object
-        let genericObject = try? JSONSerialization.jsonObject(with: dataObject)
-        
-        // Split the response into individual recipes
-        for (key,value) in genericObject as! [String:[Any]] {
-            if key == "recipes" {
-                
-                // Loop through each recipe
-                for recipe in value as! [[String:Any]] {
-                    
-                    // Extract key information about the recipe
-                    let recipeID = recipe["id"] as! Int
-                    let recipeTitle = recipe["title"] as! String
-                    
-                    let minutes = recipe["readyInMinutes"] as? Int
-                    let servings = recipe["servings"] as? Int
-                    
-                    let instructions = recipe["instructions"] as! String
-                    let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
-                    var ingredients:[String] = []
-                    
-                    // Pull out the name, amount & units from each ingredient
-                    for ingredient in ingredientsObject as [[String:Any]] {
-                        let nameAndAmount = ingredient["originalString"] as! String
-                        ingredients.append(nameAndAmount)
-                    }
-                    
-                    let imageURL = recipe["image"] as? String
-                    
-                    // Create a Recipe object from extracted values
-                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
-                    
-                    // Add each recipe to the recipes object
-                    recipes.append(responseRecipe)
-                }
-            }
-        }
-    }
+//    // pull recipe data from Spoonacular
+//    private func loadData() {
+//
+//        // Store as a generic data object
+//        let dataObject = exampleResponse.data(using: String.Encoding.utf8)!
+//
+//        // Manipulate the response to a Swift object
+//        let genericObject = try? JSONSerialization.jsonObject(with: dataObject)
+//
+//        // Split the response into individual recipes
+//        for (key,value) in genericObject as! [String:[Any]] {
+//            if key == "recipes" {
+//
+//                // Loop through each recipe
+//                for recipe in value as! [[String:Any]] {
+//
+//                    // Extract key information about the recipe
+//                    let recipeID = recipe["id"] as! Int
+//                    let recipeTitle = recipe["title"] as! String
+//
+//                    let minutes = recipe["readyInMinutes"] as? Int
+//                    let servings = recipe["servings"] as? Int
+//
+//                    let instructions = recipe["instructions"] as! String
+//                    let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
+//                    var ingredients:[String] = []
+//
+//                    // Pull out the name, amount & units from each ingredient
+//                    for ingredient in ingredientsObject as [[String:Any]] {
+//                        let nameAndAmount = ingredient["originalString"] as! String
+//                        ingredients.append(nameAndAmount)
+//                    }
+//
+//                    let imageURL = recipe["image"] as? String
+//
+//                    // Create a Recipe object from extracted values
+//                    let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
+//
+//                    // Add each recipe to the recipes object
+//                    recipes.append(responseRecipe)
+//                }
+//            }
+//        }
+//    }
     
     
     
-    private func loadRemoteData() {
-        var parsedResult: Any!
-        
-        // Query should be determined by the Guest list
-        // PLACEHOLDER:
-        query = "&number=5&tags=pescatarian,italian,dairy"
-        
-        // Create the URL request, with enpoint, API Key & query
-        let session = URLSession.shared
-        
-        if let url = URL(string: endpoint + apiKey + query) {
-            let request = URLRequest(url: url)
-            
-            // Create and run the task to retrieve JSON data from Spoonacular API
-            let task = session.dataTask(with: request,
-                completionHandler: {
-                    data, response, downloadError in
-                    
-                    print("Data object from loadRemoteData() URL Request: \(data)")
-                    
-                    do {
-                        // Manipulate the response to a Swift object
-                        parsedResult = try JSONSerialization.jsonObject(with: data!)
-                        
-                        // Reset recipes to wipe defaults
-                        self.recipes = []
-                        
-                    } catch {
-                        print("JSON Serialisation failed")
-                    }
-                    
-                    let result = parsedResult as! [String:Any]
-                    let responseRecipes = result["recipes"]
-                    
-                    // Loop through each recipe
-                    for recipe in responseRecipes as! [[String:Any]] {
-                        
-                        // Extract key information about the recipe
-                        let recipeID = recipe["id"] as! Int
-                        let recipeTitle = recipe["title"] as! String
-                        
-                        let minutes = recipe["readyInMinutes"] as? Int
-                        let servings = recipe["servings"] as? Int
-                        
-                        let instructions = recipe["instructions"] as! String
-                        let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
-                        var ingredients:[String] = []
-                        
-                        // Pull out the name, amount & units from each ingredient
-                        for ingredient in ingredientsObject as [[String:Any]] {
-                            let nameAndAmount = ingredient["originalString"] as! String
-                            ingredients.append(nameAndAmount)
-                        }
-                        
-                        let imageURL = recipe["image"] as? String
-                        
-                        // Create a Recipe object from extracted values
-                        let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
-                        
-                        // Add each recipe to the recipes object
-                        self.recipes.append(responseRecipe)
-                        print("Recipe #\(recipeID): \(recipeTitle) added. [RemoteLoadData]")
-                    }
-                    
-                })
-            task.resume()
-        }
-    }
+//    private func loadRemoteData() {
+//        var parsedResult: Any!
+//
+//        // Query should be determined by the Guest list
+//        // PLACEHOLDER:
+//        query = "&number=5&tags=pescatarian,italian,dairy"
+//
+//        // Create the URL request, with enpoint, API Key & query
+//        let session = URLSession.shared
+//
+//        if let url = URL(string: endpoint + apiKey + query) {
+//            let request = URLRequest(url: url)
+//
+//            // Create and run the task to retrieve JSON data from Spoonacular API
+//            let task = session.dataTask(with: request,
+//                completionHandler: {
+//                    data, response, downloadError in
+//
+//                    print("Data object from loadRemoteData() URL Request: \(data)")
+//
+//                    do {
+//                        // Manipulate the response to a Swift object
+//                        parsedResult = try JSONSerialization.jsonObject(with: data!)
+//
+//                        // Reset recipes to wipe defaults
+//                        self.recipes = []
+//
+//                    } catch {
+//                        print("JSON Serialisation failed")
+//                    }
+//
+//                    let result = parsedResult as! [String:Any]
+//                    let responseRecipes = result["recipes"]
+//
+//                    // Loop through each recipe
+//                    for recipe in responseRecipes as! [[String:Any]] {
+//
+//                        // Extract key information about the recipe
+//                        let recipeID = recipe["id"] as! Int
+//                        let recipeTitle = recipe["title"] as! String
+//
+//                        let minutes = recipe["readyInMinutes"] as? Int
+//                        let servings = recipe["servings"] as? Int
+//
+//                        let instructions = recipe["instructions"] as! String
+//                        let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
+//                        var ingredients:[String] = []
+//
+//                        // Pull out the name, amount & units from each ingredient
+//                        for ingredient in ingredientsObject as [[String:Any]] {
+//                            let nameAndAmount = ingredient["originalString"] as! String
+//                            ingredients.append(nameAndAmount)
+//                        }
+//
+//                        let imageURL = recipe["image"] as? String
+//
+//                        // Create a Recipe object from extracted values
+//                        let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
+//
+//                        // Add each recipe to the recipes object
+//                        self.recipes.append(responseRecipe)
+//                        print("Recipe #\(recipeID): \(recipeTitle) added. [RemoteLoadData]")
+//                    }
+//
+//                })
+//            task.resume()
+//        }
+//    }
     
     
     // this function should no longer be required

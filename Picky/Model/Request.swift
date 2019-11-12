@@ -79,7 +79,7 @@ class Request {
                             
                             // Add each recipe to the recipes object
                             self.recipes.append(responseRecipe)
-                            print("Recipe #\(recipeID): \(recipeTitle) added. [Request Class]")
+                            print("Recipe #\(recipeID): \(recipeTitle) added. [Request Class \(self.recipes.count)/\(number)]")
                         }
                     }
                     DispatchQueue.main.async {
