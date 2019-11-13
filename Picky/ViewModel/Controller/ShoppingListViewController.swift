@@ -14,12 +14,29 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     private var newItem:String = ""
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var addButton: UIBarButtonItem!
-    @IBOutlet var editButton: UIBarButtonItem!
     
     @IBAction func addItemAction(_ sender: UIBarButtonItem) {
         addItemAlert()
     }
+    @IBAction func deleteItemButton(_ sender: Any) {
+        deleteItem()
+        self.tableView.reloadData()
+    }
+    @IBAction func editItemButton(_ sender: Any) {
+        editItem()
+        self.tableView.reloadData()
+    }
+    @IBAction func itemTextButton(_ sender: Any) {
+        // Intentionally treated as if user intends to cross off the shopping list item
+        // Unintended side effect is that default scrolling behaviour seems glitchy when click-dragging on text because default behaviour is suppressed
+        markItem()
+        self.tableView.reloadData()
+    }
+    @IBAction func itemCheckbox(_ sender: Any) {
+        markItem()
+        self.tableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +44,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        // Probably don't want to use these, simplest to write functionality myself
         // Editable, multiple selection for checkbox functionality
         // tableView.setEditing(true, animated: false)
         // tableView.allowsMultipleSelection = true
@@ -56,7 +74,17 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func markItem() {
+        // TODO: check or uncheck, strikethrough or remove strikethrough
+    }
     
+    func deleteItem() {
+        // TODO
+    }
+    
+    func editItem() {
+        // TODO
+    }
     
     // ISSUE: Not currently working as intended
     @IBAction func addItemButton(_ sender: Any) {

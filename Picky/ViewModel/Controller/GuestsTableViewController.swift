@@ -15,10 +15,15 @@ class GuestsTableViewController: UITableViewController {
     @IBAction func deleteButton(_ sender: UIButton) {
         // ISSUE: I need to pass my function the cell's index path, but don't have access to it
         // self.viewModel.removeGuest(byIndex: indexPath)
+        deleteGuest()
         self.tableView.reloadData()
     }
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
+    }
+    @IBAction func editGuestButton(_ sender: Any) {
+        editGuest()
+        self.tableView.reloadData()
     }
     
     var guestID:Int = 5
@@ -27,6 +32,7 @@ class GuestsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Not sure I want to go this route, but leaving the advice here if it comes to it
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -92,6 +98,14 @@ class GuestsTableViewController: UITableViewController {
         alertController.addAction(cancelCreate)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func deleteGuest() {
+        // TODO
+    }
+    
+    func editGuest() {
+        // TODO
     }
 
     /*

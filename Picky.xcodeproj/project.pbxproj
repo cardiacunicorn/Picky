@@ -16,7 +16,6 @@
 		FA5CBD802359D26800F14157 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7F2359D26800F14157 /* Cuisine.swift */; };
 		FA5CBD842359F34100F14157 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */; };
 		FA6094E523797D2800B53F69 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6094E423797D2800B53F69 /* Request.swift */; };
-		FA80BDBE235C3BC30004B75F /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */; };
 		FA80BDC0235C40890004B75F /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */; };
 		FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDC1235C42640004B75F /* GuestsViewModel.swift */; };
 		FA80BDC5235C8F5D0004B75F /* milestone2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FA80BDC4235C8F5D0004B75F /* milestone2.pdf */; };
@@ -64,7 +63,6 @@
 		FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		FA5CBD85235AF3CA00F14157 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA6094E423797D2800B53F69 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
 		FA80BDC1235C42640004B75F /* GuestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsViewModel.swift; sourceTree = "<group>"; };
 		FA80BDC4235C8F5D0004B75F /* milestone2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = milestone2.pdf; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			children = (
 				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
 				FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */,
-				FA80BDBD235C3BC30004B75F /* AddRecipeViewController.swift */,
 				FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */,
 				FA5CBD832359F34100F14157 /* ShoppingListViewController.swift */,
 			);
@@ -372,7 +369,6 @@
 				FA6094E523797D2800B53F69 /* Request.swift in Sources */,
 				FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */,
 				FA5CBD7A2359CE6000F14157 /* ShoppingViewModel.swift in Sources */,
-				FA80BDBE235C3BC30004B75F /* AddRecipeViewController.swift in Sources */,
 				FAD0C73B2358670D00481BFD /* Picky.xcdatamodeld in Sources */,
 				FA5CBD842359F34100F14157 /* ShoppingListViewController.swift in Sources */,
 				FA49C38B236C00F0000EFBF8 /* Guestlist.swift in Sources */,
