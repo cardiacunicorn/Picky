@@ -11,13 +11,10 @@ import UIKit
 class GuestsTableViewController: UITableViewController {
 
     private var viewModel = GuestsViewModel()
+    var guestID:Int = 6
+    var newGuest:String = ""
+    var groups:[String] = []
     
-    @IBAction func deleteButton(_ sender: UIButton) {
-        // ISSUE: I need to pass my function the cell's index path, but don't have access to it
-        // self.viewModel.removeGuest(byIndex: indexPath)
-        deleteGuest()
-        self.tableView.reloadData()
-    }
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
     }
@@ -25,10 +22,9 @@ class GuestsTableViewController: UITableViewController {
         editGuest()
         self.tableView.reloadData()
     }
-    
-    var guestID:Int = 5
-    var newGuest:String = ""
-    var groups:[String] = []
+    @IBAction func minusGuestButton(_ sender: Any) {
+        // TODO: implement removal from selected guestlist
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,17 +47,21 @@ class GuestsTableViewController: UITableViewController {
         // Find elements within the TableView
         let guestName = cell.viewWithTag(1020) as? UILabel
         let guestGroups = cell.viewWithTag(1021) as? UILabel
-        let guestDelete = cell.viewWithTag(1022) as? UIButton
         
-        if let guestName = guestName, let guestGroups = guestGroups, let guestDelete = guestDelete {
+        if let guestName = guestName, let guestGroups = guestGroups {
             let currentGuest = viewModel.getGuest(byIndex: indexPath.row)
             guestName.text = currentGuest.name
             guestGroups.text = currentGuest.groups.joined(separator: ", ")
-            // TODO: Implement a delete solution
-            // guestDelete.addTarget(self, action: deleteButton(UIButton.self), for: .touchUpInside)
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            viewModel.removeGuest(byIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
     }
     
     func createGuestAlert() {
@@ -87,7 +87,6 @@ class GuestsTableViewController: UITableViewController {
                       diets: [],
                       allergies: []
             ))
-            print("User created a new guest named '\(self.newGuest)', with ID \(self.guestID)")
             self.tableView.reloadData()
             self.guestID += 1
         }
@@ -98,10 +97,6 @@ class GuestsTableViewController: UITableViewController {
         alertController.addAction(cancelCreate)
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func deleteGuest() {
-        // TODO
     }
     
     func editGuest() {

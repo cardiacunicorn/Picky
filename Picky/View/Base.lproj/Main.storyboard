@@ -793,11 +793,11 @@
                                                 <constraint firstAttribute="height" constant="24" id="fOq-ym-LNz"/>
                                             </constraints>
                                             <color key="tintColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <state key="normal" image="xmark.circle.fill" catalog="system">
+                                            <state key="normal" image="minus" catalog="system">
                                                 <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
                                             <connections>
-                                                <action selector="deleteButton:" destination="0A6-Hr-oHa" eventType="touchUpInside" id="6fC-c8-Egz"/>
+                                                <action selector="minusGuestButton:" destination="0A6-Hr-oHa" eventType="touchUpInside" id="15f-QR-55Q"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-2q-ZSy">
@@ -860,11 +860,11 @@
         <image name="cart" catalog="system" width="64" height="52"/>
         <image name="cart.fill" catalog="system" width="64" height="52"/>
         <image name="gear" catalog="system" width="64" height="60"/>
+        <image name="minus" catalog="system" width="64" height="14"/>
         <image name="pencil" catalog="system" width="64" height="58"/>
         <image name="person.3" catalog="system" width="72" height="36"/>
         <image name="person.3.fill" catalog="system" width="72" height="35"/>
         <image name="square" catalog="system" width="64" height="56"/>
         <image name="tomato-basil-pasta" width="556" height="370"/>
-        <image name="xmark.circle.fill" catalog="system" width="64" height="62"/>
     </resources>
 </document>
