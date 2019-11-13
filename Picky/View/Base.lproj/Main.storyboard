@@ -183,6 +183,12 @@
                         <barButtonItem key="backBarButtonItem" title="Shopping List" id="07Y-ov-pgA">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="M7E-NI-rAi">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="editMenuButton:" destination="j1v-Gs-2nN" id="yng-c8-q9F"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bIt-VT-lYq">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -840,6 +846,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Guests" id="EMM-z6-m32">
                         <barButtonItem key="backBarButtonItem" title="Guests" id="CDu-Dg-zEu"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="i4i-CC-mEJ">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="editMenuButton:" destination="0A6-Hr-oHa" id="8Tr-tZ-FT0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2i-HJ-ZL9">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>

@@ -18,6 +18,13 @@ class GuestsTableViewController: UITableViewController {
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
     }
+    @IBAction func editMenuButton(_ sender: Any) {
+        if (tableView.isEditing) {
+            tableView.setEditing(false, animated: true)
+        } else {
+            tableView.setEditing(true, animated: true)
+        }
+    }
     @IBAction func editGuestButton(_ sender: Any) {
         editGuest()
         self.tableView.reloadData()

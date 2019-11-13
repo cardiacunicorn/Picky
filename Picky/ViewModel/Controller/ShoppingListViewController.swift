@@ -18,7 +18,15 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func addItemAction(_ sender: UIBarButtonItem) {
         addItemAlert()
     }
+    @IBAction func editMenuButton(_ sender: Any) {
+        if (tableView.isEditing) {
+            tableView.setEditing(false, animated: true)
+        } else {
+            tableView.setEditing(true, animated: true)
+        }
+    }
     @IBAction func editItemButton(_ sender: Any) {
+        editItem()
         self.tableView.reloadData()
     }
     @IBAction func itemTextButton(_ sender: Any) {
@@ -31,22 +39,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         markItem()
         self.tableView.reloadData()
     }
-    
-//    @IBAction func addItemButton(_ sender: Any) {
-//        // Triggered when the user taps the + button
-//        print("User tapped")
-//
-//        // Update Array
-//        viewModel.addItem(newItem: "New Shopping Item")
-//
-//        // Update Table Data
-//        tableView.beginUpdates()
-//        tableView.insertRows(at: [IndexPath(row: (viewModel.count)-1, section: 0)], with: UITableView.RowAnimation.automatic)
-//        tableView.endUpdates()
-//        tableView.reloadData()
-//    }
 
-    // ISSUE: Not currently working as intended
+    // ISSUE: Not currently used or working as intended
     @IBAction func inputField(_ sender: Any) {
         // Triggered when the user finishes editing their input
         print("User typed in something")
@@ -59,9 +53,8 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.dataSource = self
         
         // Probably don't want to use these, simplest to write functionality myself
-        // Editable, multiple selection for checkbox functionality
+        // Make editable for checkbox functionality
         // tableView.setEditing(true, animated: false)
-        // tableView.allowsMultipleSelection = true
     }
     
     func addItemAlert() {
@@ -92,7 +85,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func editItem() {
-        // TODO
+        tableView.setEditing(true, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
