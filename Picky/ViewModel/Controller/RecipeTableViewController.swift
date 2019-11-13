@@ -10,11 +10,14 @@ import UIKit
 
 class RecipeTableViewController: UITableViewController, Refresh {
     private let viewModel = RecipeViewModel()
-    @IBOutlet weak var addRecipeButton: UIBarButtonItem!
+    
+    @IBAction func RefreshRecipes(_ sender: Any) {
+        viewModel.getRecipes()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
         viewModel.delegate = self
     }
 

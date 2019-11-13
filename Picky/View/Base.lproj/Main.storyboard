@@ -81,16 +81,13 @@
                         <barButtonItem key="backBarButtonItem" title="Recipes" id="Wa6-iH-rtd">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add Recipe" image="plus" catalog="system" id="JFY-Wc-m7t">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh Recipes" image="arrow.clockwise" catalog="system" id="JFY-Wc-m7t">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="iJi-Fb-7Q7" kind="show" id="PtG-4f-0j2"/>
+                                <action selector="RefreshRecipes:" destination="lYU-6q-3kJ" id="QfG-oc-Tr7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="addRecipeButton" destination="JFY-Wc-m7t" id="nK4-mK-hRQ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gat-TA-vNW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,19 +177,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipe name" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="hXd-bq-cWz">
-                                <rect key="frame" x="16" y="60" width="288" height="34"/>
+                                <rect key="frame" x="16" y="16" width="288" height="34"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomato-basil-pasta" translatesAutoresizingMaskIntoConstraints="NO" id="kOg-bO-lTk">
-                                <rect key="frame" x="16" y="110" width="288" height="192"/>
+                                <rect key="frame" x="16" y="66" width="288" height="192"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kOg-bO-lTk" secondAttribute="height" multiplier="3:2" id="XS0-4h-goj"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cL-z4-Hfa">
-                                <rect key="frame" x="16" y="318" width="288" height="30"/>
+                                <rect key="frame" x="16" y="274" width="288" height="30"/>
                                 <state key="normal" title="Add"/>
                             </button>
                         </subviews>
@@ -545,10 +542,6 @@
                                 <exclude reference="KhO-hI-Mll"/>
                                 <exclude reference="Xkt-5R-qjP"/>
                                 <exclude reference="YJP-Tm-Ue5"/>
-                                <exclude reference="7Pc-nc-7iI"/>
-                                <exclude reference="RZW-fk-Mac"/>
-                                <exclude reference="Vws-ry-cyi"/>
-                                <exclude reference="zvY-ho-yKN"/>
                                 <exclude reference="A8P-zU-mao"/>
                                 <exclude reference="Ddq-cS-ZSi"/>
                                 <exclude reference="FJo-wN-ibY"/>
@@ -558,10 +551,18 @@
                                 <exclude reference="jcA-qs-R1g"/>
                                 <exclude reference="tuX-zC-jU5"/>
                                 <exclude reference="vEn-VY-S5B"/>
+                                <exclude reference="7Pc-nc-7iI"/>
+                                <exclude reference="RZW-fk-Mac"/>
+                                <exclude reference="Vws-ry-cyi"/>
+                                <exclude reference="zvY-ho-yKN"/>
                                 <exclude reference="03r-tC-u8r"/>
                                 <exclude reference="3JO-3S-Zlb"/>
                                 <exclude reference="hI0-TA-hy0"/>
                                 <exclude reference="npr-iT-9Kj"/>
+                                <exclude reference="15i-DO-NmS"/>
+                                <exclude reference="4U9-Q5-vXY"/>
+                                <exclude reference="fkl-sm-Aei"/>
+                                <exclude reference="oXc-Lc-cIV"/>
                                 <exclude reference="18Z-hn-7ah"/>
                                 <exclude reference="80x-fz-S4a"/>
                                 <exclude reference="IbI-qE-Kzk"/>
@@ -593,10 +594,6 @@
                                 <exclude reference="UET-S7-Cot"/>
                                 <exclude reference="dU5-CH-pj3"/>
                                 <exclude reference="sxe-1Y-PHD"/>
-                                <exclude reference="15i-DO-NmS"/>
-                                <exclude reference="4U9-Q5-vXY"/>
-                                <exclude reference="fkl-sm-Aei"/>
-                                <exclude reference="oXc-Lc-cIV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -604,16 +601,18 @@
                                 <include reference="61J-UB-8PQ"/>
                                 <include reference="KhO-hI-Mll"/>
                                 <exclude reference="Xkt-5R-qjP"/>
-                                <include reference="7Pc-nc-7iI"/>
-                                <include reference="zvY-ho-yKN"/>
                                 <exclude reference="A8P-zU-mao"/>
                                 <exclude reference="Ddq-cS-ZSi"/>
                                 <include reference="GX8-Wt-o5d"/>
                                 <exclude reference="Nmk-yt-EGh"/>
                                 <include reference="SRd-3y-Uvy"/>
                                 <exclude reference="vEn-VY-S5B"/>
+                                <include reference="7Pc-nc-7iI"/>
+                                <include reference="zvY-ho-yKN"/>
                                 <include reference="03r-tC-u8r"/>
                                 <include reference="3JO-3S-Zlb"/>
+                                <include reference="15i-DO-NmS"/>
+                                <include reference="fkl-sm-Aei"/>
                                 <include reference="18Z-hn-7ah"/>
                                 <exclude reference="JaN-x8-lmj"/>
                                 <include reference="uOI-fC-tvb"/>
@@ -633,21 +632,21 @@
                                 <include reference="4LO-5j-Duc"/>
                                 <include reference="dU5-CH-pj3"/>
                                 <include reference="sxe-1Y-PHD"/>
-                                <include reference="15i-DO-NmS"/>
-                                <include reference="fkl-sm-Aei"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="KNk-gD-k7d"/>
                                 <include reference="YJP-Tm-Ue5"/>
-                                <include reference="RZW-fk-Mac"/>
-                                <include reference="Vws-ry-cyi"/>
                                 <include reference="FJo-wN-ibY"/>
                                 <include reference="jcA-qs-R1g"/>
                                 <include reference="tuX-zC-jU5"/>
+                                <include reference="RZW-fk-Mac"/>
+                                <include reference="Vws-ry-cyi"/>
                                 <include reference="hI0-TA-hy0"/>
                                 <include reference="npr-iT-9Kj"/>
+                                <include reference="4U9-Q5-vXY"/>
+                                <include reference="oXc-Lc-cIV"/>
                                 <include reference="80x-fz-S4a"/>
                                 <include reference="IbI-qE-Kzk"/>
                                 <include reference="tbB-H6-4zz"/>
@@ -660,8 +659,6 @@
                                 <include reference="25F-fZ-5cP"/>
                                 <include reference="Rt7-zQ-eED"/>
                                 <include reference="UET-S7-Cot"/>
-                                <include reference="4U9-Q5-vXY"/>
-                                <include reference="oXc-Lc-cIV"/>
                             </mask>
                         </variation>
                     </view>
@@ -806,7 +803,7 @@
                                         </label>
                                         <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-GH-xyU">
                                             <rect key="frame" x="284" y="19" width="20" height="22"/>
-                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" image="xmark.circle.fill" catalog="system">
                                                 <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </state>
@@ -853,6 +850,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
         <image name="book" catalog="system" width="64" height="52"/>
         <image name="book.fill" catalog="system" width="64" height="50"/>
         <image name="cart" catalog="system" width="64" height="52"/>
@@ -860,7 +858,6 @@
         <image name="gear" catalog="system" width="64" height="60"/>
         <image name="person.3" catalog="system" width="72" height="36"/>
         <image name="person.3.fill" catalog="system" width="72" height="35"/>
-        <image name="plus" catalog="system" width="64" height="58"/>
         <image name="square" catalog="system" width="64" height="56"/>
         <image name="tomato-basil-pasta" width="556" height="370"/>
         <image name="xmark.circle.fill" catalog="system" width="64" height="62"/>

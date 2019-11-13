@@ -14,7 +14,6 @@ class RecipeViewModel {
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = ""
-    // private var recipes:[Recipe] = []
     private var request = Request.shared
     var delegate:Refresh? {
         get {
@@ -33,10 +32,12 @@ class RecipeViewModel {
     
     init() {
         // Initialise the request query for recipes data
-        request.getRecipe(number:5)
+        getRecipes()
     }
     
-    
+    func getRecipes() {
+        request.getRecipe(number:8)
+    }
     
     // returns the number of recipes
     var count:Int {
