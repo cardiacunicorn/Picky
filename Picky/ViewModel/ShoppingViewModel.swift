@@ -32,8 +32,6 @@ struct ShoppingViewModel {
         shoppingList.append(item4)
         shoppingList.append(item5)
         shoppingList.append(item6)
-        shoppingList.append(item7)
-        shoppingList.append(item8)
     }
     
     // Retrieves an item by its index
@@ -45,22 +43,20 @@ struct ShoppingViewModel {
     // Adds a new item to the shopping list
     mutating func addItem(newItem:String) {
         shoppingList.append(newItem)
-        print("Shopping list now contains:\n\(shoppingList)")
+        print("Added '\(newItem)' to the shopping list")
     }
     
     // Removes item from the shopping list, according to the IndexPath passed in
-    mutating func removeItem(byIndex indexPath:IndexPath) {
-        shoppingList.remove(at: indexPath.row)
-        print("Item has been removed")
+    mutating func removeItem(byIndex index:Int) {
+        print("\(shoppingList[index]) has been removed")
+        shoppingList.remove(at: index)
     }
     
     // Placeholder Shopping Items
     var item1 = "Sugar"
-    var item2 = "Salt"
-    var item3 = "Spices: Nutmeg, Tumeric, Cumin"
-    var item4 = "Chocolate (cooking & dark)"
-    var item5 = "2 bottles of red wine"
-    var item6 = "Shampoo & conditioner"
-    var item7 = "Granola"
-    var item8 = "A dozen eggs"
+    var item2 = "Spice"
+    var item3 = "All things nice"
+    var item4 = "Tap to mark off an item"
+    var item5 = "Swipe left to delete an item"
+    var item6 = "Tap the pen icon to edit an item"
 }

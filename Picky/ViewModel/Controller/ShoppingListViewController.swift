@@ -18,22 +18,18 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func addItemAction(_ sender: UIBarButtonItem) {
         addItemAlert()
     }
-    @IBAction func deleteItemButton(_ sender: Any) {
-        deleteItem()
-        self.tableView.reloadData()
-    }
     @IBAction func editItemButton(_ sender: Any) {
-        editItem()
+        // viewModel.editItem()
         self.tableView.reloadData()
     }
     @IBAction func itemTextButton(_ sender: Any) {
         // Intentionally treated as if user intends to cross off the shopping list item
         // Unintended side effect is that default scrolling behaviour seems glitchy when click-dragging on text because default behaviour is suppressed
-        markItem()
+        // viewModel.markItem()
         self.tableView.reloadData()
     }
     @IBAction func itemCheckbox(_ sender: Any) {
-        markItem()
+        // viewModel.markItem()
         self.tableView.reloadData()
     }
     
@@ -62,7 +58,6 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
             let item = alertController.textFields?[0].text
             self.newItem = item ?? "New item"
             self.viewModel.addItem(newItem: self.newItem)
-            print("User added '\(self.newItem)' to the shopping list")
             self.tableView.reloadData()
         }
         let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping list") }
@@ -74,12 +69,12 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func markItem() {
-        // TODO: check or uncheck, strikethrough or remove strikethrough
+    func deleteItem() {
+        
     }
     
-    func deleteItem() {
-        // TODO
+    func markItem() {
+        // TODO: check or uncheck, strikethrough or remove strikethrough
     }
     
     func editItem() {
@@ -108,17 +103,22 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // ISSUE: Not currently working as intended
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//            viewModel.addItem(newItem: "New Shopping Item")
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            viewModel.addItem(newItem: "New Shopping Item")
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            viewModel.removeItem(byIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
-    
-    
     
     
     
