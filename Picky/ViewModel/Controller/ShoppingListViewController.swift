@@ -55,6 +55,7 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.tableView.reloadData()
+        print("View appears. Shopping List Count: \(viewModel.count)")
     }
     
     func addItemAlert() {

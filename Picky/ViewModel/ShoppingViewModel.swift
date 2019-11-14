@@ -50,6 +50,7 @@ struct ShoppingViewModel {
     mutating func addItem(newItem:String) {
         shoppingList.append(newItem)
         print("Added '\(newItem)' to the shopping list")
+        print("Shopping list: \(shoppingList.count) items")
     }
     
     // Removes item from the shopping list, according to the IndexPath passed in
