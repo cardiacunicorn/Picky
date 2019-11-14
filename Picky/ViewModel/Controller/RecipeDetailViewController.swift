@@ -21,6 +21,15 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var detailIngredients: UILabel!
     @IBOutlet weak var detailInstructions: UILabel!
     
+    @IBAction func addAllButton(_ sender: Any) {
+        print("Adding all ingredients to user's shopping list")
+        // TODO: probably involves passing the ingredients through prepare for segue method
+        if let allIngredients = selectedRecipe?.ingredients {
+            for ingredient in allIngredients {
+                ShoppingViewModel.shared.addItem(newItem: ingredient)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

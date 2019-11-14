@@ -10,11 +10,10 @@ import UIKit
 
 class ShoppingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var viewModel = ShoppingViewModel()
+    private var viewModel = ShoppingViewModel.shared
     private var newItem:String = ""
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBAction func addItemAction(_ sender: UIBarButtonItem) {
         addItemAlert()
     }
@@ -51,10 +50,11 @@ class ShoppingListViewController: UIViewController, UITableViewDataSource, UITab
         // Tells the TableView this file will be its delegate & datasource
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        // Probably don't want to use these, simplest to write functionality myself
-        // Make editable for checkbox functionality
-        // tableView.setEditing(true, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.tableView.reloadData()
     }
     
     func addItemAlert() {

@@ -114,7 +114,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="1010" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-Gq-nf4">
-                                                    <rect key="frame" x="36" y="12" width="240" height="26"/>
+                                                    <rect key="frame" x="36" y="8" width="240" height="34"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -155,8 +155,8 @@
                                             <constraints>
                                                 <constraint firstItem="aPw-Gq-nf4" firstAttribute="centerY" secondItem="NBE-mE-NEW" secondAttribute="centerY" id="46v-4D-gRg"/>
                                                 <constraint firstItem="iIz-yE-n8V" firstAttribute="centerY" secondItem="aPw-Gq-nf4" secondAttribute="centerY" id="6HI-BZ-ZY7"/>
-                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="top" secondItem="NBE-mE-NEW" secondAttribute="top" constant="12" id="7XS-WW-bgg"/>
-                                                <constraint firstAttribute="bottom" secondItem="aPw-Gq-nf4" secondAttribute="bottom" constant="12" id="Duw-Mh-Dcw"/>
+                                                <constraint firstItem="aPw-Gq-nf4" firstAttribute="top" secondItem="NBE-mE-NEW" secondAttribute="top" constant="8" id="7XS-WW-bgg"/>
+                                                <constraint firstAttribute="bottom" secondItem="aPw-Gq-nf4" secondAttribute="bottom" constant="8" id="Duw-Mh-Dcw"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hkr-m9-kDA" secondAttribute="trailing" constant="12" id="NMa-Rs-BsQ"/>
                                                 <constraint firstItem="Hkr-m9-kDA" firstAttribute="width" secondItem="Hkr-m9-kDA" secondAttribute="height" multiplier="1:1" id="Xn7-eU-arh"/>
                                                 <constraint firstItem="iIz-yE-n8V" firstAttribute="width" secondItem="iIz-yE-n8V" secondAttribute="height" multiplier="1:1" id="fkD-mS-sOh"/>
@@ -322,7 +322,9 @@
         <scene sceneID="GGy-Wp-EZZ">
             <objects>
                 <navigationController id="NR9-u6-4WI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="eEB-gE-eN0"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="eEB-gE-eN0">
+                        <color key="badgeColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0QB-Uy-POP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -386,7 +388,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nck-QT-dz5">
-                                <rect key="frame" x="16" y="280" width="288" height="25"/>
+                                <rect key="frame" x="16" y="280" width="136" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -399,7 +401,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C2-xC-gOU">
-                                <rect key="frame" x="16" y="309" width="288" height="14"/>
+                                <rect key="frame" x="16" y="309" width="136" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -417,17 +419,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3C-zV-5cu">
-                                <rect key="frame" x="16" y="331" width="288" height="25"/>
+                                <rect key="frame" x="16" y="331" width="136" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="18"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvx-7a-jzc">
-                                <rect key="frame" x="16" y="360" width="288" height="14"/>
+                                <rect key="frame" x="16" y="360" width="136" height="14"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1W5-MQ-xGt">
+                                <rect key="frame" x="168" y="281.5" width="136" height="22"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-BoldItalic" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Add All" image="cart.fill.badge.plus" catalog="system">
+                                    <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAllButton:" destination="Tn2-Op-cXD" eventType="touchUpInside" id="Gwx-7n-J1I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -445,6 +458,10 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="12"/>
                             </constraint>
                             <constraint firstItem="Nck-QT-dz5" firstAttribute="leading" secondItem="FgD-lO-iCG" secondAttribute="leading" id="80x-fz-S4a"/>
+                            <constraint firstItem="Y3C-zV-5cu" firstAttribute="leading" secondItem="1W5-MQ-xGt" secondAttribute="trailing" constant="8.5" id="8yw-yQ-p5G">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="1W5-MQ-xGt" firstAttribute="width" secondItem="Nck-QT-dz5" secondAttribute="width" id="9IK-PM-nNO"/>
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="top" secondItem="ep1-ld-gFT" secondAttribute="bottom" constant="8" id="9iC-ox-THh"/>
                             <constraint firstItem="ep1-ld-gFT" firstAttribute="baseline" secondItem="FgD-lO-iCG" secondAttribute="firstBaseline" constant="16" symbolType="layoutAnchor" id="A8P-zU-mao">
                                 <variation key="heightClass=compact-widthClass=compact" constant="10"/>
@@ -486,6 +503,7 @@
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nck-QT-dz5" secondAttribute="trailing" constant="214" id="cT9-zK-8vf">
                                 <variation key="heightClass=compact-widthClass=compact" constant="16"/>
                             </constraint>
+                            <constraint firstItem="Cit-x3-qrM" firstAttribute="trailing" secondItem="1W5-MQ-xGt" secondAttribute="trailing" constant="16" id="cgl-US-un5"/>
                             <constraint firstItem="gvx-7a-jzc" firstAttribute="trailing" secondItem="Y3C-zV-5cu" secondAttribute="trailing" id="dU5-CH-pj3"/>
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="centerY" secondItem="Nck-QT-dz5" secondAttribute="centerY" id="dWn-uL-4xf"/>
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="trailing" secondItem="1C2-xC-gOU" secondAttribute="trailing" id="dqa-DU-VZR"/>
@@ -506,13 +524,16 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="1C2-xC-gOU" firstAttribute="leading" secondItem="Nck-QT-dz5" secondAttribute="leading" id="rJC-5b-zut"/>
+                            <constraint firstItem="1W5-MQ-xGt" firstAttribute="centerY" secondItem="Nck-QT-dz5" secondAttribute="centerY" id="rXH-qk-WnE"/>
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="leading" secondItem="1C2-xC-gOU" secondAttribute="leading" id="ruN-GT-aBs"/>
                             <constraint firstItem="gvx-7a-jzc" firstAttribute="top" secondItem="Y3C-zV-5cu" secondAttribute="bottom" constant="70" id="sxe-1Y-PHD">
                                 <variation key="heightClass=compact-widthClass=compact" constant="4"/>
                             </constraint>
-                            <constraint firstItem="Nck-QT-dz5" firstAttribute="trailing" secondItem="fLH-Br-cYK" secondAttribute="trailing" id="tbB-H6-4zz"/>
                             <constraint firstItem="ep1-ld-gFT" firstAttribute="trailing" secondItem="Cit-x3-qrM" secondAttribute="trailing" constant="236" id="tuX-zC-jU5">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="1W5-MQ-xGt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nck-QT-dz5" secondAttribute="trailing" constant="143.5" id="tv8-vt-iQO">
+                                <variation key="heightClass=compact-widthClass=compact" constant="32"/>
                             </constraint>
                             <constraint firstItem="Nck-QT-dz5" firstAttribute="top" secondItem="ep1-ld-gFT" secondAttribute="bottom" constant="74" id="uOI-fC-tvb">
                                 <variation key="heightClass=compact-widthClass=compact" constant="4"/>
@@ -520,6 +541,9 @@
                             <constraint firstItem="Y3C-zV-5cu" firstAttribute="width" secondItem="Nck-QT-dz5" secondAttribute="height" multiplier="103:25" id="uW3-o5-w1c"/>
                             <constraint firstItem="ep1-ld-gFT" firstAttribute="top" secondItem="Cit-x3-qrM" secondAttribute="top" constant="12" id="vEn-VY-S5B">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="1W5-MQ-xGt" firstAttribute="leading" secondItem="Nck-QT-dz5" secondAttribute="trailing" constant="118.5" id="xfQ-HS-nmC">
+                                <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstItem="fLH-Br-cYK" firstAttribute="top" secondItem="Cit-x3-qrM" secondAttribute="top" constant="11" id="zvY-ho-yKN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="4"/>
@@ -533,6 +557,7 @@
                                 <exclude reference="KhO-hI-Mll"/>
                                 <exclude reference="Xkt-5R-qjP"/>
                                 <exclude reference="YJP-Tm-Ue5"/>
+                                <exclude reference="cgl-US-un5"/>
                                 <exclude reference="A8P-zU-mao"/>
                                 <exclude reference="Ddq-cS-ZSi"/>
                                 <exclude reference="FJo-wN-ibY"/>
@@ -558,7 +583,6 @@
                                 <exclude reference="80x-fz-S4a"/>
                                 <exclude reference="IbI-qE-Kzk"/>
                                 <exclude reference="JaN-x8-lmj"/>
-                                <exclude reference="tbB-H6-4zz"/>
                                 <exclude reference="uOI-fC-tvb"/>
                                 <exclude reference="HdS-0O-xEB"/>
                                 <exclude reference="LLI-wq-EA9"/>
@@ -566,7 +590,10 @@
                                 <exclude reference="fS3-OV-aWX"/>
                                 <exclude reference="kfe-zr-bd5"/>
                                 <exclude reference="rJC-5b-zut"/>
+                                <exclude reference="tv8-vt-iQO"/>
+                                <exclude reference="xfQ-HS-nmC"/>
                                 <exclude reference="3lK-2o-p4k"/>
+                                <exclude reference="8yw-yQ-p5G"/>
                                 <exclude reference="9iC-ox-THh"/>
                                 <exclude reference="Fe5-cQ-fip"/>
                                 <exclude reference="Uxg-xV-vp8"/>
@@ -610,7 +637,9 @@
                                 <include reference="a6q-7f-1a4"/>
                                 <include reference="fS3-OV-aWX"/>
                                 <include reference="kfe-zr-bd5"/>
+                                <include reference="tv8-vt-iQO"/>
                                 <exclude reference="3lK-2o-p4k"/>
+                                <include reference="8yw-yQ-p5G"/>
                                 <exclude reference="9iC-ox-THh"/>
                                 <exclude reference="Fe5-cQ-fip"/>
                                 <include reference="Uxg-xV-vp8"/>
@@ -629,6 +658,7 @@
                             <mask key="constraints">
                                 <include reference="KNk-gD-k7d"/>
                                 <include reference="YJP-Tm-Ue5"/>
+                                <include reference="cgl-US-un5"/>
                                 <include reference="FJo-wN-ibY"/>
                                 <include reference="jcA-qs-R1g"/>
                                 <include reference="tuX-zC-jU5"/>
@@ -640,10 +670,10 @@
                                 <include reference="oXc-Lc-cIV"/>
                                 <include reference="80x-fz-S4a"/>
                                 <include reference="IbI-qE-Kzk"/>
-                                <include reference="tbB-H6-4zz"/>
                                 <include reference="HdS-0O-xEB"/>
                                 <include reference="LLI-wq-EA9"/>
                                 <include reference="rJC-5b-zut"/>
+                                <include reference="xfQ-HS-nmC"/>
                                 <include reference="eF8-59-vda"/>
                                 <include reference="g4l-p7-5yK"/>
                                 <include reference="ruN-GT-aBs"/>
@@ -671,7 +701,9 @@
         <scene sceneID="rEE-sZ-XwD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rti-qa-nu7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" image="book" catalog="system" selectedImage="book.fill" id="7hM-xJ-F9c"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="book" catalog="system" selectedImage="book.fill" id="7hM-xJ-F9c">
+                        <color key="badgeColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pV1-Dd-rgX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -718,7 +750,9 @@
         <scene sceneID="h64-ro-bCC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sA3-Ck-7h4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov">
+                        <color key="badgeColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="afT-Yr-CGH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -743,7 +777,9 @@
         <scene sceneID="Xj7-QI-KNb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LdP-0c-qxD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Guests" image="person.3" catalog="system" selectedImage="person.3.fill" id="TuA-zg-6v0"/>
+                    <tabBarItem key="tabBarItem" title="Guests" image="person.3" catalog="system" selectedImage="person.3.fill" id="TuA-zg-6v0">
+                        <color key="badgeColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bRD-zq-CLr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -871,6 +907,7 @@
         <image name="book.fill" catalog="system" width="64" height="50"/>
         <image name="cart" catalog="system" width="64" height="52"/>
         <image name="cart.fill" catalog="system" width="64" height="52"/>
+        <image name="cart.fill.badge.plus" catalog="system" width="64" height="50"/>
         <image name="gear" catalog="system" width="64" height="60"/>
         <image name="minus" catalog="system" width="64" height="14"/>
         <image name="pencil" catalog="system" width="64" height="58"/>

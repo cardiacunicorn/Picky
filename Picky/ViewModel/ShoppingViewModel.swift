@@ -15,13 +15,19 @@ struct ShoppingViewModel {
     // TODO: Convert String array to a key value Dictionary, to allow grouping by Recipe
     // private var shoppingListDictionary:[String:String] = [:]
     
-    init() {
+    // Creating this ViewModel as a singleton - don't want multiple shopping lists
+    private init() {
         loadData()
     }
+    static var shared = ShoppingViewModel()
     
     // Returns the number of shopping list items
     var count:Int {
         return shoppingList.count
+    }
+    
+    func getShoppingListViewModel() -> ShoppingViewModel {
+        return self
     }
     
     // Loads the placeholder shopping items for demo display

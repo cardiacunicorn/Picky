@@ -64,7 +64,6 @@ class RecipeTableViewController: UITableViewController, Refresh {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let selectedRow = self.tableView.indexPathForSelectedRow else {return}
         let destination = segue.destination as? RecipeDetailViewController
         let selectedRecipe = viewModel.getRecipe(byIndex: selectedRow.row)
