@@ -59,7 +59,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         // Create add & cancel options
         let addItem = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let item = alertController.textFields?[0].text else {return}
-            self.viewModel.addItem(newItem: item)
+            // self.viewModel.addItem(newItem: item)
             self.viewModel.addCartItem(item)
             self.tableView.reloadData()
         }
@@ -92,7 +92,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         let cartItem = cell.viewWithTag(1010) as? UILabel
 
         if let cartItem = cartItem {
-            let currentItem = viewModel.getItem(byIndex: indexPath.row)
+            let currentItem = viewModel.getItem(byIndex: indexPath.row) // this is what needs linking with core data now
             cartItem.text = currentItem.name
         }
 

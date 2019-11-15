@@ -2,6 +2,10 @@
 
 ## Notes
 
+- Adding an item to Core Data appears to be working, hard to confirm because on subsequent launches it's just data:<fault>
+- loadItems is the problem
+- there is cart data in Manager, but it does not seem accessible in ViewModel
+
 - A (set) rather than an array, will ensure no duplicate items -> maybe implement for Guestlist allergies and diets
 - Guests and Guestlists should potentially have the same Manager in the Model, so both can be created together on user input (Tut 8.4: 14:00)
 - 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them

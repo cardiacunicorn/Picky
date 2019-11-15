@@ -16,13 +16,14 @@ struct ShoppingCartViewModel {
     
     // Creating this ViewModel as a singleton - don't want multiple shopping carts
     private init() {
-        loadData()
+        // loadData() // Turned off to test persistence
     }
     static var shared = ShoppingCartViewModel()
     
     // Returns the number of shopping cart items
     var count:Int {
-        return shoppingCart.count
+        print(cartItems)
+        return cartItems.count
     }
     
     func getShoppingCartViewModel() -> ShoppingCartViewModel {
@@ -41,15 +42,21 @@ struct ShoppingCartViewModel {
     
     // Retrieves an item by its index
     func getItem(byIndex index:Int) -> (name:String, recipe:String) {
-        let content = shoppingCart[index]
-        return (content, "Default")
+        // let content = shoppingCart[index]
+        // return content
+        
+        print(index)
+        print(cartItems)
+        
+        // this is throwing an error because I have corrupted/missing array items in core data
+        // guard let itemName = cartItems[index].name else { return ("Data error","Error") }
+        let itemName = cartItems[index].name ?? "No such item" // Wait, why is it throwing here when I'm adding an item?
+        return (itemName, "Default")
     }
     
     // Adds a new item to the shopping cart
     mutating func addItem(newItem:String) {
         shoppingCart.append(newItem)
-        print("Added '\(newItem)' to the shopping cart")
-        print("Shopping cart: \(shoppingCart.count) items")
     }
     
     // Removes item from the shopping cart, according to the IndexPath passed in
@@ -58,8 +65,11 @@ struct ShoppingCartViewModel {
         shoppingCart.remove(at: index)
     }
     
+    // Adds a new item to the shopping cart
     mutating func addCartItem(_ name:String, _ recipe:String = "None") {
+        print("Added '\(name)' to the shopping cart")
         cartItemsManager.addCartItem(name, recipe)
+        print("Shopping cart: \(shoppingCart.count) items")
     }
     
     mutating func markItem() {
