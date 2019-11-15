@@ -15,8 +15,8 @@ struct ShoppingCartViewModel {
     private var cartItemsManager = CartItemsManager.shared
     
     init() {
-        loadData()
-        cartItems = cartItemsManager.getCartItems()
+        loadPlaceholders()
+        loadCartItems()
     }
     
     // Returns the number of shopping cart items
@@ -24,12 +24,8 @@ struct ShoppingCartViewModel {
         return cartItems.count
     }
     
-    func getShoppingCartViewModel() -> ShoppingCartViewModel {
-        return self
-    }
-    
     // Loads the placeholder shopping items for demo display
-    private mutating func loadData() {
+    private mutating func loadPlaceholders() {
         // Needs to do this only if they aren't already stored in Core Data
         cartItemsManager.addCartItem(item1)
         cartItemsManager.addCartItem(item2)
@@ -37,6 +33,10 @@ struct ShoppingCartViewModel {
         cartItemsManager.addCartItem(item4)
         cartItemsManager.addCartItem(item5)
         cartItemsManager.addCartItem(item6)
+    }
+    
+    mutating func loadCartItems() {
+        cartItems = cartItemsManager.getCartItems()
     }
     
     // Retrieves an item by its index
@@ -49,17 +49,20 @@ struct ShoppingCartViewModel {
     mutating func removeItem(byIndex index:Int) {
         print("\(shoppingCart[index]) has been removed")
         shoppingCart.remove(at: index)
+        loadCartItems()
     }
     
     // Adds a new item to the shopping cart
     mutating func addItem(_ name:String, _ recipe:String = "None") {
         print("Added '\(name)' to the shopping cart")
         cartItemsManager.addCartItem(name, recipe)
-        print("Shopping cart: \(shoppingCart.count) items")
+        print("Total items in shopping cart: \(cartItems.count) items")
+        loadCartItems()
     }
     
     mutating func markItem() {
         // TODO
+        loadCartItems()
     }
     
     // Placeholder Shopping Items

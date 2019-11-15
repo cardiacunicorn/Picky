@@ -21,7 +21,7 @@ class CartItemsManager {
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-        deleteAllItems()
+        // deleteAllItems()
         loadItems()
     }
     
