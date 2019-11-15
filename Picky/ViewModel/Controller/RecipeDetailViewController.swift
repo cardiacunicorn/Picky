@@ -22,7 +22,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var detailInstructions: UILabel!
     
     @IBAction func addAllButton(_ sender: Any) {
-        print("Adding all ingredients to user's shopping list")
+        print("Adding all ingredients to user's shopping cart")
         // TODO: probably involves passing the ingredients through prepare for segue method
         if let allIngredients = selectedRecipe?.ingredients {
             for ingredient in allIngredients {

@@ -12,6 +12,7 @@ import UIKit
 
 class GuestsManager {
     // Created as a singleton, don't want multiple copies floating around
+    // Unless of course I go the route of a guestmanager per guestlist
     static let shared = GuestsManager()
     
     let appDelegate =  UIApplication.shared.delegate as! AppDelegate

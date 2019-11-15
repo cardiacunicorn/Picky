@@ -14,13 +14,13 @@ struct ShoppingCartViewModel {
     private var cartItems:[CartItem] = []
     private var cartItemsManager = CartItemsManager.shared
     
-    // Creating this ViewModel as a singleton - don't want multiple shopping lists
+    // Creating this ViewModel as a singleton - don't want multiple shopping carts
     private init() {
         loadData()
     }
     static var shared = ShoppingCartViewModel()
     
-    // Returns the number of shopping list items
+    // Returns the number of shopping cart items
     var count:Int {
         return shoppingCart.count
     }
@@ -45,14 +45,14 @@ struct ShoppingCartViewModel {
         return (content, "Default")
     }
     
-    // Adds a new item to the shopping list
+    // Adds a new item to the shopping cart
     mutating func addItem(newItem:String) {
         shoppingCart.append(newItem)
-        print("Added '\(newItem)' to the shopping list")
-        print("Shopping list: \(shoppingCart.count) items")
+        print("Added '\(newItem)' to the shopping cart")
+        print("Shopping cart: \(shoppingCart.count) items")
     }
     
-    // Removes item from the shopping list, according to the IndexPath passed in
+    // Removes item from the shopping cart, according to the IndexPath passed in
     mutating func removeItem(byIndex index:Int) {
         print("\(shoppingCart[index]) has been removed")
         shoppingCart.remove(at: index)

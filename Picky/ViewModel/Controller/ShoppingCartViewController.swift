@@ -46,12 +46,12 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.tableView.reloadData()
-        print("View appears. Shopping List Count: \(viewModel.count)")
+        print("View appears. Shopping Cart Count: \(viewModel.count)")
     }
     
     func addItemAlert() {
         // Create controller
-        let alertController = UIAlertController(title: "Add Item", message: "Enter an item to add to your list", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Add Item", message: "Enter an item to add to your cart", preferredStyle: .alert)
         // Generate textField for user input
         alertController.addTextField {
             (textField) in textField.placeholder = "Enter item"
@@ -63,7 +63,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
             self.viewModel.addCartItem(item)
             self.tableView.reloadData()
         }
-        let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping list") }
+        let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping cart") }
         
         // Append options to the alert controller
         alertController.addAction(addItem)
@@ -88,12 +88,12 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingItem", for: indexPath) as UITableViewCell
-        let listItem = cell.viewWithTag(1010) as? UILabel
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cartItem", for: indexPath) as UITableViewCell
+        let cartItem = cell.viewWithTag(1010) as? UILabel
 
-        if let listItem = listItem {
+        if let cartItem = cartItem {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
-            listItem.text = currentItem.name
+            cartItem.text = currentItem.name
         }
 
         return cell
