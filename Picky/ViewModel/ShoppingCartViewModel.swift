@@ -15,10 +15,9 @@ struct ShoppingCartViewModel {
     private var cartItemsManager = CartItemsManager.shared
     
     // Creating this ViewModel as a singleton - don't want multiple shopping carts
-    private init() {
+    init() {
         // loadData() // Turned off to test persistence
     }
-    static var shared = ShoppingCartViewModel()
     
     // Returns the number of shopping cart items
     var count:Int {

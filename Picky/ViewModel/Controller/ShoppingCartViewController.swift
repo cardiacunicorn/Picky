@@ -10,7 +10,7 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var viewModel = ShoppingCartViewModel.shared
+    private var viewModel = ShoppingCartViewModel()
     private var newItem:String = ""
     
     @IBOutlet weak var tableView: UITableView!
