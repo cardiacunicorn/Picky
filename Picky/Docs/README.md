@@ -2,7 +2,8 @@
 
 ## Notes
 
-- AppDelegate has code that is essential in linking to Core Data - 6:00 of Lector's 8.6
+- A (set) rather than an array, will ensure no duplicate items -> maybe implement for Guestlist allergies and diets
+- Guests and Guestlists should potentially have the same Manager in the Model, so both can be created together on user input (Tut 8.4: 14:00)
 - 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them
 - Should add a select drop down or text input that filters and adjusts the 'selected guests' array
 - Add All seems to be creating a second shopping list (potentially), I should move to a singleton Model object for the shopping list

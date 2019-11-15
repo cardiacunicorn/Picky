@@ -11,6 +11,8 @@ import UIKit
 struct ShoppingCartViewModel {
     
     private var shoppingCart:[String] = []
+    private var cartItems:[CartItem] = []
+    private var cartItemsManager = CartItemsManager.shared
     
     // Creating this ViewModel as a singleton - don't want multiple shopping lists
     private init() {
@@ -54,6 +56,10 @@ struct ShoppingCartViewModel {
     mutating func removeItem(byIndex index:Int) {
         print("\(shoppingCart[index]) has been removed")
         shoppingCart.remove(at: index)
+    }
+    
+    mutating func addCartItem(_ name:String, _ recipe:String = "None") {
+        cartItemsManager.addCartItem(name, recipe)
     }
     
     // Placeholder Shopping Items

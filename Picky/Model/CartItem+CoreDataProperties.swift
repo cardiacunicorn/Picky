@@ -1,5 +1,5 @@
 //
-//  CartItemEntity+CoreDataProperties.swift
+//  CartItem+CoreDataProperties.swift
 //  Picky
 //
 //  Created by Alex Mills on 15/11/19.
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension CartItemEntity {
+extension CartItem {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CartItemEntity> {
-        return NSFetchRequest<CartItemEntity>(entityName: "CartItemEntity")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CartItem> {
+        return NSFetchRequest<CartItem>(entityName: "CartItem")
     }
 
     @NSManaged public var id: UUID?

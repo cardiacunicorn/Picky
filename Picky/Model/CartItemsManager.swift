@@ -17,19 +17,42 @@ class CartItemsManager {
     let appDelegate =  UIApplication.shared.delegate as! AppDelegate
     let managedContext: NSManagedObjectContext
     
+    private var cartItems:[CartItem]  = []
+    
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
+        loadItems()
     }
     
-    // Not returning anything (yet)
-    func createNSCartItem(_ name:String, _ recipe:String = "None") -> CartItemEntity {
+    // Creates the object
+    private func createNSCartItem(_ name:String, _ recipe:String) -> CartItem {
         let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItemEntity", in:managedContext)!
-        let nsShoppingItem = NSManagedObject(entity: cartItemEntity, insertInto: managedContext) as! CartItemEntity
+        let nsCartItem = NSManagedObject(entity: cartItemEntity, insertInto: managedContext) as! CartItem
         
         // Set values for the created object
-        nsShoppingItem.setValue(UUID().uuidString, forKeyPath: "id")
-        nsShoppingItem.setValue(name, forKeyPath: "name")
-        nsShoppingItem.setValue(recipe, forKeyPath: "recipe")
-        return nsShoppingItem
+        nsCartItem.setValue(UUID().uuidString, forKeyPath: "id")
+        nsCartItem.setValue(name, forKeyPath: "name")
+        nsCartItem.setValue(recipe, forKeyPath: "recipe")
+        return nsCartItem
+    }
+    
+    
+    func addCartItem(_ name:String, _ recipe:String) {
+        let nsCartItem = createNSCartItem(name, recipe)
+        cartItems.append(nsCartItem)
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save: \(error), \(error.userInfo)")
+        }
+    }
+    
+    func loadItems() {
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
+            cartItems = try managedContext.fetch(fetchRequest) as! [CartItem]
+        } catch let error as NSError {
+            print("Could not save: \(error), \(error.userInfo)")
+        }
     }
 }
