@@ -83,13 +83,15 @@ class GuestsTableViewController: UITableViewController {
         }
         // Create add & cancel options
         let createGuest = UIAlertAction(title: "Create", style: .default) { (_) in
-            let name = alertController.textFields?[0].text
+            guard let name = alertController.textFields?[0].text else {return}
             let groupsInput = alertController.textFields?[1].text
-            self.newGuest = name ?? "New Guest, ID:\(self.guestID)"
             // Split user group(s) input, by comma, into an array -- default an empty array
             self.groups = groupsInput?.components(separatedBy: ",") ?? []
+            for var group in self.groups {
+                group = group.trimmingCharacters(in: .whitespaces)
+            }
             self.viewModel.addGuest(newGuest:
-                Guest(name: self.newGuest,
+                Guest(name: name,
                       groups: self.groups,
                       diets: [],
                       allergies: []
