@@ -27,8 +27,7 @@ class RecipeDetailViewController: UIViewController {
             for ingredient in allIngredients {
                 // Add the ingredient to the Shopping Cart in CoreData
                 CartItemsManager.shared.addCartItem(ingredient, detailTitle.text ?? "None")
-                // Now need to let the Cart ViewModel that it should update it's data
-                
+                // CartViewModel currently updates its data when it appears on screen, else would need to tell it to do so here
             }
         }
     }
