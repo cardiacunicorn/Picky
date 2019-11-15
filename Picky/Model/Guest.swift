@@ -6,7 +6,9 @@
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 
-struct Guest {
+import Foundation
+
+class Guest: NSObject {
     
     // public variables, rather than getters
     var id:Int = 0

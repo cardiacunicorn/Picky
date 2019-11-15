@@ -8,16 +8,16 @@
 
 enum Allergy:String {
     case
-        Dairy = "Dairy",
-        Egg = "Egg",
-        Gluten = "Gluten",
-        Grain = "Grain",
-        Peanut = "Peanut",
-        Seafood = "Seafood",
-        Sesame = "Sesame",
-        Shellfish = "Shellfish",
-        Soy = "Soy",
-        Sulfite = "Sulfite",
+        Dairy,
+        Egg,
+        Gluten,
+        Grain,
+        Peanut,
+        Seafood,
+        Sesame,
+        Shellfish,
+        Soy,
+        Sulfite,
         TreeNut = "Tree Nuts",
-        Wheat = "Wheat"
+        Wheat
 }
