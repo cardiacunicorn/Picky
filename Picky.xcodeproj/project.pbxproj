@@ -40,6 +40,7 @@
 		FAEEEFE9237F15C20067E0BD /* GuestEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFE5237F15C20067E0BD /* GuestEntity+CoreDataProperties.swift */; };
 		FAEEEFEA237F15C20067E0BD /* GuestlistEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFE6237F15C20067E0BD /* GuestlistEntity+CoreDataClass.swift */; };
 		FAEEEFEB237F15C20067E0BD /* GuestlistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFE7237F15C20067E0BD /* GuestlistEntity+CoreDataProperties.swift */; };
+		FAEEEFED237F180A0067E0BD /* GuestsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		FAEEEFE5237F15C20067E0BD /* GuestEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuestEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FAEEEFE6237F15C20067E0BD /* GuestlistEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuestlistEntity+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FAEEEFE7237F15C20067E0BD /* GuestlistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuestlistEntity+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				FA5CBD7F2359D26800F14157 /* Cuisine.swift */,
 				FA6094E423797D2800B53F69 /* Request.swift */,
 				FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */,
+				FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEEEFED237F180A0067E0BD /* GuestsManager.swift in Sources */,
 				FA5CBD802359D26800F14157 /* Cuisine.swift in Sources */,
 				FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */,
 				FAEEEFD7237ED75B0067E0BD /* CartItemsManager.swift in Sources */,
