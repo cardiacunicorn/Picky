@@ -1,5 +1,5 @@
 //
-//  ShoppingListManager.swift
+//  CartItemManager.swift
 //  Picky
 //
 //  Created by Alex Mills on 15/11/19.
@@ -22,9 +22,14 @@ class CartItemsManager {
     }
     
     // Not returning anything (yet)
-    func createNSShoppingItem(_ name: String) {
-        let itemEntity = NSEntityDescription.entity(forEntityName:"ShoppingListItemEntity", in:managedContext)!
+    func createNSCartItem(_ name:String, _ recipe:String = "None") -> CartItemEntity {
+        let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItemEntity", in:managedContext)!
+        let nsShoppingItem = NSManagedObject(entity: cartItemEntity, insertInto: managedContext) as! CartItemEntity
         
-        // let nsShoppingItem
+        // Set values for the created object
+        nsShoppingItem.setValue(UUID().uuidString, forKeyPath: "id")
+        nsShoppingItem.setValue(name, forKeyPath: "name")
+        nsShoppingItem.setValue(recipe, forKeyPath: "recipe")
+        return nsShoppingItem
     }
 }

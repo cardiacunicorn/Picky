@@ -12,9 +12,6 @@ struct ShoppingCartViewModel {
     
     private var shoppingCart:[String] = []
     
-    // TODO: Convert String array to a key value Dictionary, to allow grouping by Recipe
-    // private var shoppingListDictionary:[String:String] = [:]
-    
     // Creating this ViewModel as a singleton - don't want multiple shopping lists
     private init() {
         loadData()

@@ -1,5 +1,5 @@
 //
-//  ShoppingListViewController.swift
+//  ShoppingCartViewController.swift
 //  Picky
 //
 //  Created by Alex Mills on 18/10/19.

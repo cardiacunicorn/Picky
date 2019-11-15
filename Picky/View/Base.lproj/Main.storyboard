@@ -96,7 +96,7 @@
         <!--Shopping List-->
         <scene sceneID="70Q-H9-XkJ">
             <objects>
-                <viewController id="j1v-Gs-2nN" customClass="ShoppingListViewController" customModule="Picky" sceneMemberID="viewController">
+                <viewController id="j1v-Gs-2nN" customClass="ShoppingCartViewController" customModule="Picky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rw8-CV-Pff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
