@@ -155,7 +155,6 @@
 				FAD0C7662358679700481BFD /* Docs */,
 				FAD0C73C2358670F00481BFD /* Assets.xcassets */,
 				FAD0C7412358670F00481BFD /* Info.plist */,
-				FAD0C7392358670D00481BFD /* Picky.xcdatamodeld */,
 			);
 			path = Picky;
 			sourceTree = "<group>";
@@ -190,6 +189,7 @@
 		FAD0C7642358675800481BFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0C7392358670D00481BFD /* Picky.xcdatamodeld */,
 				FAD0C76F235868C000481BFD /* Recipe.swift */,
 				FAD0C771235868E800481BFD /* Guest.swift */,
 				FA49C38A236C00F0000EFBF8 /* Guestlist.swift */,
