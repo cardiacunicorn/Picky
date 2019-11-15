@@ -87,6 +87,7 @@ class GuestsTableViewController: UITableViewController {
             let groupsInput = alertController.textFields?[1].text
             // Split user group(s) input, by comma, into an array -- default an empty array
             self.groups = groupsInput?.components(separatedBy: ",") ?? []
+            // Remove leading and trailing spaces
             for var group in self.groups {
                 group = group.trimmingCharacters(in: .whitespaces)
             }
@@ -111,25 +112,4 @@ class GuestsTableViewController: UITableViewController {
     func editGuest() {
         // TODO
     }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -7,6 +7,7 @@
 - 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them
 - Should add a select drop down or text input that filters and adjusts the 'selected guests' array
 - Add All seems to be creating a second shopping list (potentially), I should move to a singleton Model object for the shopping list
+- To update a UIButton requires using a setTitle method, rather than just manipulating the text raw
 
 ## To Do (Milestone 3)
 

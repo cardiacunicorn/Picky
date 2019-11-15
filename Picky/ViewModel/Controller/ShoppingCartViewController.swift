@@ -28,21 +28,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         editItem()
         self.tableView.reloadData()
     }
-    @IBAction func itemTextButton(_ sender: Any) {
-        // Intentionally treated as if user intends to cross off the shopping list item
-        // Unintended side effect is that default scrolling behaviour seems glitchy when click-dragging on text because default behaviour is suppressed
-        markItem()
-        self.tableView.reloadData()
-    }
     @IBAction func itemCheckbox(_ sender: Any) {
         markItem()
         self.tableView.reloadData()
-    }
-
-    // ISSUE: Not currently used or working as intended
-    @IBAction func inputField(_ sender: Any) {
-        // Triggered when the user finishes editing their input
-        print("User typed in something")
     }
     
     override func viewDidLoad() {
@@ -102,13 +90,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingItem", for: indexPath) as UITableViewCell
-        let listItem = cell.viewWithTag(1010) as? UIButton
+        let listItem = cell.viewWithTag(1010) as? UILabel
 
         if let listItem = listItem {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
-            // ISSUE: Prototype cells are generated, but title labels do not update until user scrolls the cell offscreen
-            // SOLUTION: Needed to use setTitle function, not direct edit of text e.g. listItem.titleLabel?.text
-            listItem.setTitle(currentItem, for: UIControl.State.normal)
+            listItem.text = currentItem.name
         }
 
         return cell

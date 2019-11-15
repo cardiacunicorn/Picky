@@ -38,8 +38,8 @@
 		FAEEEFD4237ED6610067E0BD /* GuestlistEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFCE237ED6610067E0BD /* GuestlistEntity+CoreDataClass.swift */; };
 		FAEEEFD5237ED6610067E0BD /* GuestlistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFCF237ED6610067E0BD /* GuestlistEntity+CoreDataProperties.swift */; };
 		FAEEEFD7237ED75B0067E0BD /* CartItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */; };
-		FAEEEFDE237EEFEC0067E0BD /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFDC237EEFEC0067E0BD /* CartItem+CoreDataClass.swift */; };
-		FAEEEFDF237EEFEC0067E0BD /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFDD237EEFEC0067E0BD /* CartItem+CoreDataProperties.swift */; };
+		FAEEEFE2237F0B6D0067E0BD /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFE0237F0B6D0067E0BD /* CartItem+CoreDataClass.swift */; };
+		FAEEEFE3237F0B6D0067E0BD /* CartItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFE1237F0B6D0067E0BD /* CartItem+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +98,8 @@
 		FAEEEFCE237ED6610067E0BD /* GuestlistEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuestlistEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FAEEEFCF237ED6610067E0BD /* GuestlistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuestlistEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsManager.swift; sourceTree = "<group>"; };
-		FAEEEFDC237EEFEC0067E0BD /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FAEEEFDD237EEFEC0067E0BD /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAEEEFE0237F0B6D0067E0BD /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FAEEEFE1237F0B6D0067E0BD /* CartItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,10 +206,10 @@
 				FAD0C7392358670D00481BFD /* Picky.xcdatamodeld */,
 				FAEEEFCA237ED6610067E0BD /* GuestEntity+CoreDataClass.swift */,
 				FAEEEFCE237ED6610067E0BD /* GuestlistEntity+CoreDataClass.swift */,
-				FAEEEFDC237EEFEC0067E0BD /* CartItem+CoreDataClass.swift */,
+				FAEEEFE0237F0B6D0067E0BD /* CartItem+CoreDataClass.swift */,
 				FAEEEFCB237ED6610067E0BD /* GuestEntity+CoreDataProperties.swift */,
 				FAEEEFCF237ED6610067E0BD /* GuestlistEntity+CoreDataProperties.swift */,
-				FAEEEFDD237EEFEC0067E0BD /* CartItem+CoreDataProperties.swift */,
+				FAEEEFE1237F0B6D0067E0BD /* CartItem+CoreDataProperties.swift */,
 				FAD0C76F235868C000481BFD /* Recipe.swift */,
 				FAD0C771235868E800481BFD /* Guest.swift */,
 				FA49C38A236C00F0000EFBF8 /* Guestlist.swift */,
@@ -381,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5CBD802359D26800F14157 /* Cuisine.swift in Sources */,
-				FAEEEFDE237EEFEC0067E0BD /* CartItem+CoreDataClass.swift in Sources */,
 				FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */,
 				FAEEEFD7237ED75B0067E0BD /* CartItemsManager.swift in Sources */,
 				FA5CBD7C2359D24A00F14157 /* Diet.swift in Sources */,
@@ -394,11 +393,12 @@
 				FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */,
 				FAEEEFD4237ED6610067E0BD /* GuestlistEntity+CoreDataClass.swift in Sources */,
 				FA5CBD7A2359CE6000F14157 /* ShoppingCartViewModel.swift in Sources */,
+				FAEEEFE3237F0B6D0067E0BD /* CartItem+CoreDataProperties.swift in Sources */,
 				FAD0C73B2358670D00481BFD /* Picky.xcdatamodeld in Sources */,
 				FA5CBD842359F34100F14157 /* ShoppingCartViewController.swift in Sources */,
-				FAEEEFDF237EEFEC0067E0BD /* CartItem+CoreDataProperties.swift in Sources */,
 				FA49C38B236C00F0000EFBF8 /* Guestlist.swift in Sources */,
 				FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */,
+				FAEEEFE2237F0B6D0067E0BD /* CartItem+CoreDataClass.swift in Sources */,
 				FAEEEFD1237ED6610067E0BD /* GuestEntity+CoreDataProperties.swift in Sources */,
 				FAEEEFD5237ED6610067E0BD /* GuestlistEntity+CoreDataProperties.swift in Sources */,
 				FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */,

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CartItem" representedClassName="CartItem" syncable="YES">
+        <attribute name="crossedOut" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="recipe" optional="YES" attributeType="String" defaultValueString="Unattributed"/>
@@ -22,6 +23,6 @@
     <elements>
         <element name="GuestEntity" positionX="-54" positionY="9" width="128" height="118"/>
         <element name="GuestlistEntity" positionX="-36" positionY="18" width="128" height="118"/>
-        <element name="CartItem" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="CartItem" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

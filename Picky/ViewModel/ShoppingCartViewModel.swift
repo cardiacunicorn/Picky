@@ -40,9 +40,9 @@ struct ShoppingCartViewModel {
     }
     
     // Retrieves an item by its index
-    func getItem(byIndex index:Int) -> (String) {
+    func getItem(byIndex index:Int) -> (name:String, recipe:String) {
         let content = shoppingCart[index]
-        return content
+        return (content, "Default")
     }
     
     // Adds a new item to the shopping list
