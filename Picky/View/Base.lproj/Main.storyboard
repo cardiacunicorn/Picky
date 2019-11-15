@@ -139,18 +139,19 @@
                                                         <action selector="itemCheckbox:" destination="j1v-Gs-2nN" eventType="touchUpInside" id="vdF-Ju-uCJ"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1010" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-nN-irn">
-                                                    <rect key="frame" x="40" y="14.5" width="236" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1010" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-nN-irn">
+                                                    <rect key="frame" x="40" y="8" width="236" height="34"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                     <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fUz-nN-irn" firstAttribute="centerY" secondItem="NBE-mE-NEW" secondAttribute="centerY" id="4tX-c3-yvU"/>
+                                                <constraint firstAttribute="bottom" secondItem="fUz-nN-irn" secondAttribute="bottom" constant="8" id="3yg-1i-HeY"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hkr-m9-kDA" secondAttribute="trailing" constant="12" id="NMa-Rs-BsQ"/>
                                                 <constraint firstItem="iIz-yE-n8V" firstAttribute="centerY" secondItem="fUz-nN-irn" secondAttribute="centerY" id="Qiz-eo-LNd"/>
                                                 <constraint firstItem="Hkr-m9-kDA" firstAttribute="width" secondItem="Hkr-m9-kDA" secondAttribute="height" multiplier="1:1" id="Xn7-eU-arh"/>
+                                                <constraint firstItem="fUz-nN-irn" firstAttribute="top" secondItem="NBE-mE-NEW" secondAttribute="top" constant="8" id="dhQ-JQ-heQ"/>
                                                 <constraint firstItem="iIz-yE-n8V" firstAttribute="width" secondItem="iIz-yE-n8V" secondAttribute="height" multiplier="1:1" id="fkD-mS-sOh"/>
                                                 <constraint firstItem="Hkr-m9-kDA" firstAttribute="leading" secondItem="fUz-nN-irn" secondAttribute="trailing" constant="8" id="kXj-LD-xuG"/>
                                                 <constraint firstItem="iIz-yE-n8V" firstAttribute="leading" secondItem="NBE-mE-NEW" secondAttribute="leading" constant="8" id="siL-SN-gKi"/>

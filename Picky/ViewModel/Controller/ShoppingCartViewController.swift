@@ -29,9 +29,12 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.reloadData()
     }
     @IBAction func itemCheckbox(_ sender: Any) {
-        markItem()
+        // TODO: check or uncheck, strikethrough or remove strikethrough
+        // Q: Do I send sender as a parameter of the function so it knows which item should be updated?
+        viewModel.markItem()
         self.tableView.reloadData()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +70,6 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         alertController.addAction(cancelAdd)
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func markItem() {
-        // TODO: check or uncheck, strikethrough or remove strikethrough
     }
     
     func editItem() {

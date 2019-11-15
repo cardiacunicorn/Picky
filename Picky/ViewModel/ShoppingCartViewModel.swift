@@ -62,6 +62,10 @@ struct ShoppingCartViewModel {
         cartItemsManager.addCartItem(name, recipe)
     }
     
+    mutating func markItem() {
+        // TODO
+    }
+    
     // Placeholder Shopping Items
     var item1 = "Sugar"
     var item2 = "Spice"

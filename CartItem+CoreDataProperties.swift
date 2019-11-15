@@ -17,7 +17,6 @@ extension CartItem {
         return NSFetchRequest<CartItem>(entityName: "CartItem")
     }
 
-    @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var recipe: String?
     @NSManaged public var crossedOut: Bool

@@ -26,11 +26,10 @@ class CartItemsManager {
     
     // Creates the object
     private func createNSCartItem(_ name:String, _ recipe:String) -> CartItem {
-        let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItemEntity", in:managedContext)!
+        let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItem", in:managedContext)!
         let nsCartItem = NSManagedObject(entity: cartItemEntity, insertInto: managedContext) as! CartItem
         
         // Set values for the created object
-        nsCartItem.setValue(UUID().uuidString, forKeyPath: "id")
         nsCartItem.setValue(name, forKeyPath: "name")
         nsCartItem.setValue(recipe, forKeyPath: "recipe")
         return nsCartItem
