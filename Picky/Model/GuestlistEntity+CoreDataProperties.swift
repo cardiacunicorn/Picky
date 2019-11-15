@@ -19,7 +19,7 @@ extension GuestlistEntity {
 
     @NSManaged public var allergies: NSObject?
     @NSManaged public var diets: NSObject?
-    @NSManaged public var id: Int64
+    @NSManaged public var id: UUID?
     @NSManaged public var name: String?
     @NSManaged public var guests: GuestEntity?
 
