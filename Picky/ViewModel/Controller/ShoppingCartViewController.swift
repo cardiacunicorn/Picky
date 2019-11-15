@@ -59,8 +59,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         // Create add & cancel options
         let addItem = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let item = alertController.textFields?[0].text else {return}
-            // self.viewModel.addItem(newItem: item)
-            self.viewModel.addCartItem(item)
+            self.viewModel.addItem(item)
+            // Q: Should I generate a new row for a new item here?
             self.tableView.reloadData()
         }
         let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping cart") }

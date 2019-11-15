@@ -45,11 +45,6 @@ struct ShoppingCartViewModel {
         return (itemName, "Default")
     }
     
-    // Adds a new item to the shopping cart
-    mutating func addItem(newItem:String) {
-        shoppingCart.append(newItem)
-    }
-    
     // Removes item from the shopping cart, according to the IndexPath passed in
     mutating func removeItem(byIndex index:Int) {
         print("\(shoppingCart[index]) has been removed")
@@ -57,7 +52,7 @@ struct ShoppingCartViewModel {
     }
     
     // Adds a new item to the shopping cart
-    mutating func addCartItem(_ name:String, _ recipe:String = "None") {
+    mutating func addItem(_ name:String, _ recipe:String = "None") {
         print("Added '\(name)' to the shopping cart")
         cartItemsManager.addCartItem(name, recipe)
         print("Shopping cart: \(shoppingCart.count) items")
