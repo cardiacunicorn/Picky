@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CartItemEntity" representedClassName="CartItemEntity" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="recipe" optional="YES" attributeType="String" defaultValueString="Unattributed"/>
+    </entity>
     <entity name="GuestEntity" representedClassName="GuestEntity" syncable="YES">
         <attribute name="allergies" optional="YES" attributeType="Transformable"/>
         <attribute name="diets" optional="YES" attributeType="Transformable"/>
@@ -14,14 +19,9 @@
         <attribute name="name" attributeType="String"/>
         <relationship name="guests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GuestEntity" inverseName="guestlists" inverseEntity="GuestEntity"/>
     </entity>
-    <entity name="ShoppingListItemEntity" representedClassName="ShoppingListItemEntity" syncable="YES">
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="name" attributeType="String"/>
-        <attribute name="recipe" optional="YES" attributeType="String" defaultValueString="Unattributed"/>
-    </entity>
     <elements>
         <element name="GuestEntity" positionX="-54" positionY="9" width="128" height="118"/>
         <element name="GuestlistEntity" positionX="-36" positionY="18" width="128" height="118"/>
-        <element name="ShoppingListItemEntity" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="CartItemEntity" positionX="-63" positionY="-18" width="128" height="88"/>
     </elements>
 </model>

@@ -26,7 +26,7 @@ class RecipeDetailViewController: UIViewController {
         // TODO: probably involves passing the ingredients through prepare for segue method
         if let allIngredients = selectedRecipe?.ingredients {
             for ingredient in allIngredients {
-                ShoppingViewModel.shared.addItem(newItem: ingredient)
+                ShoppingCartViewModel.shared.addItem(newItem: ingredient)
             }
         }
     }

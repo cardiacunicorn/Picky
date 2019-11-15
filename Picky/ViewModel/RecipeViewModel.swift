@@ -28,7 +28,7 @@ class RecipeViewModel {
         return request.recipes
     }
     
-    let placeholder = UIImage(named: "tomato-basil-pasta")
+    let placeholder = UIImage(named: "placeholder")
     
     init() {
         // Initialise the request query for recipes data

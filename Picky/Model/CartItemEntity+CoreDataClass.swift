@@ -1,5 +1,5 @@
 //
-//  ShoppingListItemEntity+CoreDataClass.swift
+//  CartItemEntity+CoreDataClass.swift
 //  Picky
 //
 //  Created by Alex Mills on 15/11/19.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(ShoppingListItemEntity)
-public class ShoppingListItemEntity: NSManagedObject {
+@objc(CartItemEntity)
+public class CartItemEntity: NSManagedObject {
 
 }

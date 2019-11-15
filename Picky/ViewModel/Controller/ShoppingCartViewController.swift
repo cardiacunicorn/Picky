@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ShoppingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var viewModel = ShoppingViewModel.shared
+    private var viewModel = ShoppingCartViewModel.shared
     private var newItem:String = ""
     
     @IBOutlet weak var tableView: UITableView!

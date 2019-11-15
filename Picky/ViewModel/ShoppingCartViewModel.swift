@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct ShoppingViewModel {
+struct ShoppingCartViewModel {
     
-    private var shoppingList:[String] = []
+    private var shoppingCart:[String] = []
     
     // TODO: Convert String array to a key value Dictionary, to allow grouping by Recipe
     // private var shoppingListDictionary:[String:String] = [:]
@@ -19,44 +19,44 @@ struct ShoppingViewModel {
     private init() {
         loadData()
     }
-    static var shared = ShoppingViewModel()
+    static var shared = ShoppingCartViewModel()
     
     // Returns the number of shopping list items
     var count:Int {
-        return shoppingList.count
+        return shoppingCart.count
     }
     
-    func getShoppingListViewModel() -> ShoppingViewModel {
+    func getShoppingCartViewModel() -> ShoppingCartViewModel {
         return self
     }
     
     // Loads the placeholder shopping items for demo display
     private mutating func loadData() {
-        shoppingList.append(item1)
-        shoppingList.append(item2)
-        shoppingList.append(item3)
-        shoppingList.append(item4)
-        shoppingList.append(item5)
-        shoppingList.append(item6)
+        shoppingCart.append(item1)
+        shoppingCart.append(item2)
+        shoppingCart.append(item3)
+        shoppingCart.append(item4)
+        shoppingCart.append(item5)
+        shoppingCart.append(item6)
     }
     
     // Retrieves an item by its index
     func getItem(byIndex index:Int) -> (String) {
-        let content = shoppingList[index]
+        let content = shoppingCart[index]
         return content
     }
     
     // Adds a new item to the shopping list
     mutating func addItem(newItem:String) {
-        shoppingList.append(newItem)
+        shoppingCart.append(newItem)
         print("Added '\(newItem)' to the shopping list")
-        print("Shopping list: \(shoppingList.count) items")
+        print("Shopping list: \(shoppingCart.count) items")
     }
     
     // Removes item from the shopping list, according to the IndexPath passed in
     mutating func removeItem(byIndex index:Int) {
-        print("\(shoppingList[index]) has been removed")
-        shoppingList.remove(at: index)
+        print("\(shoppingCart[index]) has been removed")
+        shoppingCart.remove(at: index)
     }
     
     // Placeholder Shopping Items
