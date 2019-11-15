@@ -45,7 +45,10 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        viewModel.loadCartItems()
         self.tableView.reloadData()
+        
         print("View appears. Shopping Cart Count: \(viewModel.count)")
     }
     

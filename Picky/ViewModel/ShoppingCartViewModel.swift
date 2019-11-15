@@ -56,7 +56,6 @@ struct ShoppingCartViewModel {
     mutating func addItem(_ name:String, _ recipe:String = "None") {
         print("Added '\(name)' to the shopping cart")
         cartItemsManager.addCartItem(name, recipe)
-        print("Total items in shopping cart: \(cartItems.count) items")
         loadCartItems()
     }
     
