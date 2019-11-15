@@ -26,6 +26,10 @@ class CartItemsManager {
         loadItems()
     }
     
+    func getCartItems() -> [CartItem] {
+        return cartItems
+    }
+    
     // Creates the object
     private func createNSCartItem(_ name:String, _ recipe:String) -> CartItem {
         let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItem", in:managedContext)!
@@ -54,7 +58,7 @@ class CartItemsManager {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
             
             // This helps in debugging
-            fetchRequest.returnsObjectsAsFaults = false
+            // fetchRequest.returnsObjectsAsFaults = false
             
             cartItems = try managedContext.fetch(fetchRequest) as! [CartItem]
             print(cartItems)

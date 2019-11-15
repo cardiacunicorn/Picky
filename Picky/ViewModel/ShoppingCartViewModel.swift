@@ -14,9 +14,9 @@ struct ShoppingCartViewModel {
     private var cartItems:[CartItem] = []
     private var cartItemsManager = CartItemsManager.shared
     
-    // Creating this ViewModel as a singleton - don't want multiple shopping carts
     init() {
-        // loadData() // Turned off to test persistence
+        loadData()
+        cartItems = cartItemsManager.getCartItems()
     }
     
     // Returns the number of shopping cart items
@@ -31,13 +31,12 @@ struct ShoppingCartViewModel {
     
     // Loads the placeholder shopping items for demo display
     private mutating func loadData() {
-//        shoppingCart.append(item1)
-//        shoppingCart.append(item2)
-//        shoppingCart.append(item3)
-//        shoppingCart.append(item4)
-//        shoppingCart.append(item5)
-//        shoppingCart.append(item6)
         cartItemsManager.addCartItem(item1)
+        cartItemsManager.addCartItem(item2)
+        cartItemsManager.addCartItem(item3)
+        cartItemsManager.addCartItem(item4)
+        cartItemsManager.addCartItem(item5)
+        cartItemsManager.addCartItem(item6)
     }
     
     // Retrieves an item by its index
@@ -48,7 +47,6 @@ struct ShoppingCartViewModel {
         print(index)
         print(cartItems)
         
-        // this is throwing an error because I have corrupted/missing array items in core data
         // guard let itemName = cartItems[index].name else { return ("Data error","Error") }
         let itemName = cartItems[index].name ?? "No such item" // Wait, why is it throwing here when I'm adding an item?
         return (itemName, "Default")
