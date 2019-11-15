@@ -21,8 +21,7 @@ class CartItemsManager {
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-//        deleteAllItems()
-//        addCartItem("test item")
+        // deleteAllItems()
         loadItems()
     }
     
@@ -56,10 +55,6 @@ class CartItemsManager {
     private func loadItems() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
-            
-            // This helps in debugging
-            // fetchRequest.returnsObjectsAsFaults = false
-            
             cartItems = try managedContext.fetch(fetchRequest) as! [CartItem]
             print(cartItems)
         } catch let error as NSError {
