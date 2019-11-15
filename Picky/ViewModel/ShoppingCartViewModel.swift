@@ -21,7 +21,6 @@ struct ShoppingCartViewModel {
     
     // Returns the number of shopping cart items
     var count:Int {
-        print(cartItems)
         return cartItems.count
     }
     
@@ -31,6 +30,7 @@ struct ShoppingCartViewModel {
     
     // Loads the placeholder shopping items for demo display
     private mutating func loadData() {
+        // Needs to do this only if they aren't already stored in Core Data
         cartItemsManager.addCartItem(item1)
         cartItemsManager.addCartItem(item2)
         cartItemsManager.addCartItem(item3)
@@ -41,14 +41,7 @@ struct ShoppingCartViewModel {
     
     // Retrieves an item by its index
     func getItem(byIndex index:Int) -> (name:String, recipe:String) {
-        // let content = shoppingCart[index]
-        // return content
-        
-        print(index)
-        print(cartItems)
-        
-        // guard let itemName = cartItems[index].name else { return ("Data error","Error") }
-        let itemName = cartItems[index].name ?? "No such item" // Wait, why is it throwing here when I'm adding an item?
+        guard let itemName = cartItems[index].name else { return ("Data error","Error") }
         return (itemName, "Default")
     }
     

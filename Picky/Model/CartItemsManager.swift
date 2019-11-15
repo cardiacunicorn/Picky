@@ -21,7 +21,7 @@ class CartItemsManager {
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-        // deleteAllItems()
+        deleteAllItems()
         loadItems()
     }
     
@@ -44,7 +44,6 @@ class CartItemsManager {
     func addCartItem(_ name:String, _ recipe:String = "None") {
         let nsCartItem = createNSCartItem(name, recipe)
         cartItems.append(nsCartItem)
-        print(cartItems)
         do {
             try managedContext.save()
         } catch let error as NSError {
@@ -56,7 +55,6 @@ class CartItemsManager {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
             cartItems = try managedContext.fetch(fetchRequest) as! [CartItem]
-            print(cartItems)
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
