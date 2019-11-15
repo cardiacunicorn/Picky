@@ -32,12 +32,13 @@ struct ShoppingCartViewModel {
     
     // Loads the placeholder shopping items for demo display
     private mutating func loadData() {
-        shoppingCart.append(item1)
-        shoppingCart.append(item2)
-        shoppingCart.append(item3)
-        shoppingCart.append(item4)
-        shoppingCart.append(item5)
-        shoppingCart.append(item6)
+//        shoppingCart.append(item1)
+//        shoppingCart.append(item2)
+//        shoppingCart.append(item3)
+//        shoppingCart.append(item4)
+//        shoppingCart.append(item5)
+//        shoppingCart.append(item6)
+        cartItemsManager.addCartItem(item1)
     }
     
     // Retrieves an item by its index

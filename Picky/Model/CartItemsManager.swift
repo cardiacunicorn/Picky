@@ -49,19 +49,21 @@ class CartItemsManager {
         }
     }
     
-    func loadItems() {
+    private func loadItems() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
-            let result = try managedContext.fetch(fetchRequest)
-            cartItems = result as! [CartItem]
-            // cartItems = try managedContext.fetch(fetchRequest) as! [CartItem]
+            
+            // This helps in debugging
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            cartItems = try managedContext.fetch(fetchRequest) as! [CartItem]
             print(cartItems)
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
     }
     
-    // Convenience method for deleting all saved Core Data objects when they get corrupted during development
+    // Convenience method for deleting all saved Core Data objects
     private func deleteAllItems() {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
