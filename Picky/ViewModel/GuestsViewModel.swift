@@ -10,10 +10,8 @@ import UIKit
 
 struct GuestsViewModel {
     
-    private var guests:[Guest] = []
-    
     private var guestsManager = GuestsManager.shared
-    private var guestEntities:[GuestEntity] = []
+    private var guests:[GuestEntity] = []
     private var guestlists:[GuestlistEntity] = []
     private var activeGuestlist:GuestlistEntity = GuestsManager.shared.getGuestlists()[0]
     
@@ -28,7 +26,7 @@ struct GuestsViewModel {
     
     // returns the number of guests
     var count:Int {
-        return guestEntities.count
+        return guests.count
     }
     
     // loads a bunch of placeholder guests
@@ -38,7 +36,7 @@ struct GuestsViewModel {
             activeGuestlist = GuestsManager.shared.getGuestlists()[0]
         }
         // Placeholder Guest Objects
-        if (guestEntities.count == 0) {
+        if (guests.count == 0) {
             guestsManager.addGuest("Edit with pencil")
             guestsManager.addGuest("Remove from current guestlist with minus sign")
             guestsManager.addGuest("or Delete entirely by swiping left")
@@ -51,9 +49,9 @@ struct GuestsViewModel {
     }
     
     mutating func loadData() {
-        guestEntities = guestsManager.getGuests()
+        guests = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
-        print("  guests in [GuestsViewModel]: \(guestEntities.count)\n  guestlists in [GuestsViewModel]: \(guestlists.count)")
+        print("  guests in [GuestsViewModel]: \(guests.count)\n  guestlists in [GuestsViewModel]: \(guestlists.count)")
     }
     
     // Adds a guest to the list of guests
@@ -66,10 +64,10 @@ struct GuestsViewModel {
     func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet], guestlists:[String]) {
         
         guard
-            let guestName = guestEntities[index].name,
-            let guestAllergyStrings = guestEntities[index].allergies,
-            let guestDietStrings = guestEntities[index].diets,
-            let guestGuestlists  = guestEntities[index].guestlists
+            let guestName = guests[index].name,
+            let guestAllergyStrings = guests[index].allergies,
+            let guestDietStrings = guests[index].diets,
+            let guestGuestlists  = guests[index].guestlists
         else { return ("Data read error",[],[],["Guest does not exist"]) }
         
         var guestAllergies:[Enums.Allergy] = []
