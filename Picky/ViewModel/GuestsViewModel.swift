@@ -34,7 +34,7 @@ struct GuestsViewModel {
         // Safeguard if there's no guest list
         if (guestlists.count == 0) {
             guestsManager.addGuestlist("Default")
-            activeGuestlist = GuestsManager.shared.getGuestlists()[0]
+            activeGuestlist = guestsManager.getGuestlists()[guestsManager.activeGuestlistIndex]
         }
         // Placeholder Guest Objects
         if (guests.count == 0) {

@@ -32,9 +32,7 @@ class RecipeViewModel {
     
     init() {
         // Initialise the request query for recipes data
-        
-        // STOP REQUESTS TO API
-        // getRecipes()
+        getRecipes()
     }
     
     func getRecipes() {

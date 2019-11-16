@@ -11,16 +11,17 @@ import CoreData
 import UIKit
 
 class GuestsManager {
-    // Created as a singleton, don't want multiple copies floating around
-    // Unless of course I go the route of a guestmanager per guestlist
-    static let shared = GuestsManager()
-    
     let appDelegate =  UIApplication.shared.delegate as! AppDelegate
     let managedContext: NSManagedObjectContext
     
     // 'global' refers to all stored data, ViewModel is responsible for filtering subsets of this
     private var globalGuests:[Guest] = []
     private var globalGuestlists:[Guestlist] = []
+    // Used to control state for which Guestlist is currently active
+    var activeGuestlistIndex:Int = 0
+    
+    // Created as a singleton, don't want multiple copies floating around
+    static let shared = GuestsManager()
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext

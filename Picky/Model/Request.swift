@@ -24,8 +24,23 @@ class Request {
     private init() {}
     static let shared = Request()
     
+    private func updateQuery() {
+        let guestlist = GuestsManager.shared.getGuestlists()[GuestsManager.shared.activeGuestlistIndex]
+        query = "&tags="
+        if let allergies = guestlist.allergies {
+            query += allergies.joined(separator: ",")
+        }
+        if let _ = guestlist.allergies, let _ = guestlist.diets  {
+            query += ","
+        }
+        if let diets  = guestlist.diets {
+            query += diets.joined(separator: ",")
+        }
+    }
+    
     func getRecipe(number:Int) {
         recipes = []
+        updateQuery()
         let url = endpoint + apiKey + numberParam + String(number) + query
         
         // Insurance policy, if users end up being able to vary the queries
