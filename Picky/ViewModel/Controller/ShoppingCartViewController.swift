@@ -45,7 +45,6 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
         viewModel.loadCartItems()
         self.tableView.reloadData()
         
@@ -81,7 +80,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             viewModel.removeItem(byIndex: indexPath.row)
-            // tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            // tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            
         }
     }
     

@@ -21,11 +21,12 @@ class CartItemsManager {
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-        // deleteAllItems()
+        deleteAllItems()
         loadItems()
     }
     
     func getCartItems() -> [CartItem] {
+        loadItems()
         return cartItems
     }
     
@@ -65,10 +66,7 @@ class CartItemsManager {
     private func deleteItem(byIndex index:Int) {
         // let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
         do {
-//            let items = try managedContext.fetch(fetchRequest) as! [CartItem]
-//            for item in items {  }
-            let item = cartItems[index]
-            managedContext.delete(item)
+            managedContext.delete(cartItems[index])
             try managedContext.save()
         } catch {
             print("Error in deleting")

@@ -10,7 +10,6 @@ import UIKit
 
 struct ShoppingCartViewModel {
     
-    private var shoppingCart:[String] = []
     private var cartItems:[CartItem] = []
     private var cartItemsManager = CartItemsManager.shared
     
@@ -47,8 +46,8 @@ struct ShoppingCartViewModel {
     
     // Removes item from the shopping cart, according to the IndexPath passed in
     mutating func removeItem(byIndex index:Int) {
-        print("\(cartItems[index].name) has been removed")
         cartItemsManager.removeItem(byIndex: index)
+        print("Item has been removed")
         loadCartItems()
     }
     
