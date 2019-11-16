@@ -94,4 +94,18 @@ class CartItemsManager {
             return
         }
     }
+    
+    // CRUD Request: Update the 'Checked' state of the item
+    func toggleChecked(_ itemName:String) {
+        for item in cartItems {
+            if (item.name == itemName) {
+                item.crossedOut = !item.crossedOut
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save checked state: \(error), \(error.userInfo)")
+                }
+            }
+        }
+    }
 }

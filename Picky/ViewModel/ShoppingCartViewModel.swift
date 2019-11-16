@@ -61,8 +61,8 @@ struct ShoppingCartViewModel {
         loadCartItems()
     }
     
-    mutating func markItem() {
-        // TODO
+    mutating func toggleChecked(_ item:String) {
+        cartItemsManager.toggleChecked(item)
         loadCartItems()
     }
 }

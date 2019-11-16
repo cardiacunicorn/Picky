@@ -22,23 +22,26 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     }
     @IBAction func editItemButton(_ sender: Any) {
         // viewModel.editItem()
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     @IBAction func itemCheckbox(_ sender: UIButton) {
-        // TODO: check or uncheck, strikethrough or remove strikethrough
-        // Q: Do I send sender as a parameter of the function so it knows which item should be updated?
-        // let cartItem = sender.viewWithTag(1010) as? UILabel
+        print(sender.currentImage?.accessibilityIdentifier as Any) // square
+        // sender.isEnabled = !sender.isEnabled // Can't re-enable
+        
         if let cell = sender.superview?.superview as? UITableViewCell {
-            if let cellLabel = cell.viewWithTag(1010) as? UILabel {
-                cellLabel.isEnabled = !cellLabel.isEnabled
-            }
+            toggleChecked(cell)
         }
-        markItem()
-        self.tableView.reloadData()
     }
     
-    func markItem() {
-        
+    func toggleChecked(_ cell:UITableViewCell) {
+        if let cellLabel = cell.viewWithTag(1010) as? UILabel {
+            // Toggling text label being enabled for style changes, as enabled state isn't used currently
+            cellLabel.isEnabled = !cellLabel.isEnabled
+            if let itemName = cellLabel.text {
+                viewModel.toggleChecked(itemName)
+            }
+        }
+        tableView.reloadData()
     }
     
     
@@ -92,13 +95,17 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartItem", for: indexPath) as UITableViewCell
-        let cartItem = cell.viewWithTag(1010) as? UILabel
+        let itemTitle = cell.viewWithTag(1010) as? UILabel
+        let itemCheckbox = cell.viewWithTag(1011) as? UIButton
 
-        if let cartItem = cartItem {
+        if let itemTitle = itemTitle, let itemCheckbox = itemCheckbox {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
-            cartItem.text = currentItem.name
+            itemTitle.text = currentItem.name
             // Things are working but because checked isn't stored, this bit is overwriting action events
             // cartItem.isEnabled  = !currentItem.checked
+            
+            // Not sure why this doesn't appear to be working yet
+            itemCheckbox.isSelected = currentItem.checked
         }
 
         return cell
