@@ -77,19 +77,18 @@ class CartItemsManager {
         }
     }
     
-    // cruD Request: Delete object from CoreData
+    // cruD Request: Delete CartItem from CoreData
     func deleteItem(byIndex index:Int) {
-        // let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
         do {
             managedContext.delete(cartItems[index])
             try managedContext.save()
         } catch {
-            print("Error in deleting")
+            print("Error in deleting item")
             return
         }
     }
     
-    // cruD Request: Convenience method for deleting all saved Core Data objects
+    // cruD Request: Convenience method for deleting all saved Core Data CartItems
     func deleteAllItems() {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
@@ -102,7 +101,7 @@ class CartItemsManager {
             }
             try managedContext.save()
         } catch {
-            print("Error in deleting")
+            print("Error in deleting items")
             return
         }
     }

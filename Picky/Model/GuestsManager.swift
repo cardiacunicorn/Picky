@@ -80,6 +80,7 @@ class GuestsManager {
     // Crud Request: Run above to Create a Guest; Add it to memory; Save ManagedContext to CoreData
     func addGuest(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = [], _ guestlists:[String] = ["Default"]) {
         let nsGuest = createNSGuest(name, allergies, diets)
+        print("Making guest: \(name)")
         guests.append(nsGuest)
         
         // before going further I need to verify that I am in fact adding Guests to CoreData and they are persisting
@@ -134,5 +135,63 @@ class GuestsManager {
     func getGuestlists() -> [GuestlistEntity] {
         loadGuestlists()
         return guestlists
+    }
+    
+    // cruD Request: Delete a Guest object from CoreData
+    func deleteGuest(byIndex index:Int) {
+        do {
+            managedContext.delete(guests[index])
+            try managedContext.save()
+        } catch {
+            print("Error in deleting guest")
+            return
+        }
+    }
+    
+    // cruD Request: Delete Guestlist object from CoreData
+    func deleteGuestlist(byIndex index:Int) {
+        do {
+            managedContext.delete(guestlists[index])
+            try managedContext.save()
+        } catch {
+            print("Error in deleting guestlist")
+            return
+        }
+    }
+    
+    // cruD Request: Convenience method for deleting all saved Core Data Guests
+    func deleteAllGuests() {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestEntity")
+        // Configure Fetch Request to save on loading up each of the objects
+        fetchRequest.includesPropertyValues = false
+        do {
+            let guests = try managedContext.fetch(fetchRequest) as! [NSManagedObject]
+            for guest in guests {
+                managedContext.delete(guest)
+            }
+            try managedContext.save()
+        } catch {
+            print("Error in deleting all guests")
+            return
+        }
+    }
+    
+    // cruD Request: Convenience method for deleting all saved Core Data Guestlists
+    func deleteAllGuestlists() {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestlistEntity")
+        // Configure Fetch Request to save on loading up each of the objects
+        fetchRequest.includesPropertyValues = false
+        do {
+            let guestlists = try managedContext.fetch(fetchRequest) as! [NSManagedObject]
+            for guestlist in guestlists {
+                managedContext.delete(guestlist)
+            }
+            try managedContext.save()
+        } catch {
+            print("Error in deleting all guestlist objects")
+            return
+        }
     }
 }

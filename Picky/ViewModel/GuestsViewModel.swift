@@ -19,11 +19,12 @@ struct GuestsViewModel {
     // private var activeGuestlist:GuestlistEntity
     
     init() {
+        deleteAllGuestData()
         loadData()
-        print("guests [GuestsViewModel]: \(guests)\n  guestlists [GuestsViewModel]: \(guestlists)")
+        print("guests [GuestsViewModel]: \(guests.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
-        print("[After placeholders]\nguests [GuestsViewModel]: \(guests)\n  guestlists [GuestsViewModel]: \(guestlists)")
+        print("[After placeholders]\nguests [GuestsViewModel]: \(guests.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
         print(guestsManager.getGuests())
     }
     
@@ -76,5 +77,10 @@ struct GuestsViewModel {
     mutating func removeGuest(byIndex index:Int) {
         guests.remove(at: index)
         print("Guest has been removed")
+    }
+    
+    mutating func deleteAllGuestData() {
+        guestsManager.deleteAllGuests()
+        guestsManager.deleteAllGuestlists()
     }
 }
