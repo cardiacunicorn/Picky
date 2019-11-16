@@ -11,17 +11,17 @@ import UIKit
 struct GuestsViewModel {
     
     private var guestsManager = GuestsManager.shared
-    private var guests:[GuestEntity] = []
-    private var guestlists:[GuestlistEntity] = []
-    private var activeGuestlist:GuestlistEntity = GuestsManager.shared.getGuestlists()[0]
+    private var guests:[Guest] = []
+    private var guestlists:[Guestlist] = []
+    private var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        deleteAllGuestData() // for testing purposes only
+        // deleteAllGuestData() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
         print("Active Guestlist: \(String(describing: activeGuestlist.name))")
-        print("Active Guestlist Tags: \n\n\(activeGuestlist.allergies)\n\n\(activeGuestlist.diets)")
+        print("Active Guestlist Tags: \n  \(activeGuestlist.allergies)\n  \(activeGuestlist.diets)")
     }
     
     // returns the number of guests
@@ -31,13 +31,14 @@ struct GuestsViewModel {
     
     // loads a bunch of placeholder guests
     private mutating func loadPlaceholders() {
+        // Safeguard if there's no guest list
         if (guestlists.count == 0) {
             guestsManager.addGuestlist("Default")
             activeGuestlist = GuestsManager.shared.getGuestlists()[0]
         }
         // Placeholder Guest Objects
         if (guests.count == 0) {
-            guestsManager.addGuest("Edit with pencil")
+            guestsManager.addGuest("Edit with pencil",[Enums.Allergy.Dairy],[Enums.Diet.Vegetarian])
             guestsManager.addGuest("Remove from current guestlist with minus sign")
             guestsManager.addGuest("or Delete entirely by swiping left")
             guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian],["Friends","Family"])
@@ -80,7 +81,7 @@ struct GuestsViewModel {
             let diet = Enums.Diet(rawValue: string)
             guestDiets.append(diet!)
         }
-        let guestlists:[GuestlistEntity] = guestGuestlists.allObjects as! [GuestlistEntity]
+        let guestlists:[Guestlist] = guestGuestlists.allObjects as! [Guestlist]
         var guestlistStrings:[String] = []
         for guestlist in guestlists {
             guestlistStrings.append(guestlist.name ?? "Data Error")

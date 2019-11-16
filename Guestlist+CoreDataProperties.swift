@@ -1,8 +1,8 @@
 //
-//  GuestlistEntity+CoreDataProperties.swift
+//  Guestlist+CoreDataProperties.swift
 //  Picky
 //
-//  Created by Alex Mills on 16/11/19.
+//  Created by Alex Mills on 17/11/19.
 //  Copyright © 2019 Alex Mills. All rights reserved.
 //
 //
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension GuestlistEntity {
+extension Guestlist {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<GuestlistEntity> {
-        return NSFetchRequest<GuestlistEntity>(entityName: "GuestlistEntity")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Guestlist> {
+        return NSFetchRequest<Guestlist>(entityName: "Guestlist")
     }
 
     @NSManaged public var allergies: [String]?
@@ -25,13 +25,13 @@ extension GuestlistEntity {
 }
 
 // MARK: Generated accessors for guests
-extension GuestlistEntity {
+extension Guestlist {
 
     @objc(addGuestsObject:)
-    @NSManaged public func addToGuests(_ value: GuestEntity)
+    @NSManaged public func addToGuests(_ value: Guest)
 
     @objc(removeGuestsObject:)
-    @NSManaged public func removeFromGuests(_ value: GuestEntity)
+    @NSManaged public func removeFromGuests(_ value: Guest)
 
     @objc(addGuests:)
     @NSManaged public func addToGuests(_ values: NSSet)

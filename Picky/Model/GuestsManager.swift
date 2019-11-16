@@ -19,20 +19,23 @@ class GuestsManager {
     let managedContext: NSManagedObjectContext
     
     // 'global' refers to all stored data, ViewModel is responsible for filtering subsets of this
-    private var globalGuests:[GuestEntity]  = []
-    private var globalGuestlists:[GuestlistEntity] = []
+    private var globalGuests:[Guest] = []
+    private var globalGuestlists:[Guestlist] = []
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
         loadGuests()
         loadGuestlists()
+        if (globalGuestlists.count == 0) {
+            createNSGuestlist("Default")
+        }
     }
     
     
     // Crud Request: Create guest in Managed Context
-    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet], _ guestlists:[GuestlistEntity] = []) -> GuestEntity {
-        let guestEntity = NSEntityDescription.entity(forEntityName:"GuestEntity", in:managedContext)!
-        let nsGuest = NSManagedObject(entity: guestEntity, insertInto: managedContext) as! GuestEntity
+    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet], _ guestlists:[Guestlist] = []) -> Guest {
+        let guestEntity = NSEntityDescription.entity(forEntityName:"Guest", in:managedContext)!
+        let nsGuest = NSManagedObject(entity: guestEntity, insertInto: managedContext) as! Guest
         
         // Because of difficulties saving Enums as Transformable, they are converted to Strings for CoreData simplification
         var stringAllergies:[String]  = []
@@ -51,35 +54,13 @@ class GuestsManager {
         // Will add guest to guestlists if Guestlist objects are provided
         for guestlist in guestlists {
             nsGuest.addToGuestlists(guestlist)
-            
             updateGrouplistAttributes(guestlist, stringAllergies, stringDiets)
-            
-            // Guestlist should then recalculate it's own allergy & diet attributes
-            if let guestlistAllergies = guestlist.allergies {
-                for guestAllergy in stringAllergies {
-                    var preexists = false
-                    for guestlistAllergy in guestlistAllergies {
-                        if (guestAllergy == guestlistAllergy) {
-                            // The allergy already exists in the Guestlist
-                            preexists = true
-                        }
-                    }
-                    // If the allergy can't be found in the Guestlist, add it
-                    if (!preexists) {
-                        guestlist.allergies?.append(guestAllergy)
-                    }
-                }
-            }
-            
-            
-            
-            
         }
         return nsGuest
     }
     
     // Recalculate a guestlists allergy & diet attributes
-    private func updateGrouplistAttributes(_ guestlist:GuestlistEntity, _ guestAllergies:[String], _ guestDiets:[String]) {
+    private func updateGrouplistAttributes(_ guestlist:Guestlist, _ guestAllergies:[String], _ guestDiets:[String]) {
         
         // Look through the guestlist's allergies for a match
         if let guestlistAllergies = guestlist.allergies {
@@ -110,20 +91,20 @@ class GuestsManager {
                 }
                 // If the diet can't be found in the Guestlist, add it
                 if (!preexists) {
-                    guestlist.allergies?.append(guestDiet)
+                    guestlist.diets?.append(guestDiet)
                 }
             }
         }
         
-        print("Updated allergies: \(guestlist.allergies)")
-        print("Updated diets: \(guestlist.diets)")
+        print("Updated allergies for \(guestlist.name): \(guestlist.allergies)")
+        print("Updated diets for \(guestlist.name): \(guestlist.diets)")
         
     }
     
     // Crud Request: Create guestlist in Managed Context
-    private func createNSGuestlist(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet]) -> GuestlistEntity {
-        let guestlistEntity = NSEntityDescription.entity(forEntityName:"GuestlistEntity", in:managedContext)!
-        let nsGuestlist = NSManagedObject(entity: guestlistEntity, insertInto: managedContext) as! GuestlistEntity
+    private func createNSGuestlist(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = []) -> Guestlist {
+        let guestlistEntity = NSEntityDescription.entity(forEntityName:"Guestlist", in:managedContext)!
+        let nsGuestlist = NSManagedObject(entity: guestlistEntity, insertInto: managedContext) as! Guestlist
         
         // Because of difficulties saving Enums as Transformable, they are converted to Strings for CoreData simplification
         var stringAllergies:[String]  = []
@@ -145,8 +126,8 @@ class GuestsManager {
     // Crud Request: Run above to Create a Guest; Add it to memory; Save ManagedContext to CoreData
     func addGuest(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = [], _ paramGuestlists:[String] = ["Default"]) {
         
-        // Represents GuestListEntity versions of paramGuestlists
-        var intendedGuestlists:[GuestlistEntity] = []
+        // Represents GuestList versions of paramGuestlists
+        var intendedGuestlists:[Guestlist] = []
         
         // For each intended guestlist, check if it exists, otherwise create it
         for paramGuestlist in paramGuestlists {
@@ -194,8 +175,8 @@ class GuestsManager {
     // cRud Request: Retrieve Guests from CoreData
     private func loadGuests() {
         do {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestEntity")
-            globalGuests = try managedContext.fetch(fetchRequest) as! [GuestEntity]
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
+            globalGuests = try managedContext.fetch(fetchRequest) as! [Guest]
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
@@ -204,21 +185,21 @@ class GuestsManager {
     // cRud Request: Retrieve Guestlists from CoreData
     private func loadGuestlists() {
         do {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestlistEntity")
-            globalGuestlists = try managedContext.fetch(fetchRequest) as! [GuestlistEntity]
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Guestlist")
+            globalGuestlists = try managedContext.fetch(fetchRequest) as! [Guestlist]
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
     }
     
     // cRud Request: Read from CoreData
-    func getGuests() -> [GuestEntity] {
+    func getGuests() -> [Guest] {
         loadGuests()
         return globalGuests
     }
     
     // cRud Request: Read from CoreData
-    func getGuestlists() -> [GuestlistEntity] {
+    func getGuestlists() -> [Guestlist] {
         loadGuestlists()
         return globalGuestlists
     }
@@ -253,7 +234,7 @@ class GuestsManager {
     // cruD Request: Convenience method for deleting all saved Core Data Guests
     func deleteAllGuests() {
         // Initialize Fetch Request
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestEntity")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Guest")
         // Configure Fetch Request to save on loading up each of the objects
         fetchRequest.includesPropertyValues = false
         do {
@@ -271,7 +252,7 @@ class GuestsManager {
     // cruD Request: Convenience method for deleting all saved Core Data Guestlists
     func deleteAllGuestlists() {
         // Initialize Fetch Request
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestlistEntity")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Guestlist")
         // Configure Fetch Request to save on loading up each of the objects
         fetchRequest.includesPropertyValues = false
         do {
