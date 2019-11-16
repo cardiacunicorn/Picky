@@ -6,20 +6,20 @@
         <attribute name="recipe" optional="YES" attributeType="String" defaultValueString="Unattributed"/>
     </entity>
     <entity name="GuestEntity" representedClassName="GuestEntity" syncable="YES">
-        <attribute name="allergies" optional="YES" attributeType="Transformable"/>
-        <attribute name="diets" optional="YES" attributeType="Transformable"/>
+        <attribute name="allergies" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="diets" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="guestlists" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GuestlistEntity" inverseName="guests" inverseEntity="GuestlistEntity"/>
+        <relationship name="guestlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GuestlistEntity" inverseName="guests" inverseEntity="GuestlistEntity"/>
     </entity>
     <entity name="GuestlistEntity" representedClassName="GuestlistEntity" syncable="YES">
-        <attribute name="allergies" optional="YES" attributeType="Transformable"/>
-        <attribute name="diets" optional="YES" attributeType="Transformable"/>
+        <attribute name="allergies" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="diets" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="guests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GuestEntity" inverseName="guestlists" inverseEntity="GuestEntity"/>
+        <relationship name="guests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GuestEntity" inverseName="guestlists" inverseEntity="GuestEntity"/>
     </entity>
     <elements>
         <element name="CartItem" positionX="-63" positionY="-18" width="128" height="88"/>
-        <element name="GuestEntity" positionX="-54" positionY="9" width="128" height="103"/>
-        <element name="GuestlistEntity" positionX="-36" positionY="18" width="128" height="103"/>
+        <element name="GuestEntity" positionX="-94.24609375" positionY="147.41015625" width="128" height="103"/>
+        <element name="GuestlistEntity" positionX="231.79296875" positionY="6.44140625" width="128" height="103"/>
     </elements>
 </model>
