@@ -14,8 +14,9 @@ struct ShoppingCartViewModel {
     private var cartItemsManager = CartItemsManager.shared
     
     init() {
-        loadPlaceholders()
         loadCartItems()
+        // Needs to do this only if they aren't already stored in Core Data
+        loadPlaceholders()
     }
     
     // Returns the number of shopping cart items
@@ -25,13 +26,15 @@ struct ShoppingCartViewModel {
     
     // Loads the placeholder shopping items for demo display
     private mutating func loadPlaceholders() {
-        // Needs to do this only if they aren't already stored in Core Data
-        cartItemsManager.addCartItem(item1)
-        cartItemsManager.addCartItem(item2)
-        cartItemsManager.addCartItem(item3)
-        cartItemsManager.addCartItem(item4)
-        cartItemsManager.addCartItem(item5)
-        cartItemsManager.addCartItem(item6)
+        // Not a perfect solution, but easier than mucking around with state across App sessions
+        if (cartItems.count == 0) {
+            cartItemsManager.addCartItem(item1)
+            cartItemsManager.addCartItem(item2)
+            cartItemsManager.addCartItem(item3)
+            cartItemsManager.addCartItem(item4)
+            cartItemsManager.addCartItem(item5)
+            cartItemsManager.addCartItem(item6)
+        }
     }
     
     mutating func loadCartItems() {
