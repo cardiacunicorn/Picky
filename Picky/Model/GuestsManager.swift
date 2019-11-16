@@ -51,8 +51,73 @@ class GuestsManager {
         // Will add guest to guestlists if Guestlist objects are provided
         for guestlist in guestlists {
             nsGuest.addToGuestlists(guestlist)
+            
+            updateGrouplistAttributes(guestlist, stringAllergies, stringDiets)
+            
+            // Guestlist should then recalculate it's own allergy & diet attributes
+            if let guestlistAllergies = guestlist.allergies {
+                for guestAllergy in stringAllergies {
+                    var preexists = false
+                    for guestlistAllergy in guestlistAllergies {
+                        if (guestAllergy == guestlistAllergy) {
+                            // The allergy already exists in the Guestlist
+                            preexists = true
+                        }
+                    }
+                    // If the allergy can't be found in the Guestlist, add it
+                    if (!preexists) {
+                        guestlist.allergies?.append(guestAllergy)
+                    }
+                }
+            }
+            
+            
+            
+            
         }
         return nsGuest
+    }
+    
+    // Recalculate a guestlists allergy & diet attributes
+    private func updateGrouplistAttributes(_ guestlist:GuestlistEntity, _ guestAllergies:[String], _ guestDiets:[String]) {
+        
+        // Look through the guestlist's allergies for a match
+        if let guestlistAllergies = guestlist.allergies {
+            for guestAllergy in guestAllergies {
+                var preexists = false
+                for guestlistAllergy in guestlistAllergies {
+                    if (guestAllergy == guestlistAllergy) {
+                        // The allergy already exists in the Guestlist
+                        preexists = true
+                    }
+                }
+                // If the allergy can't be found in the Guestlist, add it
+                if (!preexists) {
+                    guestlist.allergies?.append(guestAllergy)
+                }
+            }
+        }
+        
+        // Look through the guestlist's diets for a match
+        if let guestlistDiets = guestlist.diets {
+            for guestDiet in guestDiets {
+                var preexists = false
+                for guestlistDiet in guestlistDiets {
+                    if (guestDiet == guestlistDiet) {
+                        // The diet already exists in the Guestlist
+                        preexists = true
+                    }
+                }
+                // If the diet can't be found in the Guestlist, add it
+                if (!preexists) {
+                    guestlist.allergies?.append(guestDiet)
+                }
+            }
+        }
+        
+        print("Updated allergies: \(guestlist.allergies)")
+        print("Updated diets: \(guestlist.diets)")
+        
     }
     
     // Crud Request: Create guestlist in Managed Context

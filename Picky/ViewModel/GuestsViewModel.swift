@@ -16,7 +16,7 @@ struct GuestsViewModel {
     private var activeGuestlist:GuestlistEntity = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        // deleteAllGuestData() // for testing purposes only
+        deleteAllGuestData() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
