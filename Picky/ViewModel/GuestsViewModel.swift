@@ -11,18 +11,19 @@ import UIKit
 struct GuestsViewModel {
     
     private var guests:[Guest] = []
-    private var guestlist:Guestlist = Guestlist(name:"Default",members:[])
     
     private var guestsManager = GuestsManager.shared
     private var guestEntities:[GuestEntity] = []
     private var guestlists:[GuestlistEntity] = []
-    // private var activeGuestlist:GuestlistEntity
+    private var activeGuestlist:GuestlistEntity = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        deleteAllGuestData() // shouldn't be required
+        // deleteAllGuestData() // shouldn't be required
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
+        print("Active Guestlist: \(String(describing: activeGuestlist.name))")
+        print("Active Guestlist Tags: \n\n\(activeGuestlist.allergies)\n\n\(activeGuestlist.diets)")
     }
     
     // returns the number of guests
@@ -34,6 +35,7 @@ struct GuestsViewModel {
     private mutating func loadPlaceholders() {
         if (guestlists.count == 0) {
             guestsManager.addGuestlist("Default")
+            
             // activeGuestlist = getGuestlist("Default")
         }
         // Placeholder Guest Objects
@@ -47,7 +49,6 @@ struct GuestsViewModel {
             guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.TreeNut], [Enums.Diet.Vegetarian])
             guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan])
         }
-        print("Selected guestlist allergies: \(guestlist.allergies)")
     }
     
     mutating func loadData() {
@@ -63,7 +64,9 @@ struct GuestsViewModel {
     }
     
     func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet], guestlists:[String]) {
-        guard let guestName = guestEntities[index].name,
+        
+        guard
+            let guestName = guestEntities[index].name,
             let guestAllergyStrings = guestEntities[index].allergies,
             let guestDietStrings = guestEntities[index].diets,
             let guestGuestlists  = guestEntities[index].guestlists
@@ -79,10 +82,14 @@ struct GuestsViewModel {
             let diet = Enums.Diet(rawValue: string)
             guestDiets.append(diet!)
         }
-        let guestlists:[String] = guestGuestlists.allObjects as? [String] ?? []
-        print(guestlists)
+        // let guestlists:[String] = guestGuestlists.allObjects as? [String] ?? []
+        let guestlists:[GuestlistEntity] = guestGuestlists.allObjects as! [GuestlistEntity]
+        var guestlistStrings:[String] = []
+        for guestlist in guestlists {
+            guestlistStrings.append(guestlist.name ?? "Data Error")
+        }
         
-        return (guestName, guestAllergies, guestDiets, guestlists)
+        return (guestName, guestAllergies, guestDiets, guestlistStrings)
     }
     
     // Removes guest from active guestlist, according to the IndexPath passed in

@@ -111,6 +111,7 @@ class GuestsManager {
         do {
             try managedContext.save()
             print("New guest created: \(nsGuest.name)")
+            print("New guest added to: \(nsGuest.guestlists)")
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
