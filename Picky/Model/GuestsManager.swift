@@ -90,7 +90,7 @@ class GuestsManager {
                 if (guestlist.name == paramGuestlist) {
                     exists = true
                     intendedGuestlists.append(guestlist)
-                } else { print("No match") }
+                }
             }
             if (!exists) {
                 // Create the Guestlist, as it does not exist
@@ -110,8 +110,7 @@ class GuestsManager {
         
         do {
             try managedContext.save()
-            print("New guest created: \(nsGuest.name)")
-            print("New guest added to: \(nsGuest.guestlists)")
+            print("New guest created.")
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }

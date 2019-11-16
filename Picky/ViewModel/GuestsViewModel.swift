@@ -35,26 +35,25 @@ struct GuestsViewModel {
     private mutating func loadPlaceholders() {
         if (guestlists.count == 0) {
             guestsManager.addGuestlist("Default")
-            
-            // activeGuestlist = getGuestlist("Default")
+            activeGuestlist = GuestsManager.shared.getGuestlists()[0]
         }
         // Placeholder Guest Objects
         if (guestEntities.count == 0) {
             guestsManager.addGuest("Edit with pencil")
             guestsManager.addGuest("Remove from current guestlist with minus sign")
             guestsManager.addGuest("or Delete entirely by swiping left")
-            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian])
-            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish,Enums.Allergy.TreeNut], [Enums.Diet.Pescatarian])
-            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [Enums.Diet.OvoVegetarian])
-            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.TreeNut], [Enums.Diet.Vegetarian])
-            guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan])
+            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian],["Friends","Family"])
+            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish,Enums.Allergy.TreeNut],[Enums.Diet.Pescatarian],["Colleagues","Family"])
+            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [Enums.Diet.OvoVegetarian],["Friends"])
+            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.TreeNut], [Enums.Diet.Vegetarian],["Friends","Colleagues"])
+            guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan],["Colleagues"])
         }
     }
     
     mutating func loadData() {
         guestEntities = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
-        print("*** updated counts ***\n guests [GuestsViewModel]: \(guestEntities.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
+        print("  guests in [GuestsViewModel]: \(guestEntities.count)\n  guestlists in [GuestsViewModel]: \(guestlists.count)")
     }
     
     // Adds a guest to the list of guests
@@ -82,13 +81,11 @@ struct GuestsViewModel {
             let diet = Enums.Diet(rawValue: string)
             guestDiets.append(diet!)
         }
-        // let guestlists:[String] = guestGuestlists.allObjects as? [String] ?? []
         let guestlists:[GuestlistEntity] = guestGuestlists.allObjects as! [GuestlistEntity]
         var guestlistStrings:[String] = []
         for guestlist in guestlists {
             guestlistStrings.append(guestlist.name ?? "Data Error")
         }
-        
         return (guestName, guestAllergies, guestDiets, guestlistStrings)
     }
     
