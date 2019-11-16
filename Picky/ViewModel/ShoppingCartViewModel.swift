@@ -47,8 +47,8 @@ struct ShoppingCartViewModel {
     
     // Removes item from the shopping cart, according to the IndexPath passed in
     mutating func removeItem(byIndex index:Int) {
-        print("\(shoppingCart[index]) has been removed")
-        shoppingCart.remove(at: index)
+        print("\(cartItems[index].name) has been removed")
+        cartItemsManager.removeItem(byIndex: index)
         loadCartItems()
     }
     

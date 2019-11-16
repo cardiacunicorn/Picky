@@ -29,7 +29,7 @@ class CartItemsManager {
         return cartItems
     }
     
-    // Creates the object
+    // CRUD Request: Create item in Managed Context
     private func createNSCartItem(_ name:String, _ recipe:String) -> CartItem {
         let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItem", in:managedContext)!
         let nsCartItem = NSManagedObject(entity: cartItemEntity, insertInto: managedContext) as! CartItem
@@ -40,7 +40,7 @@ class CartItemsManager {
         return nsCartItem
     }
     
-    
+    // CRUD Request: Run above to Create a CartItem; Add it to memory; Save ManagedContext to CoreData
     func addCartItem(_ name:String, _ recipe:String = "None") {
         let nsCartItem = createNSCartItem(name, recipe)
         cartItems.append(nsCartItem)
@@ -51,6 +51,7 @@ class CartItemsManager {
         }
     }
     
+    // CRUD Request: Read from CoreData
     private func loadItems() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
@@ -60,11 +61,30 @@ class CartItemsManager {
         }
     }
     
-    // Convenience method for deleting all saved Core Data objects
+    // CRUD Request: Delete object from CoreData
+    private func deleteItem(byIndex index:Int) {
+        // let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
+        do {
+//            let items = try managedContext.fetch(fetchRequest) as! [CartItem]
+//            for item in items {  }
+            let item = cartItems[index]
+            managedContext.delete(item)
+            try managedContext.save()
+        } catch {
+            print("Error in deleting")
+            return
+        }
+    }
+    
+    func removeItem(byIndex index:Int) {
+        deleteItem(byIndex: index)
+    }
+    
+    // CRUD Request: Convenience method for deleting all saved Core Data objects
     private func deleteAllItems() {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
-        // Configure Fetch Request
+        // Configure Fetch Request to save on loading up each of the objects
         fetchRequest.includesPropertyValues = false
         do {
             let items = try managedContext.fetch(fetchRequest) as! [NSManagedObject]

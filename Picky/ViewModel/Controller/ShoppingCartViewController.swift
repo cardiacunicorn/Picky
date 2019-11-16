@@ -63,7 +63,6 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         let addItem = UIAlertAction(title: "Add", style: .default) { (_) in
             guard let item = alertController.textFields?[0].text else {return}
             self.viewModel.addItem(item)
-            // Q: Should I generate a new row for a new item here?
             self.tableView.reloadData()
         }
         let cancelAdd = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to add to the shopping cart") }
@@ -76,13 +75,13 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func editItem() {
-        tableView.setEditing(true, animated: true)
+        tableView.setEditing(true, animated: true) // PLACEHOLDER: I don't want this as part of this function
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             viewModel.removeItem(byIndex: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            // tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
     
@@ -95,7 +94,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         let cartItem = cell.viewWithTag(1010) as? UILabel
 
         if let cartItem = cartItem {
-            let currentItem = viewModel.getItem(byIndex: indexPath.row) // this is what needs linking with core data now
+            let currentItem = viewModel.getItem(byIndex: indexPath.row)
             cartItem.text = currentItem.name
         }
 

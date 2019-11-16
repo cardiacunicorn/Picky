@@ -2,9 +2,6 @@
 
 ## Notes
 
-- new item not being immediately visible, despite being added to Core Data -> maybe generate a cell
-- Add All ingredients must have worked at some point in the last few commits since Core Data came in
-
 - A (set) rather than an array, will ensure no duplicate items -> maybe implement for Guestlist allergies and diets -> no it doesn't
 - Guests and Guestlists should potentially have the same Manager in the Model, so both can be created together on user input (Tut 8.4: 14:00)
 - 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them
@@ -17,12 +14,16 @@
 ### UI Tests & Unit Tests 2/3
 - Implement at least 2 more unit tests, for the View Models
 
-### Networking 5/5
+### Networking 2/5
 - The user of the app must be able to provide dynamic access such as providing data that will form part of the request. It should not just be a hard coded request and display of data.
 
-### Persistence 5/5
+### Persistence 3/5
 - Data must be saved and retrieved you should be able to display these features via a screen in the app.
 - All four CRUD operations must be implemented
+- Create [Done]
+- Read [Multiple not singular]
+- Delete
+- Update
 
 ### Design Patterns 3/3
 - You must design and implement the design pattern in your code, not make use of one already implemented by a library or framework. For example you cannot claim delegation because you have used delegation in your Table View. This is only using the pattern. You must design and implement the pattern yourself.
