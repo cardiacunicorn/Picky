@@ -62,7 +62,7 @@ class CartItemsManager {
     }
     
     // CRUD Request: Delete object from CoreData
-    private func deleteItem(byIndex index:Int) {
+    func deleteItem(byIndex index:Int) {
         // let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
         do {
             managedContext.delete(cartItems[index])
@@ -71,10 +71,6 @@ class CartItemsManager {
             print("Error in deleting")
             return
         }
-    }
-    
-    func removeItem(byIndex index:Int) {
-        deleteItem(byIndex: index)
     }
     
     // CRUD Request: Convenience method for deleting all saved Core Data objects

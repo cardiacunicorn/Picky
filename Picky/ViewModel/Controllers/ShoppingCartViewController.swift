@@ -25,9 +25,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         tableView.reloadData()
     }
     @IBAction func itemCheckbox(_ sender: UIButton) {
-        print(sender.currentImage?.accessibilityIdentifier as Any) // square
-        // sender.isEnabled = !sender.isEnabled // Can't re-enable
-        
+        // Retrieve and parse the parent cell of the checkbox
         if let cell = sender.superview?.superview as? UITableViewCell {
             toggleChecked(cell)
         }
@@ -101,10 +99,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         if let itemTitle = itemTitle, let itemCheckbox = itemCheckbox {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
             itemTitle.text = currentItem.name
-            // Things are working but because checked isn't stored, this bit is overwriting action events
-            // cartItem.isEnabled  = !currentItem.checked
-            
-            // Not sure why this doesn't appear to be working yet
+            // Checked items are disabled, not selected, for default styling effect
+            itemTitle.isEnabled  = !currentItem.checked
             itemCheckbox.isSelected = currentItem.checked
         }
 
