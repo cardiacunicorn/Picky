@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA00C02223670F5900C974AD /* Assignment_2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FA00C02123670F5900C974AD /* Assignment_2.pdf */; };
 		FA49C38B236C00F0000EFBF8 /* Guestlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49C38A236C00F0000EFBF8 /* Guestlist.swift */; };
+		FA510CB4238055F60015C689 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510CB3238055F60015C689 /* Enums.swift */; };
 		FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */; };
 		FA5CBD7A2359CE6000F14157 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD792359CE6000F14157 /* ShoppingCartViewModel.swift */; };
 		FA5CBD7C2359D24A00F14157 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7B2359D24A00F14157 /* Diet.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		FA00C02123670F5900C974AD /* Assignment_2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment_2.pdf; sourceTree = "<group>"; };
 		FA49C38A236C00F0000EFBF8 /* Guestlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guestlist.swift; sourceTree = "<group>"; };
+		FA510CB3238055F60015C689 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		FA5CBD792359CE6000F14157 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
 		FA5CBD7B2359D24A00F14157 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				FA6094E423797D2800B53F69 /* Request.swift */,
 				FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */,
 				FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */,
+				FA510CB3238055F60015C689 /* Enums.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				FA49C38B236C00F0000EFBF8 /* Guestlist.swift in Sources */,
 				FAB7EE9923588BF4005A18D1 /* RecipeTableViewController.swift in Sources */,
 				FAEEEFE9237F15C20067E0BD /* GuestEntity+CoreDataProperties.swift in Sources */,
+				FA510CB4238055F60015C689 /* Enums.swift in Sources */,
 				FAEEEFE8237F15C20067E0BD /* GuestEntity+CoreDataClass.swift in Sources */,
 				FAEEEFEB237F15C20067E0BD /* GuestlistEntity+CoreDataProperties.swift in Sources */,
 				FAD0C7332358670D00481BFD /* SceneDelegate.swift in Sources */,

@@ -2,6 +2,12 @@
 
 ## Notes
 
+
+- I believe the enums are causing the crash
+- I can: convert them to strings (send just a raw string value to CoreData)
+- or: convert them to classes that inherit from NSObject so that they can conform to 'Transformable'
+
+
 - A (set) rather than an array, will ensure no duplicate items -> maybe implement for Guestlist allergies and diets -> no it doesn't
 - Guests and Guestlists should potentially have the same Manager in the Model, so both can be created together on user input (Tut 8.4: 14:00)
 - 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them

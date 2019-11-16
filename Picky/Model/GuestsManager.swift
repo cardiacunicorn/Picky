@@ -25,26 +25,67 @@ class GuestsManager {
         managedContext = appDelegate.persistentContainer.viewContext
         loadGuests()
         loadGuestlists()
-        print("guests [GuestsManager]: \(guests)\n guestlists [GuestsManager]: \(guestlists)")
+        print("guests [GuestsManager]: \(guests)\n  guestlists [GuestsManager]: \(guestlists)")
     }
     
     
-    // Crud Request: Create item in Managed Context
-    private func createNSGuest(_ name:String, _ allergies:String, _ diets:String) -> GuestEntity {
+    // Crud Request: Create guest in Managed Context
+    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet]) -> GuestEntity {
         let guestEntity = NSEntityDescription.entity(forEntityName:"GuestEntity", in:managedContext)!
         let nsGuest = NSManagedObject(entity: guestEntity, insertInto: managedContext) as! GuestEntity
         
+        // Because of difficulties saving Enums as Transformable, they are converted to Strings for CoreData simplification
+        var stringAllergies:[String]  = []
+        for allergy in allergies {
+            stringAllergies.append(allergy.rawValue)
+        }
+        print(stringAllergies)
+        var stringDiets:[String] = []
+        for diet in diets {
+            stringDiets.append(diet.rawValue)
+        }
+        print(stringDiets)
+        
         // Set values for the created object
         nsGuest.setValue(name, forKeyPath: "name")
-        nsGuest.setValue(allergies, forKeyPath: "allergies")
+        nsGuest.setValue(stringAllergies, forKeyPath: "allergies")
         nsGuest.setValue(diets, forKeyPath: "diets")
         return nsGuest
     }
     
+    // Crud Request: Create guestlist in Managed Context
+    private func createNSGuestlist(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet]) -> GuestlistEntity {
+        let guestlistEntity = NSEntityDescription.entity(forEntityName:"GuestlistEntity", in:managedContext)!
+        let nsGuestlist = NSManagedObject(entity: guestlistEntity, insertInto: managedContext) as! GuestlistEntity
+        
+        // Set values for the created object
+        nsGuestlist.setValue(name, forKeyPath: "name")
+        nsGuestlist.setValue(allergies, forKeyPath: "allergies")
+        nsGuestlist.setValue(diets, forKeyPath: "diets")
+        return nsGuestlist
+    }
+    
     // Crud Request: Run above to Create a Guest; Add it to memory; Save ManagedContext to CoreData
-    func addGuest(_ name:String, _ allergies:String, _ diets:String) {
+    func addGuest(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = []) {
         let nsGuest = createNSGuest(name, allergies, diets)
+        print("New guest created: \(nsGuest.name)")
         guests.append(nsGuest)
+        
+        // before going further I need to verify that I am in fact adding Guests to CoreData and they are persisting
+        
+        
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save: \(error), \(error.userInfo)")
+        }
+    }
+    
+    // Crud Request: Run above to Create a Guestlist; Add it to memory; Save ManagedContext to CoreData
+    func addGuestlist(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = []) {
+        let nsGuestlist = createNSGuestlist(name, allergies, diets)
+        guestlists.append(nsGuestlist)
         do {
             try managedContext.save()
         } catch let error as NSError {

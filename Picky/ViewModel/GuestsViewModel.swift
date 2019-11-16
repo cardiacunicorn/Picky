@@ -13,7 +13,14 @@ struct GuestsViewModel {
     private var guests:[Guest] = []
     private var guestlist:Guestlist = Guestlist(name:"Testlist",members:[])
     
+    private var guestsManager = GuestsManager.shared
+    private var guestEntities:[GuestEntity] = []
+    private var guestlists:[GuestlistEntity] = []
+    
     init() {
+        loadData()
+        print("guests [GuestsViewModel]: \(guests)\n  guestlists [GuestsViewModel]: \(guestlists)")
+        // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
     }
     
@@ -24,7 +31,8 @@ struct GuestsViewModel {
     
     // loads a bunch of placeholder guests
     private mutating func loadPlaceholders() {
-        if (guests.count == 0) {
+        if (guestEntities.count == 0) {
+            guestsManager.addGuest("Test Guest", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian])
             guests.append(guest6)
             guests.append(guest7)
             guests.append(guest8)
@@ -38,6 +46,11 @@ struct GuestsViewModel {
             guestlist.add(guest: guest5)
         }
         print("Selected guestlist allergies: \(guestlist.allergies)")
+    }
+    
+    mutating func loadData() {
+        guestEntities = guestsManager.getGuests()
+        guestlists = guestsManager.getGuestlists()
     }
     
     func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Diet], allergies:[Allergy]) {

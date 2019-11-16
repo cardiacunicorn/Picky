@@ -18,8 +18,8 @@
         <relationship name="guests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GuestEntity" inverseName="guestlists" inverseEntity="GuestEntity"/>
     </entity>
     <elements>
+        <element name="CartItem" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="GuestEntity" positionX="-54" positionY="9" width="128" height="103"/>
         <element name="GuestlistEntity" positionX="-36" positionY="18" width="128" height="103"/>
-        <element name="CartItem" positionX="-63" positionY="-18" width="128" height="88"/>
     </elements>
 </model>
