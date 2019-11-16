@@ -72,14 +72,4 @@ class Guestlist: NSObject {
     func add(guest:Guest) {
         members.append(guest)
     }
-    
-    // TODO: Find a solution for removing a guest from a guestlist - not currently working as intended
-    func removeByID(guestID:Int) {
-        for member in members {
-            if (member.id == guestID) {
-                members.remove(at: members.index(guestID, offsetBy: 0))
-            }
-        }
-    }
-    
 }

@@ -11,17 +11,20 @@ import UIKit
 struct GuestsViewModel {
     
     private var guests:[Guest] = []
-    private var guestlist:Guestlist = Guestlist(name:"Testlist",members:[])
+    private var guestlist:Guestlist = Guestlist(name:"Default",members:[])
     
     private var guestsManager = GuestsManager.shared
     private var guestEntities:[GuestEntity] = []
     private var guestlists:[GuestlistEntity] = []
+    // private var activeGuestlist:GuestlistEntity
     
     init() {
         loadData()
         print("guests [GuestsViewModel]: \(guests)\n  guestlists [GuestsViewModel]: \(guestlists)")
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
+        print("[After placeholders]\nguests [GuestsViewModel]: \(guests)\n  guestlists [GuestsViewModel]: \(guestlists)")
+        print(guestsManager.getGuests())
     }
     
     // returns the number of guests
@@ -31,19 +34,20 @@ struct GuestsViewModel {
     
     // loads a bunch of placeholder guests
     private mutating func loadPlaceholders() {
+        if (guestlists.count == 0) {
+            guestsManager.addGuestlist("Default")
+            // activeGuestlist = getGuestlist("Default")
+        }
+        // Placeholder Guest Objects
         if (guestEntities.count == 0) {
-            guestsManager.addGuest("Test Guest", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian])
-            guests.append(guest6)
-            guests.append(guest7)
-            guests.append(guest8)
-            guests.append(guest1)
-            guests.append(guest2)
-            guests.append(guest3)
-            guests.append(guest4)
-            guests.append(guest5)
-            guestlist.add(guest: guest3)
-            guestlist.add(guest: guest2)
-            guestlist.add(guest: guest5)
+            guestsManager.addGuest("Edit with pencil")
+            guestsManager.addGuest("Remove from current guestlist with minus sign")
+            guestsManager.addGuest("or Delete entirely by swiping left")
+            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian])
+            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish,Enums.Allergy.TreeNut], [Enums.Diet.Pescatarian])
+            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [Enums.Diet.OvoVegetarian])
+            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.TreeNut], [Enums.Diet.Vegetarian])
+            guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan])
         }
         print("Selected guestlist allergies: \(guestlist.allergies)")
     }
@@ -53,20 +57,19 @@ struct GuestsViewModel {
         guestlists = guestsManager.getGuestlists()
     }
     
-    func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
-        let id = guests[index].id
+    func getGuest(byIndex index:Int) -> (name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
         let name = guests[index].name
         let groups = guests[index].groups
         let diets = guests[index].diets
         let allergies = guests[index].allergies
         
-        return (id, name, groups, diets, allergies)
+        return (name, groups, diets, allergies)
     }
     
     // Adds a guest to the list of guests
     mutating func addGuest(newGuest:Guest) {
         guests.append(newGuest)
-        print("New guest created:\(newGuest.name), with ID '\(newGuest.id)'")
+        print("New guest created:\(newGuest.name)")
     }
     
     // Removes item from the shopping list, according to the IndexPath passed in
@@ -74,14 +77,4 @@ struct GuestsViewModel {
         guests.remove(at: index)
         print("Guest has been removed")
     }
-    
-    // Placeholder Guest Objects
-    private var guest1 = Guest(name: "Alexander G. Bell", groups: ["All","Family","Friends"], diets: [Enums.Diet.OvoVegetarian], allergies: [Enums.Allergy.Dairy])
-    private var guest2 = Guest(name: "Colin Decemberist", groups: ["All","Friends","Colleagues"], diets: [Enums.Diet.Vegetarian], allergies: [Enums.Allergy.Gluten,Enums.Allergy.TreeNut])
-    private var guest3 = Guest(name: "Edie Falco", groups: ["All","Friends"], diets: [Enums.Diet.Pescatarian], allergies: [Enums.Allergy.Shellfish,Enums.Allergy.TreeNut])
-    private var guest4 = Guest(name: "Gwendolyn Humphries", groups: ["All","Family"], diets: [], allergies: [Enums.Allergy.Wheat,Enums.Allergy.Peanut])
-    private var guest5 = Guest(name: "Iggy Joplin", groups: ["All"], diets: [], allergies: [])
-    private var guest6 = Guest(name: "Edit with pencil", groups: [], diets: [], allergies: [])
-    private var guest7 = Guest(name: "Remove from current guestlist with minus sign", groups: [], diets: [], allergies: [])
-    private var guest8 = Guest(name: "or Delete entirely by swiping left", groups: [], diets: [], allergies: [])
 }

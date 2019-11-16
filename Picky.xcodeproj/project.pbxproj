@@ -208,13 +208,13 @@
 				FAEEEFE5237F15C20067E0BD /* GuestEntity+CoreDataProperties.swift */,
 				FAEEEFE7237F15C20067E0BD /* GuestlistEntity+CoreDataProperties.swift */,
 				FAEEEFEF237F2DEA0067E0BD /* CartItem+CoreDataProperties.swift */,
+				FA510CB3238055F60015C689 /* Enums.swift */,
 				FAD0C76F235868C000481BFD /* Recipe.swift */,
+				FA6094E423797D2800B53F69 /* Request.swift */,
 				FAD0C771235868E800481BFD /* Guest.swift */,
 				FA49C38A236C00F0000EFBF8 /* Guestlist.swift */,
-				FA6094E423797D2800B53F69 /* Request.swift */,
-				FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */,
 				FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */,
-				FA510CB3238055F60015C689 /* Enums.swift */,
+				FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
