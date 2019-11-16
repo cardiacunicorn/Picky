@@ -18,7 +18,7 @@ struct GuestsViewModel {
     private var activeGuestlist:GuestlistEntity = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        // deleteAllGuestData() // shouldn't be required
+        // deleteAllGuestData() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
@@ -57,9 +57,10 @@ struct GuestsViewModel {
     }
     
     // Adds a guest to the list of guests
-    mutating func addGuest(newGuest:Guest) {
-        guests.append(newGuest)
-        print("New guest created:\(newGuest.name)")
+    mutating func addGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet], _ guestlists:[String]) {
+        guestsManager.addGuest(name, allergies, diets, guestlists)
+        print("New guest created:\(name)")
+        loadData()
     }
     
     func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet], guestlists:[String]) {

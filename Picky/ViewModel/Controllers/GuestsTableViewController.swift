@@ -70,7 +70,7 @@ class GuestsTableViewController: UITableViewController {
     }
     
     func createGuestAlert() {
-        var groups:[String] = []
+        var grouplists:[String] = []
         // Create controller
         let alertController = UIAlertController(title: "Create Guest", message: "Enter guest's name, and any comma-separated group(s) they should be added to", preferredStyle: .alert)
         // Generate textFields for user input
@@ -83,19 +83,14 @@ class GuestsTableViewController: UITableViewController {
         // Create add & cancel options
         let createGuest = UIAlertAction(title: "Create", style: .default) { (_) in
             guard let name = alertController.textFields?[0].text else {return}
-            let groupsInput = alertController.textFields?[1].text
+            let grouplistsInput = alertController.textFields?[1].text
             // Split user group(s) input, by comma, into an array -- default an empty array
-            groups = groupsInput?.components(separatedBy: ",") ?? []
+            grouplists = grouplistsInput?.components(separatedBy: ",") ?? []
             // Remove leading and trailing spaces
-            for var group in groups {
-                group = group.trimmingCharacters(in: .whitespaces)
+            for var grouplist in grouplists {
+                grouplist = grouplist.trimmingCharacters(in: .whitespaces)
             }
-            self.viewModel.addGuest(newGuest:
-                Guest(name: name,
-                      groups: groups,
-                      diets: [],
-                      allergies: []
-            ))
+            self.viewModel.addGuest(name, [], [], grouplists)
             self.tableView.reloadData()
         }
         let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to create a new guest") }

@@ -110,7 +110,6 @@ class GuestsManager {
         
         do {
             try managedContext.save()
-            print("New guest created.")
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
