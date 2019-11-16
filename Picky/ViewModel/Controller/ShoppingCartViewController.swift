@@ -25,14 +25,20 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     @IBAction func editItemButton(_ sender: Any) {
-        editItem()
+        // viewModel.editItem()
         self.tableView.reloadData()
     }
-    @IBAction func itemCheckbox(_ sender: Any) {
+    @IBAction func itemCheckbox(_ sender: UIButton) {
         // TODO: check or uncheck, strikethrough or remove strikethrough
         // Q: Do I send sender as a parameter of the function so it knows which item should be updated?
-        viewModel.markItem()
+        // let cartItem = sender.viewWithTag(1010) as? UILabel
+        print(sender.currentImage)
+        markItem()
         self.tableView.reloadData()
+    }
+    
+    func markItem() {
+        
     }
     
     
@@ -47,7 +53,6 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidAppear(true)
         viewModel.loadCartItems()
         self.tableView.reloadData()
-        
         print("View appears. Shopping Cart Count: \(viewModel.count)")
     }
     
@@ -73,14 +78,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func editItem() {
-        tableView.setEditing(true, animated: true) // PLACEHOLDER: I don't want this as part of this function
-    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             viewModel.removeItem(byIndex: indexPath.row)
-            // tableView.reloadData()
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             
         }
