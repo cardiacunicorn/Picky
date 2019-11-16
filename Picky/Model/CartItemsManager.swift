@@ -21,7 +21,6 @@ class CartItemsManager {
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-        // deleteAllItems()
         loadItems()
     }
     
@@ -79,7 +78,7 @@ class CartItemsManager {
     }
     
     // CRUD Request: Convenience method for deleting all saved Core Data objects
-    private func deleteAllItems() {
+    func deleteAllItems() {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
         // Configure Fetch Request to save on loading up each of the objects

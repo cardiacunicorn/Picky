@@ -28,12 +28,12 @@ struct ShoppingCartViewModel {
     private mutating func loadPlaceholders() {
         // Not a perfect solution, but easier than mucking around with state across App sessions
         if (cartItems.count == 0) {
-            cartItemsManager.addCartItem(item1)
-            cartItemsManager.addCartItem(item2)
-            cartItemsManager.addCartItem(item3)
-            cartItemsManager.addCartItem(item4)
-            cartItemsManager.addCartItem(item5)
-            cartItemsManager.addCartItem(item6)
+            cartItemsManager.addCartItem("Sugar")
+            cartItemsManager.addCartItem("Spice")
+            cartItemsManager.addCartItem("All things nice")
+            cartItemsManager.addCartItem("Tap the checkbox to mark off an item")
+            cartItemsManager.addCartItem("Swipe left to delete an item")
+            cartItemsManager.addCartItem("Tap the pen icon to edit an item")
         }
     }
     
@@ -42,9 +42,9 @@ struct ShoppingCartViewModel {
     }
     
     // Retrieves an item by its index
-    func getItem(byIndex index:Int) -> (name:String, recipe:String) {
-        guard let itemName = cartItems[index].name else { return ("Data error","Error") }
-        return (itemName, "Default")
+    func getItem(byIndex index:Int) -> (name:String, recipe:String, checked:Bool) {
+        guard let itemName = cartItems[index].name else { return ("Data error","Error",false) }
+        return (itemName, cartItems[index].recipe ?? "Ungrouped", cartItems[index].crossedOut)
     }
     
     // Removes item from the shopping cart, according to the IndexPath passed in
@@ -65,12 +65,4 @@ struct ShoppingCartViewModel {
         // TODO
         loadCartItems()
     }
-    
-    // Placeholder Shopping Items
-    var item1 = "Sugar"
-    var item2 = "Spice"
-    var item3 = "All things nice"
-    var item4 = "Tap to mark off an item"
-    var item5 = "Swipe left to delete an item"
-    var item6 = "Tap the pen icon to edit an item"
 }

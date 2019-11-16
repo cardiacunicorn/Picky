@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="951" y="-896"/>
         </scene>
-        <!--Shopping List-->
+        <!--My List-->
         <scene sceneID="70Q-H9-XkJ">
             <objects>
                 <viewController id="j1v-Gs-2nN" customClass="ShoppingCartViewController" customModule="Picky" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,14 +173,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NHX-io-ewY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Shopping List" id="ckz-V2-8Xl">
-                        <barButtonItem key="backBarButtonItem" title="Shopping List" id="07Y-ov-pgA">
+                    <navigationItem key="navigationItem" title="My List" id="ckz-V2-8Xl">
+                        <barButtonItem key="backBarButtonItem" title="My List" id="07Y-ov-pgA">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="M7E-NI-rAi">
+                        <barButtonItem key="leftBarButtonItem" title="Clear All" id="M7E-NI-rAi">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="editMenuButton:" destination="j1v-Gs-2nN" id="yng-c8-q9F"/>
+                                <action selector="trashMenuButton:" destination="j1v-Gs-2nN" id="2Ry-JM-Wze"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bIt-VT-lYq">

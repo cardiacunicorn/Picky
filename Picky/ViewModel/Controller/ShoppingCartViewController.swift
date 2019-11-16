@@ -17,12 +17,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction func addItemAction(_ sender: UIBarButtonItem) {
         addItemAlert()
     }
-    @IBAction func editMenuButton(_ sender: Any) {
-        if (tableView.isEditing) {
-            tableView.setEditing(false, animated: true)
-        } else {
-            tableView.setEditing(true, animated: true)
-        }
+    @IBAction func trashMenuButton(_ sender: Any) {
+        CartItemsManager.shared.deleteAllItems()
     }
     @IBAction func editItemButton(_ sender: Any) {
         // viewModel.editItem()
@@ -32,7 +28,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         // TODO: check or uncheck, strikethrough or remove strikethrough
         // Q: Do I send sender as a parameter of the function so it knows which item should be updated?
         // let cartItem = sender.viewWithTag(1010) as? UILabel
-        print(sender.currentImage)
+        if let cell = sender.superview?.superview as? UITableViewCell {
+            if let cellLabel = cell.viewWithTag(1010) as? UILabel {
+                cellLabel.isEnabled = !cellLabel.isEnabled
+            }
+        }
         markItem()
         self.tableView.reloadData()
     }
@@ -97,6 +97,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         if let cartItem = cartItem {
             let currentItem = viewModel.getItem(byIndex: indexPath.row)
             cartItem.text = currentItem.name
+            // Things are working but because checked isn't stored, this bit is overwriting action events
+            // cartItem.isEnabled  = !currentItem.checked
         }
 
         return cell
