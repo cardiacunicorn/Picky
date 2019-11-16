@@ -6,7 +6,6 @@
 - Guests and Guestlists should potentially have the same Manager in the Model, so both can be created together on user input (Tut 8.4: 14:00)
 - 'Guests' tab should represent all the guests in the 'selected' guestlist, by default, all of them
 - Should add a select drop down or text input that filters and adjusts the 'selected guests' array
-- Add All seems to be creating a second shopping list (potentially), I should move to a singleton Model object for the shopping list
 - To update a UIButton requires using a setTitle method, rather than just manipulating the text raw
 
 ## To Do (Milestone 3)
@@ -17,13 +16,8 @@
 ### Networking 2/5
 - The user of the app must be able to provide dynamic access such as providing data that will form part of the request. It should not just be a hard coded request and display of data.
 
-### Persistence 3/5
-- Data must be saved and retrieved you should be able to display these features via a screen in the app.
-- All four CRUD operations must be implemented
-- Create [Done]
-- Read [Multiple not singular]
-- Delete
-- Update
+### Persistence 1/5
+- All four CRUD operations must be implemented: Update
 
 ### Design Patterns 3/3
 - You must design and implement the design pattern in your code, not make use of one already implemented by a library or framework. For example you cannot claim delegation because you have used delegation in your Table View. This is only using the pattern. You must design and implement the pattern yourself.

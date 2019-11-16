@@ -24,12 +24,8 @@ class CartItemsManager {
         loadItems()
     }
     
-    func getCartItems() -> [CartItem] {
-        loadItems()
-        return cartItems
-    }
     
-    // CRUD Request: Create item in Managed Context
+    // Crud Request: Create item in Managed Context
     private func createNSCartItem(_ name:String, _ recipe:String) -> CartItem {
         let cartItemEntity = NSEntityDescription.entity(forEntityName:"CartItem", in:managedContext)!
         let nsCartItem = NSManagedObject(entity: cartItemEntity, insertInto: managedContext) as! CartItem
@@ -40,7 +36,7 @@ class CartItemsManager {
         return nsCartItem
     }
     
-    // CRUD Request: Run above to Create a CartItem; Add it to memory; Save ManagedContext to CoreData
+    // Crud Request: Run above to Create a CartItem; Add it to memory; Save ManagedContext to CoreData
     func addCartItem(_ name:String, _ recipe:String = "None") {
         let nsCartItem = createNSCartItem(name, recipe)
         cartItems.append(nsCartItem)
@@ -51,7 +47,7 @@ class CartItemsManager {
         }
     }
     
-    // CRUD Request: Read from CoreData
+    // cRud Request: Read from CoreData
     private func loadItems() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
@@ -61,7 +57,27 @@ class CartItemsManager {
         }
     }
     
-    // CRUD Request: Delete object from CoreData
+    // cRud Request: Read from CoreData
+    func getCartItems() -> [CartItem] {
+        loadItems()
+        return cartItems
+    }
+    
+    // crUd Request: Update the 'Checked' state of the item
+    func toggleChecked(_ itemName:String) {
+        for item in cartItems {
+            if (item.name == itemName) {
+                item.crossedOut = !item.crossedOut
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save checked state: \(error), \(error.userInfo)")
+                }
+            }
+        }
+    }
+    
+    // cruD Request: Delete object from CoreData
     func deleteItem(byIndex index:Int) {
         // let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
         do {
@@ -73,7 +89,7 @@ class CartItemsManager {
         }
     }
     
-    // CRUD Request: Convenience method for deleting all saved Core Data objects
+    // cruD Request: Convenience method for deleting all saved Core Data objects
     func deleteAllItems() {
         // Initialize Fetch Request
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItem")
@@ -88,20 +104,6 @@ class CartItemsManager {
         } catch {
             print("Error in deleting")
             return
-        }
-    }
-    
-    // CRUD Request: Update the 'Checked' state of the item
-    func toggleChecked(_ itemName:String) {
-        for item in cartItems {
-            if (item.name == itemName) {
-                item.crossedOut = !item.crossedOut
-                do {
-                    try managedContext.save()
-                } catch let error as NSError {
-                    print("Could not save checked state: \(error), \(error.userInfo)")
-                }
-            }
         }
     }
 }

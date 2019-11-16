@@ -19,13 +19,17 @@ class GuestsManager {
     let managedContext: NSManagedObjectContext
     
     private var guests:[GuestEntity]  = []
+    private var guestlists:[GuestlistEntity] = []
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-        loadItems()
+        loadGuests()
+        loadGuestlists()
+        print("guests [GuestsManager]: \(guests)\n guestlists [GuestsManager]: \(guestlists)")
     }
     
-    // Creates the object
+    
+    // Crud Request: Create item in Managed Context
     private func createNSGuest(_ name:String, _ allergies:String, _ diets:String) -> GuestEntity {
         let guestEntity = NSEntityDescription.entity(forEntityName:"GuestEntity", in:managedContext)!
         let nsGuest = NSManagedObject(entity: guestEntity, insertInto: managedContext) as! GuestEntity
@@ -37,7 +41,7 @@ class GuestsManager {
         return nsGuest
     }
     
-    
+    // Crud Request: Run above to Create a Guest; Add it to memory; Save ManagedContext to CoreData
     func addGuest(_ name:String, _ allergies:String, _ diets:String) {
         let nsGuest = createNSGuest(name, allergies, diets)
         guests.append(nsGuest)
@@ -48,12 +52,35 @@ class GuestsManager {
         }
     }
     
-    func loadItems() {
+    // cRud Request: Retrieve Guests from CoreData
+    private func loadGuests() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestEntity")
             guests = try managedContext.fetch(fetchRequest) as! [GuestEntity]
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
+    }
+    
+    // cRud Request: Retrieve Guestlists from CoreData
+    private func loadGuestlists() {
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestlistEntity")
+            guestlists = try managedContext.fetch(fetchRequest) as! [GuestlistEntity]
+        } catch let error as NSError {
+            print("Could not save: \(error), \(error.userInfo)")
+        }
+    }
+    
+    // cRud Request: Read from CoreData
+    func getGuests() -> [GuestEntity] {
+        loadGuests()
+        return guests
+    }
+    
+    // cRud Request: Read from CoreData
+    func getGuestlists() -> [GuestlistEntity] {
+        loadGuestlists()
+        return guestlists
     }
 }
