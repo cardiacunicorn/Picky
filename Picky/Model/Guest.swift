@@ -14,10 +14,10 @@ class Guest: NSObject {
     var id:Int = 0
     var name:String
     var groups:[String]
-    var diets:[Diet]
-    var allergies:[Allergy]
+    var diets:[Enums.Diet]
+    var allergies:[Enums.Allergy]
     
-    init(name:String, groups:[String] = [], diets:[Diet] = [], allergies:[Allergy] = []) {
+    init(name:String, groups:[String] = [], diets:[Enums.Diet] = [], allergies:[Enums.Allergy] = []) {
         self.id += 1
         self.name = name
         self.groups = groups

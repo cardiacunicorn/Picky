@@ -53,7 +53,7 @@ struct GuestsViewModel {
         guestlists = guestsManager.getGuestlists()
     }
     
-    func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Diet], allergies:[Allergy]) {
+    func getGuest(byIndex index:Int) -> (id:Int, name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
         let id = guests[index].id
         let name = guests[index].name
         let groups = guests[index].groups
@@ -76,10 +76,10 @@ struct GuestsViewModel {
     }
     
     // Placeholder Guest Objects
-    private var guest1 = Guest(name: "Alexander G. Bell", groups: ["All","Family","Friends"], diets: [Diet.OvoVegetarian], allergies: [Allergy.Dairy])
-    private var guest2 = Guest(name: "Colin Decemberist", groups: ["All","Friends","Colleagues"], diets: [Diet.Vegetarian], allergies: [Allergy.Gluten,Allergy.TreeNut])
-    private var guest3 = Guest(name: "Edie Falco", groups: ["All","Friends"], diets: [Diet.Pescatarian], allergies: [Allergy.Shellfish,Allergy.TreeNut])
-    private var guest4 = Guest(name: "Gwendolyn Humphries", groups: ["All","Family"], diets: [], allergies: [Allergy.Wheat,Allergy.Peanut])
+    private var guest1 = Guest(name: "Alexander G. Bell", groups: ["All","Family","Friends"], diets: [Enums.Diet.OvoVegetarian], allergies: [Enums.Allergy.Dairy])
+    private var guest2 = Guest(name: "Colin Decemberist", groups: ["All","Friends","Colleagues"], diets: [Enums.Diet.Vegetarian], allergies: [Enums.Allergy.Gluten,Enums.Allergy.TreeNut])
+    private var guest3 = Guest(name: "Edie Falco", groups: ["All","Friends"], diets: [Enums.Diet.Pescatarian], allergies: [Enums.Allergy.Shellfish,Enums.Allergy.TreeNut])
+    private var guest4 = Guest(name: "Gwendolyn Humphries", groups: ["All","Family"], diets: [], allergies: [Enums.Allergy.Wheat,Enums.Allergy.Peanut])
     private var guest5 = Guest(name: "Iggy Joplin", groups: ["All"], diets: [], allergies: [])
     private var guest6 = Guest(name: "Edit with pencil", groups: [], diets: [], allergies: [])
     private var guest7 = Guest(name: "Remove from current guestlist with minus sign", groups: [], diets: [], allergies: [])

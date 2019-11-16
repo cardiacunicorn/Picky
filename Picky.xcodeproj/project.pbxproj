@@ -12,8 +12,6 @@
 		FA510CB4238055F60015C689 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA510CB3238055F60015C689 /* Enums.swift */; };
 		FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */; };
 		FA5CBD7A2359CE6000F14157 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD792359CE6000F14157 /* ShoppingCartViewModel.swift */; };
-		FA5CBD7C2359D24A00F14157 /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7B2359D24A00F14157 /* Diet.swift */; };
-		FA5CBD7E2359D25700F14157 /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD7D2359D25700F14157 /* Allergy.swift */; };
 		FA5CBD842359F34100F14157 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5CBD832359F34100F14157 /* ShoppingCartViewController.swift */; };
 		FA6094E523797D2800B53F69 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6094E423797D2800B53F69 /* Request.swift */; };
 		FA80BDC0235C40890004B75F /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */; };
@@ -66,8 +64,6 @@
 		FA510CB3238055F60015C689 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		FA5CBD792359CE6000F14157 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
-		FA5CBD7B2359D24A00F14157 /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
-		FA5CBD7D2359D25700F14157 /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
 		FA5CBD832359F34100F14157 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		FA5CBD85235AF3CA00F14157 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FA6094E423797D2800B53F69 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -215,8 +211,6 @@
 				FAD0C76F235868C000481BFD /* Recipe.swift */,
 				FAD0C771235868E800481BFD /* Guest.swift */,
 				FA49C38A236C00F0000EFBF8 /* Guestlist.swift */,
-				FA5CBD7B2359D24A00F14157 /* Diet.swift */,
-				FA5CBD7D2359D25700F14157 /* Allergy.swift */,
 				FA6094E423797D2800B53F69 /* Request.swift */,
 				FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */,
 				FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */,
@@ -386,11 +380,9 @@
 				FAEEEFED237F180A0067E0BD /* GuestsManager.swift in Sources */,
 				FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */,
 				FAEEEFD7237ED75B0067E0BD /* CartItemsManager.swift in Sources */,
-				FA5CBD7C2359D24A00F14157 /* Diet.swift in Sources */,
 				FAD0C772235868E800481BFD /* Guest.swift in Sources */,
 				FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */,
 				FAEEEFEA237F15C20067E0BD /* GuestlistEntity+CoreDataClass.swift in Sources */,
-				FA5CBD7E2359D25700F14157 /* Allergy.swift in Sources */,
 				FAD0C77423586DB300481BFD /* RecipeViewModel.swift in Sources */,
 				FA6094E523797D2800B53F69 /* Request.swift in Sources */,
 				FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */,

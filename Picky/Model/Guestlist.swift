@@ -31,8 +31,8 @@ class Guestlist: NSObject {
     }
     
     // Combines each distinct allergy from underlying set of guests
-    var allergies:[Allergy] {
-        var combo:[Allergy] = []
+    var allergies:[Enums.Allergy] {
+        var combo:[Enums.Allergy] = []
         for member in members {
             let memberAllergies = member.allergies
             for memberAllergy in memberAllergies {
@@ -46,8 +46,8 @@ class Guestlist: NSObject {
     }
     
     // Combines each distinct diet from underlying set of guests
-    var diets:[Diet] {
-        var combo:[Diet] = []
+    var diets:[Enums.Diet] {
+        var combo:[Enums.Diet] = []
         for member in members {
             let memberDiets = member.diets
             for memberDiet in memberDiets {
