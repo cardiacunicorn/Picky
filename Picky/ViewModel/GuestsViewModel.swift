@@ -27,7 +27,7 @@ struct GuestsViewModel {
     
     // returns the number of guests
     var count:Int {
-        return guests.count
+        return guestEntities.count
     }
     
     // loads a bunch of placeholder guests
@@ -56,19 +56,40 @@ struct GuestsViewModel {
         print("*** updated counts ***\n guests [GuestsViewModel]: \(guestEntities.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
     }
     
-    func getGuest(byIndex index:Int) -> (name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
-        let name = guests[index].name
-        let groups = guests[index].groups
-        let diets = guests[index].diets
-        let allergies = guests[index].allergies
-        
-        return (name, groups, diets, allergies)
-    }
-    
     // Adds a guest to the list of guests
     mutating func addGuest(newGuest:Guest) {
         guests.append(newGuest)
         print("New guest created:\(newGuest.name)")
+    }
+
+//    func oldgetGuest(byIndex index:Int) -> (name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
+//        guard let name = guestEntities[index].name else { }
+//        // let name = guestEntities[index].name
+//        let allergies = guestEntities[index].allergies
+//        let diets = guestEntities[index].diets
+//        let groups = guestEntities[index].guestlists
+//
+//        return (name, groups, diets, allergies)
+//    }
+    
+    func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet]) {
+        guard let guestName = guestEntities[index].name,
+            let guestAllergyStrings = guestEntities[index].allergies,
+            let guestDietStrings = guestEntities[index].diets
+        else { return ("Data error",[],[]) }
+        
+        var guestAllergies:[Enums.Allergy] = []
+        for string in guestAllergyStrings {
+            let allergy = Enums.Allergy(rawValue: string)
+            guestAllergies.append(allergy!)
+        }
+        var guestDiets:[Enums.Diet] = []
+        for string in guestDietStrings {
+            let diet = Enums.Diet(rawValue: string)
+            guestDiets.append(diet!)
+        }
+        
+        return (guestName, guestAllergies, guestDiets)
     }
     
     // Removes guest from active guestlist, according to the IndexPath passed in

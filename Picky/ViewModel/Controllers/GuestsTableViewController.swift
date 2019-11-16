@@ -31,9 +31,11 @@ class GuestsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        viewModel.loadData()
+        self.tableView.reloadData()
+        print("Guests tab opened. Guests count: \(viewModel.count)")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,7 +56,9 @@ class GuestsTableViewController: UITableViewController {
         if let guestName = guestName, let guestGroups = guestGroups {
             let currentGuest = viewModel.getGuest(byIndex: indexPath.row)
             guestName.text = currentGuest.name
-            guestGroups.text = currentGuest.groups.joined(separator: ", ")
+            
+            // TEMP FIX
+            // guestGroups.text = currentGuest.groups.joined(separator: ", ")
         }
 
         return cell
