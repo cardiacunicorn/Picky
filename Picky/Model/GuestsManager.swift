@@ -25,12 +25,11 @@ class GuestsManager {
         managedContext = appDelegate.persistentContainer.viewContext
         loadGuests()
         loadGuestlists()
-        print("guests [GuestsManager]: \(guests.count)\n  guestlists [GuestsManager]: \(guestlists.count)")
     }
     
     
     // Crud Request: Create guest in Managed Context
-    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet]) -> GuestEntity {
+    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet], _ guestlists:[String]) -> GuestEntity {
         let guestEntity = NSEntityDescription.entity(forEntityName:"GuestEntity", in:managedContext)!
         let nsGuest = NSManagedObject(entity: guestEntity, insertInto: managedContext) as! GuestEntity
         
@@ -39,12 +38,10 @@ class GuestsManager {
         for allergy in allergies {
             stringAllergies.append(allergy.rawValue)
         }
-        print(stringAllergies)
         var stringDiets:[String] = []
         for diet in diets {
             stringDiets.append(diet.rawValue)
         }
-        print(stringDiets)
         
         // Set values for the created object
         nsGuest.setValue(name, forKeyPath: "name")
@@ -63,12 +60,10 @@ class GuestsManager {
         for allergy in allergies {
             stringAllergies.append(allergy.rawValue)
         }
-        print(stringAllergies)
         var stringDiets:[String] = []
         for diet in diets {
             stringDiets.append(diet.rawValue)
         }
-        print(stringDiets)
         
         // Set values for the created object
         nsGuestlist.setValue(name, forKeyPath: "name")
@@ -79,12 +74,10 @@ class GuestsManager {
     
     // Crud Request: Run above to Create a Guest; Add it to memory; Save ManagedContext to CoreData
     func addGuest(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = [], _ guestlists:[String] = ["Default"]) {
-        let nsGuest = createNSGuest(name, allergies, diets)
-        print("Making guest: \(name)")
+        let nsGuest = createNSGuest(name, allergies, diets, guestlists)
         guests.append(nsGuest)
         
-        // before going further I need to verify that I am in fact adding Guests to CoreData and they are persisting
-        
+        // build into guestlist
         
         do {
             try managedContext.save()

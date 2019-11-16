@@ -11,9 +11,6 @@ import UIKit
 class GuestsTableViewController: UITableViewController {
 
     private var viewModel = GuestsViewModel()
-    var guestID:Int = 6
-    var newGuest:String = ""
-    var groups:[String] = []
     
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
@@ -35,9 +32,7 @@ class GuestsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Not sure I want to go this route, but leaving the advice here if it comes to it
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,6 +67,7 @@ class GuestsTableViewController: UITableViewController {
     }
     
     func createGuestAlert() {
+        var groups:[String] = []
         // Create controller
         let alertController = UIAlertController(title: "Create Guest", message: "Enter guest's name, and any comma-separated group(s) they should be added to", preferredStyle: .alert)
         // Generate textFields for user input
@@ -86,19 +82,18 @@ class GuestsTableViewController: UITableViewController {
             guard let name = alertController.textFields?[0].text else {return}
             let groupsInput = alertController.textFields?[1].text
             // Split user group(s) input, by comma, into an array -- default an empty array
-            self.groups = groupsInput?.components(separatedBy: ",") ?? []
+            groups = groupsInput?.components(separatedBy: ",") ?? []
             // Remove leading and trailing spaces
-            for var group in self.groups {
+            for var group in groups {
                 group = group.trimmingCharacters(in: .whitespaces)
             }
             self.viewModel.addGuest(newGuest:
                 Guest(name: name,
-                      groups: self.groups,
+                      groups: groups,
                       diets: [],
                       allergies: []
             ))
             self.tableView.reloadData()
-            self.guestID += 1
         }
         let cancelCreate = UIAlertAction(title: "Cancel", style: .cancel) { (_) in print("User cancelled their action to create a new guest") }
         

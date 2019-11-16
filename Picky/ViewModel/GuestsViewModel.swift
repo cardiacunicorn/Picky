@@ -19,14 +19,10 @@ struct GuestsViewModel {
     // private var activeGuestlist:GuestlistEntity
     
     init() {
-        // deleteAllGuestData() // shouldn't be required
+        deleteAllGuestData() // shouldn't be required
         loadData()
-        print("guests [GuestsViewModel]: \(guests.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
-        print("[After placeholders]\nguests [GuestsManager]: \(guestsManager.getGuests().count)\n  guestlists [GuestsManager]: \(guestsManager.getGuestlists().count)")
-        print("[After placeholders]\nguests [GuestsViewModel]: \(guestEntities.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
-        print(guestsManager.getGuests())
     }
     
     // returns the number of guests
@@ -57,6 +53,7 @@ struct GuestsViewModel {
     mutating func loadData() {
         guestEntities = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
+        print("*** updated counts ***\n guests [GuestsViewModel]: \(guestEntities.count)\n  guestlists [GuestsViewModel]: \(guestlists.count)")
     }
     
     func getGuest(byIndex index:Int) -> (name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
