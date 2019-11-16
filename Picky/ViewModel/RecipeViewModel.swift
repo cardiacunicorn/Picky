@@ -80,11 +80,11 @@ class RecipeViewModel {
         return recipes[index].readyTime
     }
     
-    func getCuisines(index:Int) -> [Cuisine] {
+    func getCuisines(index:Int) -> [Enums.Cuisine] {
         return recipes[index].cuisines
     }
     
-    func getDiets(index:Int) -> [Diet] {
+    func getDiets(index:Int) -> [Enums.Diet] {
         return recipes[index].diets
     }
     
@@ -100,7 +100,7 @@ class RecipeViewModel {
     
     
     // this function should no longer be required
-    func getRecipe(byIndex index:Int) -> (id:Int, title:String, readyTime:Int, servings:Int, imageName:String, image:UIImage ,cuisines:[Cuisine], diets:[Diet], instructions:String, ingredients:[String]) {
+    func getRecipe(byIndex index:Int) -> (id:Int, title:String, readyTime:Int, servings:Int, imageName:String, image:UIImage ,cuisines:[Enums.Cuisine], diets:[Enums.Diet], instructions:String, ingredients:[String]) {
         let id = recipes[index].id
         let title = recipes[index].title
         let readyTime = recipes[index].readyTime

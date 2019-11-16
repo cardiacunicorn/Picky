@@ -14,8 +14,8 @@ struct Recipe {
     var readyTime:Int
     var servings:Int
     var imageName:String
-    var cuisines:[Cuisine]
-    var diets:[Diet]
+    var cuisines:[Enums.Cuisine]
+    var diets:[Enums.Diet]
     var instructions:String
     var ingredients:[String]
     
@@ -25,8 +25,8 @@ struct Recipe {
             readyTime:Int,
             servings:Int = 1,
             imageName:String,
-            cuisines:[Cuisine] = [],
-            diets:[Diet] = [],
+            cuisines:[Enums.Cuisine] = [],
+            diets:[Enums.Diet] = [],
             instructions:String = "",
             ingredients:[String] = []) {
         self.id = id

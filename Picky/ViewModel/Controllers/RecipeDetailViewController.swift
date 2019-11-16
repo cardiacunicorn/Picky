@@ -10,9 +10,9 @@ import UIKit
 
 class RecipeDetailViewController: UIViewController {
     
-    // ISSUE: No default scrolling behaviour in detail view -> mainly affects landscape view
+    // ISSUE: No default scrolling behaviour in detail view
 
-    var selectedRecipe:(id: Int, title: String, readyTime: Int, servings: Int, imageName: String, image: UIImage?, cuisines: [Cuisine], diets: [Diet], instructions: String, ingredients: [String])?
+    var selectedRecipe:(id: Int, title: String, readyTime: Int, servings: Int, imageName: String, image: UIImage?, cuisines: [Enums.Cuisine], diets: [Enums.Diet], instructions: String, ingredients: [String])?
     
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailTitle: UILabel!
