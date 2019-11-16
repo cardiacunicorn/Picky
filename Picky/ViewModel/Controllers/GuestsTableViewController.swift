@@ -16,18 +16,19 @@ class GuestsTableViewController: UITableViewController {
         createGuestAlert()
     }
     @IBAction func editMenuButton(_ sender: Any) {
-        if (tableView.isEditing) {
-            tableView.setEditing(false, animated: true)
-        } else {
-            tableView.setEditing(true, animated: true)
-        }
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
     @IBAction func editGuestButton(_ sender: Any) {
-        editGuest()
+        viewModel.editGuest()
         self.tableView.reloadData()
     }
-    @IBAction func minusGuestButton(_ sender: Any) {
+    @IBAction func minusGuestButton(_ sender: UIButton) {
         // TODO: implement removal from selected guestlist
+        // Active Guestlist should be stored in the viewmodel anyway
+        if let cell = sender.superview?.superview as? UITableViewCell {
+            viewModel.removeGuest(byCell: cell)
+        }
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -61,7 +62,7 @@ class GuestsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            viewModel.removeGuest(byIndex: indexPath.row)
+            viewModel.deleteGuest(byIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
@@ -102,9 +103,5 @@ class GuestsTableViewController: UITableViewController {
         alertController.addAction(cancelCreate)
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func editGuest() {
-        // TODO
     }
 }

@@ -71,14 +71,33 @@ struct GuestsViewModel {
         print("New guest created:\(newGuest.name)")
     }
     
-    // Removes item from the shopping list, according to the IndexPath passed in
+    // Removes guest from active guestlist, according to the IndexPath passed in
     mutating func removeGuest(byIndex index:Int) {
         guests.remove(at: index)
+        guestsManager.removeGuest(byIndex: index)
         print("Guest has been removed")
+    }
+    
+    mutating func removeGuest(byCell cell:UITableViewCell) {
+//        guests.remove(at: index)
+//        guestsManager.removeGuest(byIndex: index)
+        print("Guest has been removed")
+    }
+    
+    // Should delete a guest (very different to above method)
+    mutating func deleteGuest(byIndex index:Int) {
+        guests.remove(at: index)
+        guestsManager.deleteGuest(byIndex: index)
+        print("Guest has been deleted")
     }
     
     mutating func deleteAllGuestData() {
         guestsManager.deleteAllGuests()
         guestsManager.deleteAllGuestlists()
+    }
+    
+    mutating func editGuest()  {
+        // TODO
+        print("Editing guest")
     }
 }

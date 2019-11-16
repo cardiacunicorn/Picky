@@ -130,6 +130,11 @@ class GuestsManager {
         return guestlists
     }
     
+    func removeGuest(byIndex index:Int) {
+        // TODO
+        print("Removing guest")
+    }
+    
     // cruD Request: Delete a Guest object from CoreData
     func deleteGuest(byIndex index:Int) {
         do {
