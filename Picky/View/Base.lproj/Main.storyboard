@@ -740,11 +740,11 @@
             </objects>
             <point key="canvasLocation" x="-1001" y="279"/>
         </scene>
-        <!--Shopping List-->
+        <!--My List-->
         <scene sceneID="h64-ro-bCC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sA3-Ck-7h4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shopping List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov">
+                    <tabBarItem key="tabBarItem" title="My List" image="cart" catalog="system" selectedImage="cart.fill" id="eXD-xi-Aov">
                         <color key="badgeColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                     <toolbarItems/>

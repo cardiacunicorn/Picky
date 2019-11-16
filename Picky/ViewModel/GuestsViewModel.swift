@@ -14,7 +14,7 @@ struct GuestsViewModel {
     private var guestlist:Guestlist = Guestlist(name:"Testlist",members:[])
     
     init() {
-        loadData()
+        loadPlaceholders()
     }
     
     // returns the number of guests
@@ -23,19 +23,20 @@ struct GuestsViewModel {
     }
     
     // loads a bunch of placeholder guests
-    private mutating func loadData() {
-        guests.append(guest6)
-        guests.append(guest7)
-        guests.append(guest8)
-        guests.append(guest1)
-        guests.append(guest2)
-        guests.append(guest3)
-        guests.append(guest4)
-        guests.append(guest5)
-        
-        guestlist.add(guest: guest3)
-        guestlist.add(guest: guest2)
-        guestlist.add(guest: guest5)
+    private mutating func loadPlaceholders() {
+        if (guests.count == 0) {
+            guests.append(guest6)
+            guests.append(guest7)
+            guests.append(guest8)
+            guests.append(guest1)
+            guests.append(guest2)
+            guests.append(guest3)
+            guests.append(guest4)
+            guests.append(guest5)
+            guestlist.add(guest: guest3)
+            guestlist.add(guest: guest2)
+            guestlist.add(guest: guest5)
+        }
         print("Selected guestlist allergies: \(guestlist.allergies)")
     }
     

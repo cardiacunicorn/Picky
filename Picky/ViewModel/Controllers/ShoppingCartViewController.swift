@@ -18,7 +18,9 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         addItemAlert()
     }
     @IBAction func trashMenuButton(_ sender: Any) {
-        CartItemsManager.shared.deleteAllItems()
+        // Removes all items from CoreData and active memory
+        viewModel.clearAllItems()
+        tableView.reloadData()
     }
     @IBAction func editItemButton(_ sender: Any) {
         // viewModel.editItem()

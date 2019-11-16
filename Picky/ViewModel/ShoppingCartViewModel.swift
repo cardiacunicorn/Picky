@@ -54,6 +54,11 @@ struct ShoppingCartViewModel {
         loadCartItems()
     }
     
+    mutating func clearAllItems() {
+        CartItemsManager.shared.deleteAllItems()
+        loadCartItems()
+    }
+    
     // Adds a new item to the shopping cart
     mutating func addItem(_ name:String, _ recipe:String = "None") {
         print("Added '\(name)' to the shopping cart")
