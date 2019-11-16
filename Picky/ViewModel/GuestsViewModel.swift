@@ -61,22 +61,13 @@ struct GuestsViewModel {
         guests.append(newGuest)
         print("New guest created:\(newGuest.name)")
     }
-
-//    func oldgetGuest(byIndex index:Int) -> (name:String, groups:[String], diets:[Enums.Diet], allergies:[Enums.Allergy]) {
-//        guard let name = guestEntities[index].name else { }
-//        // let name = guestEntities[index].name
-//        let allergies = guestEntities[index].allergies
-//        let diets = guestEntities[index].diets
-//        let groups = guestEntities[index].guestlists
-//
-//        return (name, groups, diets, allergies)
-//    }
     
-    func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet]) {
+    func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet], guestlists:[String]) {
         guard let guestName = guestEntities[index].name,
             let guestAllergyStrings = guestEntities[index].allergies,
-            let guestDietStrings = guestEntities[index].diets
-        else { return ("Data error",[],[]) }
+            let guestDietStrings = guestEntities[index].diets,
+            let guestGuestlists  = guestEntities[index].guestlists
+        else { return ("Data read error",[],[],["Guest does not exist"]) }
         
         var guestAllergies:[Enums.Allergy] = []
         for string in guestAllergyStrings {
@@ -88,8 +79,10 @@ struct GuestsViewModel {
             let diet = Enums.Diet(rawValue: string)
             guestDiets.append(diet!)
         }
+        let guestlists:[String] = guestGuestlists.allObjects as? [String] ?? []
+        print(guestlists)
         
-        return (guestName, guestAllergies, guestDiets)
+        return (guestName, guestAllergies, guestDiets, guestlists)
     }
     
     // Removes guest from active guestlist, according to the IndexPath passed in

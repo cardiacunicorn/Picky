@@ -56,9 +56,7 @@ class GuestsTableViewController: UITableViewController {
         if let guestName = guestName, let guestGroups = guestGroups {
             let currentGuest = viewModel.getGuest(byIndex: indexPath.row)
             guestName.text = currentGuest.name
-            
-            // TEMP FIX
-            // guestGroups.text = currentGuest.groups.joined(separator: ", ")
+            guestGroups.text = currentGuest.guestlists.joined(separator: ", ")
         }
 
         return cell

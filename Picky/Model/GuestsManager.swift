@@ -18,8 +18,9 @@ class GuestsManager {
     let appDelegate =  UIApplication.shared.delegate as! AppDelegate
     let managedContext: NSManagedObjectContext
     
-    private var guests:[GuestEntity]  = []
-    private var guestlists:[GuestlistEntity] = []
+    // 'global' refers to all stored data, ViewModel is responsible for filtering subsets of this
+    private var globalGuests:[GuestEntity]  = []
+    private var globalGuestlists:[GuestlistEntity] = []
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
@@ -29,7 +30,7 @@ class GuestsManager {
     
     
     // Crud Request: Create guest in Managed Context
-    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet], _ guestlists:[String]) -> GuestEntity {
+    private func createNSGuest(_ name:String, _ allergies:[Enums.Allergy], _ diets:[Enums.Diet], _ guestlists:[GuestlistEntity] = []) -> GuestEntity {
         let guestEntity = NSEntityDescription.entity(forEntityName:"GuestEntity", in:managedContext)!
         let nsGuest = NSManagedObject(entity: guestEntity, insertInto: managedContext) as! GuestEntity
         
@@ -47,6 +48,10 @@ class GuestsManager {
         nsGuest.setValue(name, forKeyPath: "name")
         nsGuest.setValue(stringAllergies, forKeyPath: "allergies")
         nsGuest.setValue(stringDiets, forKeyPath: "diets")
+        // Will add guest to guestlists if Guestlist objects are provided
+        for guestlist in guestlists {
+            nsGuest.addToGuestlists(guestlist)
+        }
         return nsGuest
     }
     
@@ -73,11 +78,35 @@ class GuestsManager {
     }
     
     // Crud Request: Run above to Create a Guest; Add it to memory; Save ManagedContext to CoreData
-    func addGuest(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = [], _ guestlists:[String] = ["Default"]) {
-        let nsGuest = createNSGuest(name, allergies, diets, guestlists)
-        guests.append(nsGuest)
+    func addGuest(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = [], _ paramGuestlists:[String] = ["Default"]) {
         
-        // build into guestlist
+        // Represents GuestListEntity versions of paramGuestlists
+        var intendedGuestlists:[GuestlistEntity] = []
+        
+        // For each intended guestlist, check if it exists, otherwise create it
+        for paramGuestlist in paramGuestlists {
+            var exists = false
+            for guestlist in globalGuestlists {
+                if (guestlist.name == paramGuestlist) {
+                    exists = true
+                    intendedGuestlists.append(guestlist)
+                } else { print("No match") }
+            }
+            if (!exists) {
+                // Create the Guestlist, as it does not exist
+                let intendedGuestlist = createNSGuestlist(paramGuestlist,[],[])
+                // Add it to the full list of guestlists
+                globalGuestlists.append(intendedGuestlist)
+                // And add it to the list of Guestlists yet to be attached to a new Guest
+                intendedGuestlists.append(intendedGuestlist)
+            }
+        }
+        
+        // Now that each intended guestlist definitely exists, create the guest
+        // Guest creation will take care of attaching the Guest to Guestlists
+        let nsGuest = createNSGuest(name, allergies, diets, intendedGuestlists)
+        
+        globalGuests.append(nsGuest)
         
         do {
             try managedContext.save()
@@ -90,7 +119,7 @@ class GuestsManager {
     // Crud Request: Run above to Create a Guestlist; Add it to memory; Save ManagedContext to CoreData
     func addGuestlist(_ name:String, _ allergies:[Enums.Allergy] = [], _ diets:[Enums.Diet] = []) {
         let nsGuestlist = createNSGuestlist(name, allergies, diets)
-        guestlists.append(nsGuestlist)
+        globalGuestlists.append(nsGuestlist)
         do {
             try managedContext.save()
         } catch let error as NSError {
@@ -102,7 +131,7 @@ class GuestsManager {
     private func loadGuests() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestEntity")
-            guests = try managedContext.fetch(fetchRequest) as! [GuestEntity]
+            globalGuests = try managedContext.fetch(fetchRequest) as! [GuestEntity]
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
@@ -112,7 +141,7 @@ class GuestsManager {
     private func loadGuestlists() {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "GuestlistEntity")
-            guestlists = try managedContext.fetch(fetchRequest) as! [GuestlistEntity]
+            globalGuestlists = try managedContext.fetch(fetchRequest) as! [GuestlistEntity]
         } catch let error as NSError {
             print("Could not save: \(error), \(error.userInfo)")
         }
@@ -121,13 +150,13 @@ class GuestsManager {
     // cRud Request: Read from CoreData
     func getGuests() -> [GuestEntity] {
         loadGuests()
-        return guests
+        return globalGuests
     }
     
     // cRud Request: Read from CoreData
     func getGuestlists() -> [GuestlistEntity] {
         loadGuestlists()
-        return guestlists
+        return globalGuestlists
     }
     
     func removeGuest(byIndex index:Int) {
@@ -138,7 +167,7 @@ class GuestsManager {
     // cruD Request: Delete a Guest object from CoreData
     func deleteGuest(byIndex index:Int) {
         do {
-            managedContext.delete(guests[index])
+            managedContext.delete(globalGuests[index])
             try managedContext.save()
         } catch {
             print("Error in deleting guest")
@@ -149,7 +178,7 @@ class GuestsManager {
     // cruD Request: Delete Guestlist object from CoreData
     func deleteGuestlist(byIndex index:Int) {
         do {
-            managedContext.delete(guestlists[index])
+            managedContext.delete(globalGuestlists[index])
             try managedContext.save()
         } catch {
             print("Error in deleting guestlist")
