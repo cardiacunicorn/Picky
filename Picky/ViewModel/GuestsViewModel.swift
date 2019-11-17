@@ -19,7 +19,6 @@ struct GuestsViewModel {
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
         print("Active Guestlist: \(String(describing: activeGuestlist.name))")
-        print("Active Guestlist's Filters: \(activeGuestlist.allergies), \(activeGuestlist.diets)")
     }
     
     // returns the number of guests on active guestlist
@@ -36,14 +35,14 @@ struct GuestsViewModel {
     private mutating func loadPlaceholders() {
         // Placeholder Guest Objects
         if (guests.count == 0) {
-            guestsManager.addGuest("Edit with pencil",[],[],["Default"])
+            guestsManager.addGuest("Edit with pencil",[],[Enums.Diet.Pescatarian],["Default"])
             guestsManager.addGuest("Remove from current guestlist with minus sign",[],[],["Default"])
             guestsManager.addGuest("or Delete entirely by swiping left",[],[],["Default"])
-            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [],["Default","Friends","Family"])
-            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish],[Enums.Diet.Pescatarian],["Default","Colleagues","Family"])
-            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [],["Default","Friends"])
-            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.Seafood], [],["Default","Friends","Colleagues"])
-            guestsManager.addGuest("Iggy Joplin", [], [],["Default","Colleagues"])
+//            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [],["Default","Friends","Family"])
+//            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish],[Enums.Diet.Pescatarian],["Default","Colleagues","Family"])
+//            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [],["Default","Friends"])
+//            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten], [],["Default","Friends","Colleagues"])
+//            guestsManager.addGuest("Iggy Joplin", [], [],["Default","Colleagues"])
         }
     }
     
