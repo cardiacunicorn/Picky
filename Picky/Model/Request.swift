@@ -26,10 +26,10 @@ class Request {
     
     private func updateQuery() {
         let guestlist = GuestsManager.shared.getGuestlists()[GuestsManager.shared.activeGuestlistIndex]
-        query = ""
+        query = "&tags="
         if let allergies = guestlist.allergies {
             if (allergies.count > 0) {
-                query += "&tags=" + allergies.joined(separator: ",")
+                query += allergies.joined(separator: ",")
             }
         }
         if let allergies = guestlist.allergies, let diets = guestlist.diets  {
@@ -39,11 +39,7 @@ class Request {
         }
         if let diets = guestlist.diets {
             if (diets.count > 0) {
-                if guestlist.allergies == nil {
-                    query += "&tags="
-                } else {
-                    query += diets.joined(separator: ",")
-                }
+                query += diets.joined(separator: ",")
             }
         }
         query = query.lowercased()
