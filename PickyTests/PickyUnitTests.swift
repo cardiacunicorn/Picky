@@ -95,15 +95,26 @@ class PickyUnitTests: XCTestCase {
     }
     
     func testGuestViewModel() {
+        // Check all guests can, and have been deleted
+        GuestsManager.shared.deleteAllGuests()
+        XCTAssert(GuestsManager.shared.getGuests().count == 0)
         
         // Check guest is added, regardless of pre-existing items
         let guestCount = guestViewModel.count
-        guestViewModel.addGuest("Test item",[],[],["Default"])
+        guestViewModel.addGuest("Test Guest",[],[],["Default"])
         XCTAssert(cartViewModel.count > guestCount)
         
-        // Check guest is removed from active guestlist
-        guestViewModel.removeGuest(byIndex: guestViewModel.count - 1)
+        // Check guest is removed from active guestlist. [In this case: "Default"]
+        guestViewModel.activeGuestlist = GuestsManager.shared.getGuestlists()[0]
+        guestViewModel.removeGuest("Test Guest")
         XCTAssert(guestViewModel.count == guestCount)
         
+        // Check the guest still exists after guestlist removal
+        let totalGuests = guestViewModel.totalGuests
+        XCTAssert(totalGuests == 1)
+        
+        // Check guest can be deleted entirely
+        guestViewModel.deleteGuest(byIndex: totalGuests - 1)
+        XCTAssert(GuestsManager.shared.getGuests().count < totalGuests)
     }
 }

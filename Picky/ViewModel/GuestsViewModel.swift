@@ -11,7 +11,7 @@ import UIKit
 struct GuestsViewModel {
     
     private var guestsManager = GuestsManager.shared
-    private var guests:[Guest] = []
+    var guests:[Guest] = []
     var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
@@ -49,8 +49,8 @@ struct GuestsViewModel {
     }
     
     mutating func loadData() {
-        guests = guestsManager.getGuests()
         activeGuestlist = guestsManager.getGuestlists()[guestsManager.activeGuestlistIndex]
+        guests = guestsManager.getGuests()
     }
     
     // Adds a guest to the list of guests
@@ -90,24 +90,22 @@ struct GuestsViewModel {
         return (guestName, guestAllergies, guestDiets, guestlistStrings)
     }
     
-    // Removes guest from active guestlist, according to the IndexPath passed in
-    mutating func removeGuest(byIndex index:Int) {
-        guests.remove(at: index)
-        guestsManager.removeGuest(byIndex: index)
-        print("Guest has been removed")
-    }
-    
-    mutating func removeGuest(byCell cell:UITableViewCell) {
-//        guests.remove(at: index)
-//        guestsManager.removeGuest(byIndex: index)
-        print("Guest has been removed")
+    // Removes guest from active guestlist, according to the name passed in
+    mutating func removeGuest(_ name:String) {
+        for guest in guests {
+            if (guest.name == name) {
+                guest.removeFromGuestlists(activeGuestlist)
+                print("\(name) has been removed from \(String(describing: activeGuestlist.name))")
+            }
+        }
+        loadData()
     }
     
     // Should delete a guest (very different to above method)
     mutating func deleteGuest(byIndex index:Int) {
-        guests.remove(at: index)
         guestsManager.deleteGuest(byIndex: index)
         print("Guest has been deleted")
+        loadData()
     }
     
     mutating func editGuest()  {

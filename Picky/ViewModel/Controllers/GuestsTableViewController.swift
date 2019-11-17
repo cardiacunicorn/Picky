@@ -20,10 +20,11 @@ class GuestsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     @IBAction func minusGuestButton(_ sender: UIButton) {
-        // TODO: implement removal from selected guestlist
-        // Active Guestlist should be stored in the viewmodel anyway
         if let cell = sender.superview?.superview as? UITableViewCell {
-            viewModel.removeGuest(byCell: cell)
+            if let guest = cell.viewWithTag(1020) as? UILabel {
+                guard let guestName = guest.text else { return }
+                viewModel.removeGuest(guestName)
+            }
         }
         self.tableView.reloadData()
     }
