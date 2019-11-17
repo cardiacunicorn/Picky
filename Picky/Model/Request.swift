@@ -18,7 +18,7 @@ class Request {
     private let session = URLSession.shared
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
-    var query:String = "&tags="
+    var query:String = ""
     var numberParam:Int = 5
     
     private init() {}
@@ -26,15 +26,21 @@ class Request {
     
     private func updateQuery() {
         let guestlist = GuestsManager.shared.getGuestlists()[GuestsManager.shared.activeGuestlistIndex]
-        query = "&tags="
+        query = ""
         if let allergies = guestlist.allergies {
-            query += allergies.joined(separator: ",")
+            if (allergies.count > 0) {
+                query += "&tags=" + allergies.joined(separator: ",")
+            }
         }
-        if let _ = guestlist.allergies, let _ = guestlist.diets  {
-            query += ","
+        if let allergies = guestlist.allergies, let diets = guestlist.diets  {
+            if (diets.count > 0 && allergies.count > 0) {
+                query += ","
+            }
         }
-        if let diets  = guestlist.diets {
-            query += diets.joined(separator: ",")
+        if let diets = guestlist.diets {
+            if (diets.count > 0) {
+                query += "&tags=" + diets.joined(separator: ",")
+            }
         }
         query = query.lowercased()
     }

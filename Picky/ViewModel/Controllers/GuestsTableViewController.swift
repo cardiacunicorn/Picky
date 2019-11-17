@@ -78,6 +78,9 @@ class GuestsTableViewController: UITableViewController {
         alertController.addTextField {
             (textField) in textField.placeholder = "Enter group(s) e.g. Friends,Family"
         }
+        alertController.addTextField {
+            (textField) in textField.placeholder = "Enter allergies e.g."
+        }
         // Create add & cancel options
         let createGuest = UIAlertAction(title: "Create", style: .default) { (_) in
             guard let name = alertController.textFields?[0].text else {return}

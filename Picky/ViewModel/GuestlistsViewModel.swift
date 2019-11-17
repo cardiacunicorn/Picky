@@ -15,7 +15,6 @@ struct GuestlistsViewModel {
     private var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        // guestsManager.deleteAllGuestlists() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholder()
@@ -41,9 +40,10 @@ struct GuestlistsViewModel {
         // Handles a crash error if you delete the active guestlist
         if (guestsManager.activeGuestlistIndex > guestlists.count) {
             guestsManager.activeGuestlistIndex = 0
-            if (guestlists.count == 0) {
-                guestsManager.addGuestlist("Default")
-            }
+        }
+        // Handles a crash error if you have no guestlists
+        if (guestlists.count == 0) {
+            guestsManager.addGuestlist("Default")
         }
         activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
     }

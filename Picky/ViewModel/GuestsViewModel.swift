@@ -15,7 +15,6 @@ struct GuestsViewModel {
     var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        // guestsManager.deleteAllGuests() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
@@ -37,14 +36,14 @@ struct GuestsViewModel {
     private mutating func loadPlaceholders() {
         // Placeholder Guest Objects
         if (guests.count == 0) {
-            guestsManager.addGuest("Edit with pencil",[Enums.Allergy.Dairy],[Enums.Diet.Vegetarian])
-            guestsManager.addGuest("Remove from current guestlist with minus sign")
-            guestsManager.addGuest("or Delete entirely by swiping left")
-            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [Enums.Diet.Vegetarian],["Friends","Family"])
-            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish,Enums.Allergy.TreeNut],[Enums.Diet.Pescatarian],["Colleagues","Family"])
-            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [Enums.Diet.OvoVegetarian],["Friends"])
-            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.TreeNut], [Enums.Diet.Vegetarian],["Friends","Colleagues"])
-            guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan],["Colleagues"])
+            guestsManager.addGuest("Edit with pencil",[],[],["Default"])
+            guestsManager.addGuest("Remove from current guestlist with minus sign",[],[],["Default"])
+            guestsManager.addGuest("or Delete entirely by swiping left",[],[],["Default"])
+            guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [],["Default","Friends","Family"])
+            guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish],[Enums.Diet.Pescatarian],["Default","Colleagues","Family"])
+            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [Enums.Diet.Vegetarian],["Default","Friends"])
+            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.Seafood], [Enums.Diet.Vegetarian],["Default","Friends","Colleagues"])
+            guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan],["Default","Colleagues"])
         }
     }
     
