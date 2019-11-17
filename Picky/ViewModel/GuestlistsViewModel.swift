@@ -69,7 +69,17 @@ struct GuestlistsViewModel {
         return (guestlistName, guestlistAllergies, guestlistDiets)
     }
     
-    // Should delete a guest (very different to above method)
+    mutating func setGuestlist(_ name:String) {
+        for (index, guestlist) in guestlists.enumerated() {
+            if (guestlist.name == name) {
+                guestsManager.activeGuestlistIndex = index
+                activeGuestlist = guestsManager.getGuestlists()[index]
+                print("Active guestlist index changed to \(guestsManager.activeGuestlistIndex)")
+            }
+        }
+    }
+    
+    // Should delete a guestlist
     mutating func deleteGuestlist(byIndex index:Int) {
         guestlists.remove(at: index)
         guestsManager.deleteGuestlist(byIndex: index)

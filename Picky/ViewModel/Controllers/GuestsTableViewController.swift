@@ -32,7 +32,7 @@ class GuestsTableViewController: UITableViewController {
         super.viewDidAppear(true)
         viewModel.loadData()
         self.tableView.reloadData()
-        print("Guestlist opened. Active / Total Guests count: [\(viewModel.count)/\(viewModel.totalGuests)]")
+        print("Guestlist opened. ActiveGuests/Total: [\(viewModel.count)/\(viewModel.totalGuests)]")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -81,8 +81,10 @@ class GuestlistsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.destination)
-        // if sender is UITableViewCell
-        // Refer it's index, so it can set the global active guestlist index
+        if let cell = sender as? UITableViewCell {
+            let guestlistName = cell.viewWithTag(1030) as? UILabel
+            print(guestlistName?.text)
+            viewModel.setGuestlist(guestlistName?.text ?? "Default")
+        }
     }
 }
