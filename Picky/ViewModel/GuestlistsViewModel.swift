@@ -41,7 +41,6 @@ struct GuestlistsViewModel {
         guests = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
         activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
-        print("Total Guests: \(guests.count)\nTotal Guestlists: \(guestlists.count)")
     }
     
     // Adds a guest to the list of guests

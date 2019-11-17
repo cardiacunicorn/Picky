@@ -13,7 +13,7 @@ struct GuestsViewModel {
     private var guestsManager = GuestsManager.shared
     private var guests:[Guest] = []
     private var guestlists:[Guestlist] = []
-    private var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
+    var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
         // deleteAllGuestData() // for testing purposes only
@@ -25,17 +25,17 @@ struct GuestsViewModel {
     }
     
     // returns the number of guests
-    var count:Int {
+    var totalcount:Int {
         return guests.count
+    }
+    
+    // returns the number of guests
+    var activecount:Int {
+        return activeGuestlist.guests?.count ?? 0
     }
     
     // loads a bunch of placeholder guests
     private mutating func loadPlaceholders() {
-        // Safeguard if there's no guest list
-        if (guestlists.count == 0) {
-            guestsManager.addGuestlist("Default")
-            activeGuestlist = guestsManager.getGuestlists()[guestsManager.activeGuestlistIndex]
-        }
         // Placeholder Guest Objects
         if (guests.count == 0) {
             guestsManager.addGuest("Edit with pencil",[Enums.Allergy.Dairy],[Enums.Diet.Vegetarian])
@@ -53,8 +53,6 @@ struct GuestsViewModel {
         guests = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
         activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
-        print("Total Guests: \(guests.count)\nTotal Guestlists: \(guestlists.count)")
-        print("Total Guests in Active Guestlist: \(activeGuestlist.guests?.count)")
     }
     
     // Adds a guest to the list of guests
@@ -66,12 +64,17 @@ struct GuestsViewModel {
     
     func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet], guestlists:[String]) {
         
+        
+        var activeGuests:[Guest] = activeGuestlist.guests?.allObjects as! [Guest]
+        // I need guest objects here so that I can return them, or their parameters
+        print("Active Guests: \(activeGuests)")
+        
         guard
-            let guestName = guests[index].name,
-            let guestAllergyStrings = guests[index].allergies,
-            let guestDietStrings = guests[index].diets,
-            let guestGuestlists  = guests[index].guestlists
-        else { return ("Data read error",[],[],["Guest does not exist"]) }
+            let guestName = activeGuests[index].name,
+            let guestAllergyStrings = activeGuests[index].allergies,
+            let guestDietStrings = activeGuests[index].diets,
+            let guestGuestlists  = activeGuests[index].guestlists
+        else { return ("Data read error",[],[],["Guest not in guestlist"]) }
         
         var guestAllergies:[Enums.Allergy] = []
         for string in guestAllergyStrings {

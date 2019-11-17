@@ -3,9 +3,7 @@
 ## Notes
 
 
-- I believe the enums are causing the crash
-- I can: convert them to strings (send just a raw string value to CoreData)
-- or: convert them to classes that inherit from NSObject so that they can conform to 'Transformable'
+- I should/may not need all guests in the guests viewmodel, I should perhaps only be using active guests
 
 
 - A (set) rather than an array, will ensure no duplicate items -> maybe implement for Guestlist allergies and diets -> no it doesn't

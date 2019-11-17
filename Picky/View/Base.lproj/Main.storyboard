@@ -845,7 +845,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Guestlists" id="EMM-z6-m32">
-                        <barButtonItem key="backBarButtonItem" title="Guests" id="CDu-Dg-zEu"/>
+                        <barButtonItem key="backBarButtonItem" title="Guestlists" id="ZVc-DO-ZFE">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="i4i-CC-mEJ">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -945,12 +947,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Guests" id="bho-gG-e32">
-                        <barButtonItem key="backBarButtonItem" title="Guests" id="9zw-Nz-Jlo"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="V3p-04-0yZ">
+                        <barButtonItem key="backBarButtonItem" title="Guests" id="9zw-Nz-Jlo">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="editMenuButton:" destination="b2l-WR-ufx" id="4XE-6w-VEB"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tsp-Gq-Y1n">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

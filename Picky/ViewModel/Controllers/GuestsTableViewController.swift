@@ -15,9 +15,6 @@ class GuestsTableViewController: UITableViewController {
     @IBAction func createGuestButton(_ sender: UIBarButtonItem) {
         createGuestAlert()
     }
-    @IBAction func editMenuButton(_ sender: Any) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-    }
     @IBAction func editGuestButton(_ sender: Any) {
         viewModel.editGuest()
         self.tableView.reloadData()
@@ -35,7 +32,7 @@ class GuestsTableViewController: UITableViewController {
         super.viewDidAppear(true)
         viewModel.loadData()
         self.tableView.reloadData()
-        print("Guests tab opened. Guests count: \(viewModel.count)")
+        print("Guestlist opened. Active / Total Guests count: [\(viewModel.activecount)/\(viewModel.totalcount)]")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,7 +40,7 @@ class GuestsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.count
+        return viewModel.activecount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
