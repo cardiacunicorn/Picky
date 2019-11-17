@@ -38,8 +38,8 @@ class GuestlistsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "guestlistCell", for: indexPath)
         
         // Find elements within the TableView
-        let guestlistName = cell.viewWithTag(1020) as? UILabel
-        let guestlistAllergies = cell.viewWithTag(1021) as? UILabel
+        let guestlistName = cell.viewWithTag(1030) as? UILabel
+        let guestlistAllergies = cell.viewWithTag(1031) as? UILabel
         
         if let guestlistName = guestlistName, let guestlistAllergies = guestlistAllergies {
             let currentGuestlist = viewModel.getGuestlist(byIndex: indexPath.row)
