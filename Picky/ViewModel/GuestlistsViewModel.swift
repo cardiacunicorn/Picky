@@ -38,6 +38,13 @@ struct GuestlistsViewModel {
     
     mutating func loadData() {
         guestlists = guestsManager.getGuestlists()
+        // Handles a crash error if you delete the active guestlist
+        if (guestsManager.activeGuestlistIndex > guestlists.count) {
+            guestsManager.activeGuestlistIndex = 0
+            if (guestlists.count == 0) {
+                guestsManager.addGuestlist("Default")
+            }
+        }
         activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
     }
     

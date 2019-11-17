@@ -803,35 +803,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestlistCell" rowHeight="60" id="o6N-lJ-Uxk" userLabel="guestlistCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestlistCell" rowHeight="80" id="o6N-lJ-Uxk" userLabel="guestlistCell">
+                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o6N-lJ-Uxk" id="7qZ-hs-Ya8">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1030" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guestlist Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHr-0G-x2L">
-                                            <rect key="frame" x="16" y="8" width="132" height="21.5"/>
+                                            <rect key="frame" x="16" y="8" width="288" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1031" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allergies &amp; Diets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-eJ-D7r">
-                                            <rect key="frame" x="32" y="33.5" width="116" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1031" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allergies: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-eJ-D7r">
+                                            <rect key="frame" x="32" y="33.5" width="272" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1032" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diets: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdm-VV-33C">
+                                            <rect key="frame" x="32" y="56.5" width="272" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PHr-0G-x2L" secondAttribute="trailing" constant="20" symbolic="YES" id="Ac2-DO-5vX"/>
+                                        <constraint firstAttribute="bottom" secondItem="Rdm-VV-33C" secondAttribute="bottom" constant="4.5" id="8Wl-1Y-xeq"/>
+                                        <constraint firstAttribute="trailing" secondItem="PHr-0G-x2L" secondAttribute="trailing" constant="16" id="Ac2-DO-5vX"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="top" secondItem="PHr-0G-x2L" secondAttribute="bottom" constant="4" id="CgM-7r-s4s"/>
+                                        <constraint firstItem="Rdm-VV-33C" firstAttribute="leading" secondItem="4ZF-eJ-D7r" secondAttribute="leading" id="GUA-Jf-yzf"/>
                                         <constraint firstItem="PHr-0G-x2L" firstAttribute="top" secondItem="7qZ-hs-Ya8" secondAttribute="top" constant="8" id="IDe-YN-Xzu"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="trailing" secondItem="PHr-0G-x2L" secondAttribute="trailing" id="OTf-rO-UTU"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4ZF-eJ-D7r" secondAttribute="trailing" constant="20" symbolic="YES" id="Rpe-4b-hbQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="4ZF-eJ-D7r" secondAttribute="trailing" constant="16" id="Rpe-4b-hbQ"/>
+                                        <constraint firstItem="Rdm-VV-33C" firstAttribute="top" secondItem="4ZF-eJ-D7r" secondAttribute="bottom" constant="4" id="VrR-hq-1TG"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="32" id="Zl2-N4-rv9"/>
                                         <constraint firstItem="PHr-0G-x2L" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="16" id="aJl-DJ-OgU"/>
-                                        <constraint firstAttribute="bottom" secondItem="4ZF-eJ-D7r" secondAttribute="bottom" constant="7.5" id="l8a-Fd-ljO"/>
+                                        <constraint firstItem="Rdm-VV-33C" firstAttribute="trailing" secondItem="4ZF-eJ-D7r" secondAttribute="trailing" id="uSK-GZ-WpA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

@@ -40,6 +40,7 @@ class Request {
     }
     
     func getRecipe(number:Int) {
+        numberParam = number
         recipes = []
         updateQuery()
         let url = endpoint + apiKey + "&number=" + String(numberParam) + query
