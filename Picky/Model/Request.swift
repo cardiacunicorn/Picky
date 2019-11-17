@@ -36,6 +36,7 @@ class Request {
         if let diets  = guestlist.diets {
             query += diets.joined(separator: ",")
         }
+        query = query.lowercased()
     }
     
     func getRecipe(number:Int) {
@@ -66,7 +67,6 @@ class Request {
                         } catch { print() }
                         let result = parsedResult as! [String:Any]
                         let responseRecipes = result["recipes"]
-                        
                         // Loop through each recipe
                         for recipe in responseRecipes as! [[String:Any]] {
                             
