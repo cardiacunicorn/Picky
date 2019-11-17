@@ -11,9 +11,6 @@ import Foundation
 
 class RecipeViewModel {
     
-    private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
-    private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
-    private var query:String = ""
     private var request = Request.shared
     var delegate:Refresh? {
         get {

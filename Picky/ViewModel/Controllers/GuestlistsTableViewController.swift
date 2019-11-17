@@ -83,7 +83,6 @@ class GuestlistsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell {
             let guestlistName = cell.viewWithTag(1030) as? UILabel
-            print(guestlistName?.text)
             viewModel.setGuestlist(guestlistName?.text ?? "Default")
         }
     }

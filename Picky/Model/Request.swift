@@ -19,7 +19,7 @@ class Request {
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
     private var query:String = "&tags="
-    private var numberParam:String = "&number="
+    var numberParam:Int = 5
     
     private init() {}
     static let shared = Request()
@@ -42,7 +42,7 @@ class Request {
     func getRecipe(number:Int) {
         recipes = []
         updateQuery()
-        let url = endpoint + apiKey + numberParam + String(number) + query
+        let url = endpoint + apiKey + "&number=" + String(numberParam) + query
         
         // Insurance policy, if users end up being able to vary the queries
         guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) else { return }
