@@ -97,8 +97,8 @@ class GuestsManager {
             }
         }
         
-        print("Updated allergies for \(guestlist.name): \(guestlist.allergies)")
-        print("Updated diets for \(guestlist.name): \(guestlist.diets)")
+        print("Updated allergies for \(String(describing: guestlist.name)): \(String(describing: guestlist.allergies))")
+        print("Updated diets for \(String(describing: guestlist.name)): \(String(describing: guestlist.diets))")
         
     }
     

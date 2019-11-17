@@ -33,6 +33,8 @@
 		FAD0C76E235867DD00481BFD /* milestone1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FAD0C76A235867DD00481BFD /* milestone1.pdf */; };
 		FAD0C770235868C000481BFD /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C76F235868C000481BFD /* Recipe.swift */; };
 		FAD0C77423586DB300481BFD /* RecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C77323586DB300481BFD /* RecipeViewModel.swift */; };
+		FAD81C672381293D007CA7E3 /* GuestlistsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD81C662381293D007CA7E3 /* GuestlistsTableViewController.swift */; };
+		FAD81C6923812BD5007CA7E3 /* GuestlistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD81C6823812BD4007CA7E3 /* GuestlistsViewModel.swift */; };
 		FAEEEFD7237ED75B0067E0BD /* CartItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */; };
 		FAEEEFED237F180A0067E0BD /* GuestsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */; };
 		FAEEEFF0237F2DEA0067E0BD /* CartItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEFEE237F2DEA0067E0BD /* CartItem+CoreDataClass.swift */; };
@@ -90,6 +92,8 @@
 		FAD0C76A235867DD00481BFD /* milestone1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = milestone1.pdf; sourceTree = "<group>"; };
 		FAD0C76F235868C000481BFD /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		FAD0C77323586DB300481BFD /* RecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewModel.swift; sourceTree = "<group>"; };
+		FAD81C662381293D007CA7E3 /* GuestlistsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestlistsTableViewController.swift; sourceTree = "<group>"; };
+		FAD81C6823812BD4007CA7E3 /* GuestlistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestlistsViewModel.swift; sourceTree = "<group>"; };
 		FAEEEFD6237ED75B0067E0BD /* CartItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemsManager.swift; sourceTree = "<group>"; };
 		FAEEEFEC237F180A0067E0BD /* GuestsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsManager.swift; sourceTree = "<group>"; };
 		FAEEEFEE237F2DEA0067E0BD /* CartItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -126,6 +130,7 @@
 			children = (
 				FAB7EE9823588BF4005A18D1 /* RecipeTableViewController.swift */,
 				FA5CBD7723595E3A00F14157 /* RecipeDetailViewController.swift */,
+				FAD81C662381293D007CA7E3 /* GuestlistsTableViewController.swift */,
 				FA80BDBF235C40890004B75F /* GuestsTableViewController.swift */,
 				FA5CBD832359F34100F14157 /* ShoppingCartViewController.swift */,
 			);
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD0C77323586DB300481BFD /* RecipeViewModel.swift */,
+				FAD81C6823812BD4007CA7E3 /* GuestlistsViewModel.swift */,
 				FA80BDC1235C42640004B75F /* GuestsViewModel.swift */,
 				FA5CBD792359CE6000F14157 /* ShoppingCartViewModel.swift */,
 				FA49C38C236C1C05000EFBF8 /* Controllers */,
@@ -375,10 +381,12 @@
 				FAD0C7312358670D00481BFD /* AppDelegate.swift in Sources */,
 				FAEEEFD7237ED75B0067E0BD /* CartItemsManager.swift in Sources */,
 				FA5CBD7823595E3A00F14157 /* RecipeDetailViewController.swift in Sources */,
+				FAD81C6923812BD5007CA7E3 /* GuestlistsViewModel.swift in Sources */,
 				FAD0C77423586DB300481BFD /* RecipeViewModel.swift in Sources */,
 				FA510CBC2380B6690015C689 /* Guest+CoreDataProperties.swift in Sources */,
 				FA6094E523797D2800B53F69 /* Request.swift in Sources */,
 				FA80BDC2235C42640004B75F /* GuestsViewModel.swift in Sources */,
+				FAD81C672381293D007CA7E3 /* GuestlistsTableViewController.swift in Sources */,
 				FA510CBB2380B6690015C689 /* Guest+CoreDataClass.swift in Sources */,
 				FAEEEFF0237F2DEA0067E0BD /* CartItem+CoreDataClass.swift in Sources */,
 				FA5CBD7A2359CE6000F14157 /* ShoppingCartViewModel.swift in Sources */,

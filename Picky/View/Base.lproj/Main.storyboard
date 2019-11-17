@@ -794,10 +794,10 @@
             </objects>
             <point key="canvasLocation" x="-30" y="-110"/>
         </scene>
-        <!--Guests-->
+        <!--Guestlists-->
         <scene sceneID="5TY-YQ-Bbx">
             <objects>
-                <tableViewController id="0A6-Hr-oHa" customClass="GuestsTableViewController" customModule="Picky" sceneMemberID="viewController">
+                <tableViewController id="0A6-Hr-oHa" customClass="GuestlistsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H3N-yK-dH0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -810,46 +810,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1020" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHr-0G-x2L">
-                                            <rect key="frame" x="16" y="8" width="230" height="21.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1020" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guestlist Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHr-0G-x2L">
+                                            <rect key="frame" x="16" y="8" width="132" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1021" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-eJ-D7r">
-                                            <rect key="frame" x="32" y="33.5" width="214" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1021" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allergies &amp; Diets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-eJ-D7r">
+                                            <rect key="frame" x="32" y="33.5" width="116" height="19"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0X9-GH-xyU">
-                                            <rect key="frame" x="284" y="18" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="0X9-GH-xyU" secondAttribute="height" multiplier="1:1" id="XyY-3i-Coj"/>
-                                                <constraint firstAttribute="height" constant="24" id="fOq-ym-LNz"/>
-                                            </constraints>
-                                            <color key="tintColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <state key="normal" image="minus" catalog="system">
-                                                <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="minusGuestButton:" destination="0A6-Hr-oHa" eventType="touchUpInside" id="15f-QR-55Q"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-2q-ZSy">
-                                            <rect key="frame" x="254" y="18" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="c1w-2q-ZSy" secondAttribute="height" multiplier="1:1" id="ITW-Ym-f2a"/>
-                                                <constraint firstAttribute="height" constant="24" id="qw7-Yg-qtO"/>
-                                            </constraints>
-                                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <state key="normal" image="pencil" catalog="system">
-                                                <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="editGuestButton:" destination="0A6-Hr-oHa" eventType="touchUpInside" id="eci-E2-PfL"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PHr-0G-x2L" secondAttribute="trailing" constant="20" symbolic="YES" id="Ac2-DO-5vX"/>
@@ -857,16 +829,14 @@
                                         <constraint firstItem="PHr-0G-x2L" firstAttribute="top" secondItem="7qZ-hs-Ya8" secondAttribute="top" constant="8" id="IDe-YN-Xzu"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="trailing" secondItem="PHr-0G-x2L" secondAttribute="trailing" id="OTf-rO-UTU"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4ZF-eJ-D7r" secondAttribute="trailing" constant="20" symbolic="YES" id="Rpe-4b-hbQ"/>
-                                        <constraint firstAttribute="trailing" secondItem="0X9-GH-xyU" secondAttribute="trailing" constant="12" id="SME-ud-1OL"/>
-                                        <constraint firstItem="c1w-2q-ZSy" firstAttribute="leading" secondItem="PHr-0G-x2L" secondAttribute="trailing" constant="8" id="SYb-kl-5gB"/>
-                                        <constraint firstItem="0X9-GH-xyU" firstAttribute="centerY" secondItem="7qZ-hs-Ya8" secondAttribute="centerY" id="XMj-39-YhC"/>
                                         <constraint firstItem="4ZF-eJ-D7r" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="32" id="Zl2-N4-rv9"/>
                                         <constraint firstItem="PHr-0G-x2L" firstAttribute="leading" secondItem="7qZ-hs-Ya8" secondAttribute="leading" constant="16" id="aJl-DJ-OgU"/>
-                                        <constraint firstItem="0X9-GH-xyU" firstAttribute="leading" secondItem="c1w-2q-ZSy" secondAttribute="trailing" constant="6" id="hq9-Me-kNy"/>
                                         <constraint firstAttribute="bottom" secondItem="4ZF-eJ-D7r" secondAttribute="bottom" constant="7.5" id="l8a-Fd-ljO"/>
-                                        <constraint firstItem="c1w-2q-ZSy" firstAttribute="centerY" secondItem="0X9-GH-xyU" secondAttribute="centerY" id="zHo-81-ga2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="b2l-WR-ufx" kind="show" id="LIH-ZN-v5a"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -874,18 +844,18 @@
                             <outlet property="delegate" destination="0A6-Hr-oHa" id="bjY-8e-1fu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Guests" id="EMM-z6-m32">
+                    <navigationItem key="navigationItem" title="Guestlists" id="EMM-z6-m32">
                         <barButtonItem key="backBarButtonItem" title="Guests" id="CDu-Dg-zEu"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="i4i-CC-mEJ">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="editMenuButton:" destination="0A6-Hr-oHa" id="8Tr-tZ-FT0"/>
+                                <action selector="editMenuButton:" destination="0A6-Hr-oHa" id="cE1-9l-zqI"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="b2i-HJ-ZL9">
                             <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="createGuestButton:" destination="0A6-Hr-oHa" id="1Gc-sX-A7g"/>
+                                <action selector="createGuestlistButton:" destination="0A6-Hr-oHa" id="BC0-lC-awa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -893,6 +863,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSQ-cN-PKS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948.75" y="-111.97183098591549"/>
+        </scene>
+        <!--Guests-->
+        <scene sceneID="z3A-08-RrR">
+            <objects>
+                <tableViewController id="b2l-WR-ufx" customClass="GuestsTableViewController" customModule="Picky" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0yP-C3-E2Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="guestCell" rowHeight="60" id="dTE-uu-qVk">
+                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dTE-uu-qVk" id="Hj5-dl-N8o">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1020" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEi-Ev-SSr">
+                                            <rect key="frame" x="16" y="8" width="230" height="21.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                            <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1021" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhZ-Ph-Z1V">
+                                            <rect key="frame" x="32" y="33.5" width="214" height="19"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <color key="textColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOD-ZP-Pcd">
+                                            <rect key="frame" x="284" y="18" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="Fst-yH-IPN"/>
+                                                <constraint firstAttribute="width" secondItem="aOD-ZP-Pcd" secondAttribute="height" multiplier="1:1" id="GU0-f1-1We"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.69289340099999996" green="0.18808558750000001" blue="0.12747302620000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal" image="minus" catalog="system">
+                                                <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="minusGuestButton:" destination="b2l-WR-ufx" eventType="touchUpInside" id="3Oc-2L-jzo"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="1022" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpT-l9-gca">
+                                            <rect key="frame" x="254" y="18" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="PpT-l9-gca" secondAttribute="height" multiplier="1:1" id="Jg9-eb-VKh"/>
+                                                <constraint firstAttribute="height" constant="24" id="l10-nF-aF0"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal" image="pencil" catalog="system">
+                                                <color key="titleColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="editGuestButton:" destination="b2l-WR-ufx" eventType="touchUpInside" id="tDA-v3-QIu"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="aOD-ZP-Pcd" secondAttribute="trailing" constant="12" id="5uY-YP-VL1"/>
+                                        <constraint firstItem="aOD-ZP-Pcd" firstAttribute="centerY" secondItem="Hj5-dl-N8o" secondAttribute="centerY" id="CKV-as-9pb"/>
+                                        <constraint firstItem="fhZ-Ph-Z1V" firstAttribute="top" secondItem="HEi-Ev-SSr" secondAttribute="bottom" constant="4" id="F0m-qC-se7"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fhZ-Ph-Z1V" secondAttribute="trailing" constant="20" symbolic="YES" id="HSh-oz-3l0"/>
+                                        <constraint firstItem="HEi-Ev-SSr" firstAttribute="top" secondItem="Hj5-dl-N8o" secondAttribute="top" constant="8" id="Ibe-RH-oUx"/>
+                                        <constraint firstItem="aOD-ZP-Pcd" firstAttribute="leading" secondItem="PpT-l9-gca" secondAttribute="trailing" constant="6" id="Lyj-a7-ky4"/>
+                                        <constraint firstItem="fhZ-Ph-Z1V" firstAttribute="leading" secondItem="Hj5-dl-N8o" secondAttribute="leading" constant="32" id="MZg-zE-rmn"/>
+                                        <constraint firstItem="fhZ-Ph-Z1V" firstAttribute="trailing" secondItem="HEi-Ev-SSr" secondAttribute="trailing" id="NCk-vg-cks"/>
+                                        <constraint firstItem="PpT-l9-gca" firstAttribute="leading" secondItem="HEi-Ev-SSr" secondAttribute="trailing" constant="8" id="Vx9-qW-tzT"/>
+                                        <constraint firstAttribute="bottom" secondItem="fhZ-Ph-Z1V" secondAttribute="bottom" constant="7.5" id="ebC-Wc-ZgM"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HEi-Ev-SSr" secondAttribute="trailing" constant="20" symbolic="YES" id="eg4-j3-qFo"/>
+                                        <constraint firstItem="PpT-l9-gca" firstAttribute="centerY" secondItem="aOD-ZP-Pcd" secondAttribute="centerY" id="mxU-08-g7I"/>
+                                        <constraint firstItem="HEi-Ev-SSr" firstAttribute="leading" secondItem="Hj5-dl-N8o" secondAttribute="leading" constant="16" id="ttp-RX-a5U"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b2l-WR-ufx" id="bNj-DQ-qdY"/>
+                            <outlet property="delegate" destination="b2l-WR-ufx" id="Qx9-pR-CSk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Guests" id="bho-gG-e32">
+                        <barButtonItem key="backBarButtonItem" title="Guests" id="9zw-Nz-Jlo"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="V3p-04-0yZ">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="editMenuButton:" destination="b2l-WR-ufx" id="4XE-6w-VEB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tsp-Gq-Y1n">
+                            <color key="tintColor" red="0.1791423217" green="0.56473100190000003" blue="0.18697931800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="createGuestButton:" destination="b2l-WR-ufx" id="YQq-Iv-DDg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hh-6c-RPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="-112"/>
         </scene>
     </scenes>
     <resources>
