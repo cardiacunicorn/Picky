@@ -13,10 +13,14 @@ class PickyUnitTests: XCTestCase {
     
     var recipe:Recipe = Recipe(title: "Test Recipe", readyTime: 0, imageName: "")
     var request = Request.shared
+    var cartViewModel = ShoppingCartViewModel()
+    var guestViewModel = GuestsViewModel()
 
     override func setUp() {
         recipe = Recipe(title: "Test Recipe", readyTime: 0, imageName: "")
         request = Request.shared
+        cartViewModel = ShoppingCartViewModel()
+        guestViewModel = GuestsViewModel()
     }
 
     override func tearDown() {
@@ -65,15 +69,41 @@ class PickyUnitTests: XCTestCase {
     }
     
     func testRequest() {
-        // Check invalid values
+        // Check nil values
         XCTAssertNotNil(request.numberParam)
+        XCTAssertNotNil(request.query)
+        
+        // Check URL parameters haven't been fed invalid values
         XCTAssert(request.numberParam > 0)
+        XCTAssert(request.query == request.query.lowercased())
         
         // Check that recipes are arriving (within 5 seconds)
         sleep(5)
         XCTAssert(request.recipes.count == request.numberParam)
     }
     
+    func testCartViewModel() {
+        
+        // Check item is added to cart, regardless of pre-existing items
+        let itemCount = cartViewModel.count
+        cartViewModel.addItem("Test item")
+        XCTAssert(cartViewModel.count > itemCount)
+        
+        // Check item is deleted from cart
+        cartViewModel.removeItem(byIndex: cartViewModel.count - 1)
+        XCTAssert(cartViewModel.count == itemCount)
+    }
     
-
+    func testGuestViewModel() {
+        
+        // Check guest is added, regardless of pre-existing items
+        let guestCount = guestViewModel.count
+        guestViewModel.addGuest("Test item",[],[],["Default"])
+        XCTAssert(cartViewModel.count > guestCount)
+        
+        // Check guest is removed from active guestlist
+        guestViewModel.removeGuest(byIndex: guestViewModel.count - 1)
+        XCTAssert(guestViewModel.count == guestCount)
+        
+    }
 }

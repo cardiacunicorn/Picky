@@ -18,7 +18,7 @@ class Request {
     private let session = URLSession.shared
     private let apiKey:String = "apiKey=1bc139cbc4374d598695a4ba1160ab17"
     private let endpoint:String = "https://api.spoonacular.com/recipes/random?"
-    private var query:String = "&tags="
+    var query:String = "&tags="
     var numberParam:Int = 5
     
     private init() {}
