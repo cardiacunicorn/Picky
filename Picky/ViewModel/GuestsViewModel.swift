@@ -21,7 +21,7 @@ struct GuestsViewModel {
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
         print("Active Guestlist: \(String(describing: activeGuestlist.name))")
-        print("Active Guestlist Tags: \n  \(activeGuestlist.allergies)\n  \(activeGuestlist.diets)")
+        print("Active Guestlist's Filters: \(activeGuestlist.allergies), \(activeGuestlist.diets)")
     }
     
     // returns the number of guests
@@ -52,7 +52,9 @@ struct GuestsViewModel {
     mutating func loadData() {
         guests = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
-        print("  guests in [GuestsViewModel]: \(guests.count)\n  guestlists in [GuestsViewModel]: \(guestlists.count)")
+        activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
+        print("Total Guests: \(guests.count)\nTotal Guestlists: \(guestlists.count)")
+        print("Total Guests in Active Guestlist: \(activeGuestlist.guests?.count)")
     }
     
     // Adds a guest to the list of guests

@@ -56,7 +56,7 @@ class ShoppingCartViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidAppear(true)
         viewModel.loadCartItems()
         self.tableView.reloadData()
-        print("View appears. Shopping Cart Count: \(viewModel.count)")
+        print("Cart tab opened. CartItems Count: \(viewModel.count)")
     }
     
     func addItemAlert() {
