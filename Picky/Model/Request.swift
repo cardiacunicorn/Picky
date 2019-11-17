@@ -39,7 +39,11 @@ class Request {
         }
         if let diets = guestlist.diets {
             if (diets.count > 0) {
-                query += "&tags=" + diets.joined(separator: ",")
+                if guestlist.allergies == nil {
+                    query += "&tags="
+                } else {
+                    query += diets.joined(separator: ",")
+                }
             }
         }
         query = query.lowercased()
@@ -73,35 +77,36 @@ class Request {
                             parsedResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                         } catch { print() }
                         let result = parsedResult as! [String:Any]
-                        let responseRecipes = result["recipes"]
-                        // Loop through each recipe
-                        for recipe in responseRecipes as! [[String:Any]] {
-                            
-                            // Extract key information about the recipe
-                            let recipeID = recipe["id"] as! Int
-                            let recipeTitle = recipe["title"] as! String
-                            
-                            let minutes = recipe["readyInMinutes"] as? Int
-                            let servings = recipe["servings"] as? Int
-                            
-                            let instructions = recipe["instructions"] as! String
-                            let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
-                            var ingredients:[String] = []
-                            
-                            // Pull out the name, amount & units from each ingredient
-                            for ingredient in ingredientsObject as [[String:Any]] {
-                                let nameAndAmount = ingredient["originalString"] as! String
-                                ingredients.append(nameAndAmount)
+                        if let responseRecipes = result["recipes"] {
+                            // Loop through each recipe
+                            for recipe in responseRecipes as! [[String:Any]] {
+                                
+                                // Extract key information about the recipe
+                                let recipeID = recipe["id"] as! Int
+                                let recipeTitle = recipe["title"] as! String
+                                
+                                let minutes = recipe["readyInMinutes"] as? Int
+                                let servings = recipe["servings"] as? Int
+                                
+                                let instructions = recipe["instructions"] as! String
+                                let ingredientsObject = recipe["extendedIngredients"] as! [[String:Any]]
+                                var ingredients:[String] = []
+                                
+                                // Pull out the name, amount & units from each ingredient
+                                for ingredient in ingredientsObject as [[String:Any]] {
+                                    let nameAndAmount = ingredient["originalString"] as! String
+                                    ingredients.append(nameAndAmount)
+                                }
+                                
+                                let imageURL = recipe["image"] as? String
+                                
+                                // Create a Recipe object from extracted values
+                                let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
+                                
+                                // Add each recipe to the recipes object
+                                self.recipes.append(responseRecipe)
+                                print("Recipe #\(recipeID): \(recipeTitle) added. [\(self.recipes.count)/\(number)]")
                             }
-                            
-                            let imageURL = recipe["image"] as? String
-                            
-                            // Create a Recipe object from extracted values
-                            let responseRecipe = Recipe(id: recipeID, title: recipeTitle, readyTime: minutes ?? 0, servings: servings ?? 1, imageName: imageURL ?? "Image not found", instructions: instructions, ingredients: ingredients)
-                            
-                            // Add each recipe to the recipes object
-                            self.recipes.append(responseRecipe)
-                            print("Recipe #\(recipeID): \(recipeTitle) added. [\(self.recipes.count)/\(number)]")
                         }
                     }
                     DispatchQueue.main.async {

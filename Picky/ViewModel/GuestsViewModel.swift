@@ -41,9 +41,9 @@ struct GuestsViewModel {
             guestsManager.addGuest("or Delete entirely by swiping left",[],[],["Default"])
             guestsManager.addGuest("Alexander G. Bell", [Enums.Allergy.Dairy], [],["Default","Friends","Family"])
             guestsManager.addGuest("Colin Decemberist", [Enums.Allergy.Shellfish],[Enums.Diet.Pescatarian],["Default","Colleagues","Family"])
-            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [Enums.Diet.Vegetarian],["Default","Friends"])
-            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.Seafood], [Enums.Diet.Vegetarian],["Default","Friends","Colleagues"])
-            guestsManager.addGuest("Iggy Joplin", [], [Enums.Diet.Vegan],["Default","Colleagues"])
+            guestsManager.addGuest("Edie Falco", [Enums.Allergy.Wheat,Enums.Allergy.Peanut,Enums.Allergy.Dairy], [],["Default","Friends"])
+            guestsManager.addGuest("Gwendolyn Humphries", [Enums.Allergy.Gluten,Enums.Allergy.Seafood], [],["Default","Friends","Colleagues"])
+            guestsManager.addGuest("Iggy Joplin", [], [],["Default","Colleagues"])
         }
     }
     
