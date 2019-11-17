@@ -55,7 +55,7 @@ struct GuestlistsViewModel {
         loadData()
     }
     
-    func getGuestlist(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet]) {
+    func getGuestlist(byIndex index:Int) -> (name:String, allergies:[String], diets:[String]) {
         
         guard
             let guestlistName = guestlists[index].name,
@@ -63,17 +63,19 @@ struct GuestlistsViewModel {
             let guestlistDietStrings = guestlists[index].diets
         else { return ("Guestlist read error",[],[]) }
         
+        // Holds allergies as Enums
         var guestlistAllergies:[Enums.Allergy] = []
         for string in guestlistAllergyStrings {
             let allergy = Enums.Allergy(rawValue: string)
             guestlistAllergies.append(allergy!)
         }
+        // Holds diets as Enums
         var guestlistDiets:[Enums.Diet] = []
         for string in guestlistDietStrings {
             let diet = Enums.Diet(rawValue: string)
             guestlistDiets.append(diet!)
         }
-        return (guestlistName, guestlistAllergies, guestlistDiets)
+        return (guestlistName, guestlistAllergyStrings, guestlistDietStrings)
     }
     
     mutating func setGuestlist(_ name:String) {

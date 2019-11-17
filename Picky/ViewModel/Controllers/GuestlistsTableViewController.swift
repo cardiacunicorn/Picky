@@ -40,12 +40,13 @@ class GuestlistsTableViewController: UITableViewController {
         // Find elements within the TableView
         let guestlistName = cell.viewWithTag(1030) as? UILabel
         let guestlistAllergies = cell.viewWithTag(1031) as? UILabel
+        let guestlistDiets = cell.viewWithTag(1032) as? UILabel
         
-        if let guestlistName = guestlistName, let guestlistAllergies = guestlistAllergies {
+        if let guestlistName = guestlistName, let guestlistAllergies = guestlistAllergies, let guestlistDiets = guestlistDiets {
             let currentGuestlist = viewModel.getGuestlist(byIndex: indexPath.row)
             guestlistName.text = currentGuestlist.name
-            
-            // guestlistAllergies.text = currentGuestlist.allergies.joined(separator: ", ")
+            guestlistAllergies.text = "Allergies: " + currentGuestlist.allergies.joined(separator: ", ")
+            guestlistDiets.text = "Diets: " + currentGuestlist.diets.joined(separator: ", ")
         }
 
         return cell
