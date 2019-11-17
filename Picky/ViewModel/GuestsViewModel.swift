@@ -12,11 +12,10 @@ struct GuestsViewModel {
     
     private var guestsManager = GuestsManager.shared
     private var guests:[Guest] = []
-    private var guestlists:[Guestlist] = []
     var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        // deleteAllGuestData() // for testing purposes only
+        // guestsManager.deleteAllGuests() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholders()
@@ -24,14 +23,14 @@ struct GuestsViewModel {
         print("Active Guestlist's Filters: \(activeGuestlist.allergies), \(activeGuestlist.diets)")
     }
     
-    // returns the number of guests
-    var totalcount:Int {
-        return guests.count
+    // returns the number of guests on active guestlist
+    var count:Int {
+        return activeGuestlist.guests?.count ?? 0
     }
     
-    // returns the number of guests
-    var activecount:Int {
-        return activeGuestlist.guests?.count ?? 0
+    // convenience method for comparison to filtered guest count
+    var totalGuests:Int {
+        return guestsManager.getGuests().count
     }
     
     // loads a bunch of placeholder guests
@@ -51,8 +50,7 @@ struct GuestsViewModel {
     
     mutating func loadData() {
         guests = guestsManager.getGuests()
-        guestlists = guestsManager.getGuestlists()
-        activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
+        activeGuestlist = guestsManager.getGuestlists()[guestsManager.activeGuestlistIndex]
     }
     
     // Adds a guest to the list of guests
@@ -65,9 +63,7 @@ struct GuestsViewModel {
     func getGuest(byIndex index:Int) -> (name:String, allergies:[Enums.Allergy], diets:[Enums.Diet], guestlists:[String]) {
         
         
-        var activeGuests:[Guest] = activeGuestlist.guests?.allObjects as! [Guest]
-        // I need guest objects here so that I can return them, or their parameters
-        print("Active Guests: \(activeGuests)")
+        let activeGuests:[Guest] = activeGuestlist.guests?.allObjects as! [Guest]
         
         guard
             let guestName = activeGuests[index].name,
@@ -112,11 +108,6 @@ struct GuestsViewModel {
         guests.remove(at: index)
         guestsManager.deleteGuest(byIndex: index)
         print("Guest has been deleted")
-    }
-    
-    mutating func deleteAllGuestData() {
-        guestsManager.deleteAllGuests()
-        guestsManager.deleteAllGuestlists()
     }
     
     mutating func editGuest()  {

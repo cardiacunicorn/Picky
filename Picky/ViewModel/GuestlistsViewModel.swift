@@ -11,12 +11,11 @@ import UIKit
 struct GuestlistsViewModel {
     
     private var guestsManager = GuestsManager.shared
-    private var guests:[Guest] = []
     private var guestlists:[Guestlist] = []
     private var activeGuestlist:Guestlist = GuestsManager.shared.getGuestlists()[0]
     
     init() {
-        // deleteAllGuestData() // for testing purposes only
+        // guestsManager.deleteAllGuestlists() // for testing purposes only
         loadData()
         // Needs to do this only if they aren't already stored in Core Data
         loadPlaceholder()
@@ -38,7 +37,6 @@ struct GuestlistsViewModel {
     }
     
     mutating func loadData() {
-        guests = guestsManager.getGuests()
         guestlists = guestsManager.getGuestlists()
         activeGuestlist = guestlists[guestsManager.activeGuestlistIndex]
     }
@@ -76,11 +74,6 @@ struct GuestlistsViewModel {
         guestlists.remove(at: index)
         guestsManager.deleteGuestlist(byIndex: index)
         print("Guestlist has been deleted")
-    }
-    
-    mutating func deleteAllGuestData() {
-        guestsManager.deleteAllGuests()
-        guestsManager.deleteAllGuestlists()
     }
     
     mutating func editGuestlist()  {
